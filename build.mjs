@@ -41,6 +41,100 @@ const forceDirection = (h) => {
   return "up";
 };
 
+const routineSlugs = {
+  short: [
+    "neck-flexion-hold",
+    "neck-extension-hold",
+    "scap-hang-active",
+    "pushup-iso-mid",
+    "row-iso-wall",
+    "squat-iso-hold",
+    "single-leg-rdl-iso",
+    "glute-bridge-hold",
+    "calf-raise-iso-top",
+    "plank-forearm",
+    "side-plank-forearm",
+    "suitcase-hold",
+  ],
+  medium: [
+    "neck-flexion-hold",
+    "neck-extension-hold",
+    "neck-lateral-hold-L",
+    "neck-lateral-hold-R",
+    "scap-hang-active",
+    "wall-shoulder-press-iso",
+    "pushup-iso-bottom",
+    "row-iso-wall",
+    "lat-pulldown-iso",
+    "biceps-curl-iso-wall",
+    "triceps-ext-iso-wall",
+    "wrist-radial-ulnar-iso",
+    "squat-iso-hold",
+    "split-squat-iso",
+    "single-leg-rdl-iso",
+    "glute-bridge-hold",
+    "hip-extension-iso-wall",
+    "copenhagen-hold",
+    "adductor-squeeze-iso",
+    "calf-raise-iso-top",
+    "tibialis-raise-iso",
+    "plank-forearm",
+    "side-plank-forearm",
+    "suitcase-hold",
+  ],
+  long: [
+    "neck-flexion-hold",
+    "neck-extension-hold",
+    "neck-lateral-hold-L",
+    "neck-lateral-hold-R",
+    "scap-hang-active",
+    "face-pull-iso",
+    "wall-shoulder-press-iso",
+    "lateral-raise-iso",
+    "pushup-iso-bottom",
+    "chest-fly-iso-hold",
+    "row-iso-wall",
+    "lat-pulldown-iso",
+    "dead-hang-grip",
+    "biceps-curl-iso-wall",
+    "triceps-ext-iso-wall",
+    "wrist-extension-iso",
+    "wrist-flexion-iso",
+    "wrist-radial-ulnar-iso",
+    "squat-iso-hold",
+    "squat-iso-pins",
+    "split-squat-iso",
+    "wall-sit",
+    "single-leg-rdl-iso",
+    "nordic-iso-hold",
+    "glute-bridge-hold",
+    "hip-extension-iso-wall",
+    "copenhagen-hold",
+    "adductor-squeeze-iso",
+    "calf-raise-iso-top",
+    "tibialis-raise-iso",
+    "short-foot-iso",
+    "plank-forearm",
+    "side-plank-forearm",
+    "pallof-press-iso",
+    "back-extension-iso",
+    "suitcase-hold",
+  ],
+};
+
+const intensitySeconds = {
+  regular: 20,
+  hard: 40,
+  ultimate: 60,
+};
+
+const holdData = holds.map((h) => ({
+  ...h,
+  name: titleCase(h.slug),
+  img: imgPath(h.slug),
+  force: forceDirection(h),
+}));
+
 const card = (h) => {
   const has = hasImg(h.slug);
   const media = has
@@ -87,7 +181,11 @@ const html = `<!doctype html>
   .sub { color: var(--muted); max-width: 40ch; margin: 0 0 1.25rem; font-size: 0.9rem; }
   .count { display: inline-block; border: 1px solid var(--border); padding: 0.4rem 0.7rem; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
   .count b { color: var(--fg); font-weight: 700; }
+  .page-tabs { display: flex; gap: 0.5rem; margin-top: 1.35rem; }
+  .page-tab { appearance: none; border: 1px solid var(--border); background: #0d0d0d; color: var(--muted); padding: 0.55rem 0.75rem; font: inherit; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; cursor: pointer; }
+  .page-tab.active { border-color: var(--border-strong); color: var(--fg); background: #151515; }
   .tabs { position: sticky; top: 0; z-index: 5; display: flex; gap: 0.4rem; overflow-x: auto; margin-top: 1.35rem; padding: 0.65rem 0; background: rgba(10,10,10,0.92); backdrop-filter: blur(10px); scrollbar-width: none; }
+  .tabs[hidden] { display: none; }
   .tabs::-webkit-scrollbar { display: none; }
   .tab { appearance: none; border: 1px solid var(--border); background: #0d0d0d; color: var(--muted); padding: 0.45rem 0.65rem; font: inherit; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; white-space: nowrap; cursor: pointer; }
   .tab.active { border-color: var(--border-strong); color: var(--fg); background: #151515; }
@@ -130,12 +228,34 @@ const html = `<!doctype html>
   .meta { padding: 0.7rem 0.75rem 0.85rem; }
   .name { font-size: 0.8rem; letter-spacing: 0.01em; text-transform: uppercase; line-height: 1.25; }
   .tags { margin-top: 0.4rem; font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+  .view[hidden] { display: none; }
+  .routine-shell { display: grid; gap: 1rem; max-width: 760px; }
+  .routine-card { border: 1px solid var(--border); background: #0d0d0d; padding: 1rem; display: grid; gap: 1rem; }
+  .routine-title { margin: 0; font-size: 1rem; letter-spacing: 0.08em; text-transform: uppercase; }
+  .routine-sub { margin: 0; color: var(--muted); font-size: 0.78rem; max-width: 54ch; }
+  .chooser { display: grid; gap: 0.55rem; }
+  .chooser-label { color: var(--muted); font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; }
+  .seg { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.45rem; }
+  .seg button, .routine-start, .routine-nav button { appearance: none; border: 1px solid var(--border); background: #101010; color: var(--fg); min-height: 40px; font: inherit; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; }
+  .seg button.active, .routine-start:hover, .routine-nav button:hover { border-color: var(--border-strong); background: #171717; }
+  .routine-start { width: 100%; }
+  .routine-player[hidden] { display: none; }
+  .routine-player { border: 1px solid var(--border); background: #0d0d0d; padding: 0.8rem; display: grid; gap: 0.75rem; }
+  .routine-top { display: flex; justify-content: space-between; gap: 0.75rem; color: var(--muted); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; }
+  .routine-stage { position: relative; aspect-ratio: 1 / 1; background: #080808; border: 1px solid var(--border); display: grid; place-items: center; overflow: hidden; }
+  .routine-stage img { width: 100%; height: 100%; object-fit: contain; opacity: 1; transition: opacity 0.22s ease; }
+  .routine-stage.fading img { opacity: 0.28; }
+  .routine-meta { display: grid; gap: 0.3rem; text-align: center; }
+  .routine-name { font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; }
+  .routine-cue { color: var(--muted); font-size: 10px; letter-spacing: 0.04em; text-transform: uppercase; }
+  .routine-nav { display: grid; grid-template-columns: 1fr 1fr; gap: 0.45rem; }
   footer { margin-top: 3.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border); color: var(--muted); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; }
   @media (max-width: 640px) {
     .wrap { padding-top: 2rem; }
     ul.grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .timer { grid-template-columns: repeat(3, 1fr); }
     .timer input, .timer button[data-custom], .readout { grid-column: span 1; }
+    .seg { grid-template-columns: 1fr; }
     #lb { padding: 0.65rem; }
     .lb-panel { max-height: calc(100vh - 1.3rem); }
     #lb img { max-height: 58vh; }
@@ -149,14 +269,68 @@ const html = `<!doctype html>
       <h1>Isometric Training</h1>
       <p class="sub">The isometric hold catalog. Full body, head to toe. No performance theater.</p>
       <span class="count"><b>${rendered}</b> / ${holds.length} rendered</span>
+      <nav class="page-tabs" aria-label="Site sections">
+        <button type="button" class="page-tab active" data-view="catalog">Catalog</button>
+        <button type="button" class="page-tab" data-view="routines">Routines</button>
+      </nav>
       <nav class="tabs" aria-label="Body part filters">
         <button type="button" class="tab active" data-filter="all">All</button>
 ${bodyParts.map((part) => `        <button type="button" class="tab" data-filter="${esc(part)}">${esc(titleCase(part))}</button>`).join("\n")}
       </nav>
     </header>
-    <ul class="grid">
+    <main id="catalogView" class="view">
+      <ul class="grid">
 ${ordered.map(card).join("\n")}
-    </ul>
+      </ul>
+    </main>
+    <section id="routinesView" class="view" hidden>
+      <div class="routine-shell">
+        <div class="routine-card">
+          <h2 class="routine-title">Daily Full Body</h2>
+          <p class="routine-sub">One simple line through neck, shoulders, pull, push, legs, hips, trunk, feet, and grip. No saved history.</p>
+          <div class="chooser">
+            <div class="chooser-label">Length</div>
+            <div class="seg" data-choice="length">
+              <button type="button" class="active" data-value="short">Short · 12</button>
+              <button type="button" data-value="medium">Medium · 24</button>
+              <button type="button" data-value="long">Long · 36</button>
+            </div>
+          </div>
+          <div class="chooser">
+            <div class="chooser-label">Hold</div>
+            <div class="seg" data-choice="intensity">
+              <button type="button" class="active" data-value="regular">Regular · 20s</button>
+              <button type="button" data-value="hard">Hard · 40s</button>
+              <button type="button" data-value="ultimate">Ultimate · 60s</button>
+            </div>
+          </div>
+          <button type="button" class="routine-start">Start</button>
+        </div>
+        <div class="routine-player" hidden>
+          <div class="routine-top">
+            <span class="routine-step"></span>
+            <span class="routine-total"></span>
+          </div>
+          <div class="routine-stage">
+            <img alt="">
+            <div class="force" aria-hidden="true"><span></span></div>
+          </div>
+          <div class="routine-meta">
+            <span class="routine-name"></span>
+            <span class="routine-cue"></span>
+          </div>
+          <div class="timer routine-timer" data-running="false">
+            <button type="button" class="routine-hold">Start Hold</button>
+            <div class="readout">00:00</div>
+            <div class="bar"><i></i></div>
+          </div>
+          <div class="routine-nav">
+            <button type="button" class="routine-prev">Back</button>
+            <button type="button" class="routine-next">Next</button>
+          </div>
+        </div>
+      </div>
+    </section>
     <footer>Empty Words &middot; isometric hold catalog</footer>
   </div>
   <div id="lb" hidden>
@@ -183,6 +357,19 @@ ${ordered.map(card).join("\n")}
   </div>
   <script>
   (function () {
+    var routineData = ${JSON.stringify({ holds: holdData, routines: routineSlugs, intensities: intensitySeconds })};
+
+    document.querySelectorAll(".page-tab").forEach(function (tab) {
+      tab.addEventListener("click", function () {
+        var view = tab.getAttribute("data-view");
+        document.querySelectorAll(".page-tab").forEach(function (t) { t.classList.remove("active"); });
+        tab.classList.add("active");
+        document.getElementById("catalogView").hidden = view !== "catalog";
+        document.getElementById("routinesView").hidden = view !== "routines";
+        document.querySelector(".tabs").hidden = view !== "catalog";
+      });
+    });
+
     var cards = Array.prototype.slice.call(document.querySelectorAll(".card"));
     document.querySelectorAll(".tab").forEach(function (tab) {
       tab.addEventListener("click", function () {
@@ -274,6 +461,131 @@ ${ordered.map(card).join("\n")}
     });
     document.addEventListener("keydown", function (e) {
       if (e.key === "Escape" && !lb.hidden) close();
+    });
+
+    var routineBySlug = {};
+    routineData.holds.forEach(function (h) { routineBySlug[h.slug] = h; });
+    var routineState = {
+      length: "short",
+      intensity: "regular",
+      steps: [],
+      index: 0,
+      interval: null,
+      startedAt: 0,
+      duration: 0
+    };
+    var routinePlayer = document.querySelector(".routine-player");
+    var routineStage = document.querySelector(".routine-stage");
+    var routineImg = routineStage.querySelector("img");
+    var routineForce = routineStage.querySelector(".force");
+    var routineName = document.querySelector(".routine-name");
+    var routineCue = document.querySelector(".routine-cue");
+    var routineStep = document.querySelector(".routine-step");
+    var routineTotal = document.querySelector(".routine-total");
+    var routineHold = document.querySelector(".routine-hold");
+    var routineReadout = document.querySelector(".routine-timer .readout");
+    var routineFill = document.querySelector(".routine-timer .bar i");
+    var routineTimer = document.querySelector(".routine-timer");
+    var routinePrev = document.querySelector(".routine-prev");
+    var routineNext = document.querySelector(".routine-next");
+
+    document.querySelectorAll(".seg button").forEach(function (button) {
+      button.addEventListener("click", function () {
+        var group = button.closest(".seg");
+        group.querySelectorAll("button").forEach(function (b) { b.classList.remove("active"); });
+        button.classList.add("active");
+        routineState[group.getAttribute("data-choice")] = button.getAttribute("data-value");
+        if (!routinePlayer.hidden) startRoutine();
+      });
+    });
+
+    function resetRoutineTimer() {
+      if (routineState.interval) clearInterval(routineState.interval);
+      routineState.interval = null;
+      routineTimer.setAttribute("data-running", "false");
+      routineReadout.textContent = fmt(routineData.intensities[routineState.intensity]);
+      routineFill.style.width = "0%";
+      routineHold.textContent = "Start Hold";
+    }
+
+    function startRoutineTimer() {
+      resetRoutineTimer();
+      var seconds = routineData.intensities[routineState.intensity];
+      routineState.duration = seconds * 1000;
+      routineState.startedAt = Date.now();
+      routineTimer.setAttribute("data-running", "true");
+      routineHold.textContent = "Holding";
+      routineState.interval = setInterval(function () {
+        var elapsed = Date.now() - routineState.startedAt;
+        var left = Math.max(0, (routineState.duration - elapsed) / 1000);
+        routineReadout.textContent = fmt(left);
+        routineFill.style.width = Math.min(100, elapsed / routineState.duration * 100) + "%";
+        if (elapsed >= routineState.duration) {
+          clearInterval(routineState.interval);
+          routineState.interval = null;
+          routineTimer.setAttribute("data-running", "done");
+          routineReadout.textContent = "00:00";
+          routineFill.style.width = "100%";
+          routineHold.textContent = "Done";
+          routineNext.focus();
+        }
+      }, 200);
+    }
+
+    function renderRoutineStep() {
+      var h = routineState.steps[routineState.index];
+      resetRoutineTimer();
+      routineImg.src = h.img;
+      routineImg.alt = h.name;
+      routineForce.setAttribute("data-force", h.force);
+      routineName.textContent = h.name;
+      routineCue.textContent = h.execution;
+      routineStep.textContent = "Hold " + (routineState.index + 1) + " / " + routineState.steps.length;
+      routineTotal.textContent = titleFor(routineState.length) + " · " + titleFor(routineState.intensity);
+      routinePrev.disabled = routineState.index === 0;
+      routineNext.textContent = routineState.index === routineState.steps.length - 1 ? "Finish" : "Next";
+    }
+
+    function titleFor(value) {
+      return value.replace(/\\b\\w/g, function (c) { return c.toUpperCase(); });
+    }
+
+    function startRoutine() {
+      routineState.steps = routineData.routines[routineState.length].map(function (slug) {
+        return routineBySlug[slug];
+      }).filter(Boolean);
+      routineState.index = 0;
+      routinePlayer.hidden = false;
+      renderRoutineStep();
+    }
+
+    function goRoutine(delta) {
+      var next = routineState.index + delta;
+      if (next < 0) return;
+      if (next >= routineState.steps.length) {
+        resetRoutineTimer();
+        routineName.textContent = "Complete";
+        routineCue.textContent = "No tracking. Done when done.";
+        routineStep.textContent = "Routine complete";
+        routineNext.textContent = "Restart";
+        routinePrev.disabled = false;
+        routineState.index = 0;
+        return;
+      }
+      routineStage.classList.add("fading");
+      setTimeout(function () {
+        routineState.index = next;
+        renderRoutineStep();
+        routineStage.classList.remove("fading");
+      }, 160);
+    }
+
+    document.querySelector(".routine-start").addEventListener("click", startRoutine);
+    routineHold.addEventListener("click", startRoutineTimer);
+    routinePrev.addEventListener("click", function () { goRoutine(-1); });
+    routineNext.addEventListener("click", function () {
+      if (routineNext.textContent === "Restart") startRoutine();
+      else goRoutine(1);
     });
   })();
   </script>

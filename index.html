@@ -23,7 +23,11 @@
   .sub { color: var(--muted); max-width: 40ch; margin: 0 0 1.25rem; font-size: 0.9rem; }
   .count { display: inline-block; border: 1px solid var(--border); padding: 0.4rem 0.7rem; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
   .count b { color: var(--fg); font-weight: 700; }
+  .page-tabs { display: flex; gap: 0.5rem; margin-top: 1.35rem; }
+  .page-tab { appearance: none; border: 1px solid var(--border); background: #0d0d0d; color: var(--muted); padding: 0.55rem 0.75rem; font: inherit; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; cursor: pointer; }
+  .page-tab.active { border-color: var(--border-strong); color: var(--fg); background: #151515; }
   .tabs { position: sticky; top: 0; z-index: 5; display: flex; gap: 0.4rem; overflow-x: auto; margin-top: 1.35rem; padding: 0.65rem 0; background: rgba(10,10,10,0.92); backdrop-filter: blur(10px); scrollbar-width: none; }
+  .tabs[hidden] { display: none; }
   .tabs::-webkit-scrollbar { display: none; }
   .tab { appearance: none; border: 1px solid var(--border); background: #0d0d0d; color: var(--muted); padding: 0.45rem 0.65rem; font: inherit; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; white-space: nowrap; cursor: pointer; }
   .tab.active { border-color: var(--border-strong); color: var(--fg); background: #151515; }
@@ -66,12 +70,34 @@
   .meta { padding: 0.7rem 0.75rem 0.85rem; }
   .name { font-size: 0.8rem; letter-spacing: 0.01em; text-transform: uppercase; line-height: 1.25; }
   .tags { margin-top: 0.4rem; font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+  .view[hidden] { display: none; }
+  .routine-shell { display: grid; gap: 1rem; max-width: 760px; }
+  .routine-card { border: 1px solid var(--border); background: #0d0d0d; padding: 1rem; display: grid; gap: 1rem; }
+  .routine-title { margin: 0; font-size: 1rem; letter-spacing: 0.08em; text-transform: uppercase; }
+  .routine-sub { margin: 0; color: var(--muted); font-size: 0.78rem; max-width: 54ch; }
+  .chooser { display: grid; gap: 0.55rem; }
+  .chooser-label { color: var(--muted); font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; }
+  .seg { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.45rem; }
+  .seg button, .routine-start, .routine-nav button { appearance: none; border: 1px solid var(--border); background: #101010; color: var(--fg); min-height: 40px; font: inherit; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; }
+  .seg button.active, .routine-start:hover, .routine-nav button:hover { border-color: var(--border-strong); background: #171717; }
+  .routine-start { width: 100%; }
+  .routine-player[hidden] { display: none; }
+  .routine-player { border: 1px solid var(--border); background: #0d0d0d; padding: 0.8rem; display: grid; gap: 0.75rem; }
+  .routine-top { display: flex; justify-content: space-between; gap: 0.75rem; color: var(--muted); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; }
+  .routine-stage { position: relative; aspect-ratio: 1 / 1; background: #080808; border: 1px solid var(--border); display: grid; place-items: center; overflow: hidden; }
+  .routine-stage img { width: 100%; height: 100%; object-fit: contain; opacity: 1; transition: opacity 0.22s ease; }
+  .routine-stage.fading img { opacity: 0.28; }
+  .routine-meta { display: grid; gap: 0.3rem; text-align: center; }
+  .routine-name { font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; }
+  .routine-cue { color: var(--muted); font-size: 10px; letter-spacing: 0.04em; text-transform: uppercase; }
+  .routine-nav { display: grid; grid-template-columns: 1fr 1fr; gap: 0.45rem; }
   footer { margin-top: 3.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border); color: var(--muted); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; }
   @media (max-width: 640px) {
     .wrap { padding-top: 2rem; }
     ul.grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .timer { grid-template-columns: repeat(3, 1fr); }
     .timer input, .timer button[data-custom], .readout { grid-column: span 1; }
+    .seg { grid-template-columns: 1fr; }
     #lb { padding: 0.65rem; }
     .lb-panel { max-height: calc(100vh - 1.3rem); }
     #lb img { max-height: 58vh; }
@@ -85,6 +111,10 @@
       <h1>Isometric Training</h1>
       <p class="sub">The isometric hold catalog. Full body, head to toe. No performance theater.</p>
       <span class="count"><b>84</b> / 84 rendered</span>
+      <nav class="page-tabs" aria-label="Site sections">
+        <button type="button" class="page-tab active" data-view="catalog">Catalog</button>
+        <button type="button" class="page-tab" data-view="routines">Routines</button>
+      </nav>
       <nav class="tabs" aria-label="Body part filters">
         <button type="button" class="tab active" data-filter="all">All</button>
         <button type="button" class="tab" data-filter="abductors">Abductors</button>
@@ -108,7 +138,8 @@
         <button type="button" class="tab" data-filter="wrist">Wrist</button>
       </nav>
     </header>
-    <ul class="grid">
+    <main id="catalogView" class="view">
+      <ul class="grid">
       <li class="card" data-body="core" data-force="up" data-execution="rolled-out on wheel, arms extended forward, body a straight diagonal off knees">
         <div class="media"><img src="images/ab-wheel-iso.png" alt="Ab Wheel Iso" loading="lazy" decoding="async"></div>
         <div class="meta">
@@ -697,7 +728,56 @@
           <div class="tags">push &middot; overcoming &middot; wrist</div>
         </div>
       </li>
-    </ul>
+      </ul>
+    </main>
+    <section id="routinesView" class="view" hidden>
+      <div class="routine-shell">
+        <div class="routine-card">
+          <h2 class="routine-title">Daily Full Body</h2>
+          <p class="routine-sub">One simple line through neck, shoulders, pull, push, legs, hips, trunk, feet, and grip. No saved history.</p>
+          <div class="chooser">
+            <div class="chooser-label">Length</div>
+            <div class="seg" data-choice="length">
+              <button type="button" class="active" data-value="short">Short · 12</button>
+              <button type="button" data-value="medium">Medium · 24</button>
+              <button type="button" data-value="long">Long · 36</button>
+            </div>
+          </div>
+          <div class="chooser">
+            <div class="chooser-label">Hold</div>
+            <div class="seg" data-choice="intensity">
+              <button type="button" class="active" data-value="regular">Regular · 20s</button>
+              <button type="button" data-value="hard">Hard · 40s</button>
+              <button type="button" data-value="ultimate">Ultimate · 60s</button>
+            </div>
+          </div>
+          <button type="button" class="routine-start">Start</button>
+        </div>
+        <div class="routine-player" hidden>
+          <div class="routine-top">
+            <span class="routine-step"></span>
+            <span class="routine-total"></span>
+          </div>
+          <div class="routine-stage">
+            <img alt="">
+            <div class="force" aria-hidden="true"><span></span></div>
+          </div>
+          <div class="routine-meta">
+            <span class="routine-name"></span>
+            <span class="routine-cue"></span>
+          </div>
+          <div class="timer routine-timer" data-running="false">
+            <button type="button" class="routine-hold">Start Hold</button>
+            <div class="readout">00:00</div>
+            <div class="bar"><i></i></div>
+          </div>
+          <div class="routine-nav">
+            <button type="button" class="routine-prev">Back</button>
+            <button type="button" class="routine-next">Next</button>
+          </div>
+        </div>
+      </div>
+    </section>
     <footer>Empty Words &middot; isometric hold catalog</footer>
   </div>
   <div id="lb" hidden>
@@ -724,6 +804,19 @@
   </div>
   <script>
   (function () {
+    var routineData = {"holds":[{"slug":"ab-wheel-iso","iso_class":"brace","iso_mode":"yielding","body_part":"core","execution":"rolled-out on wheel, arms extended forward, body a straight diagonal off knees","name":"Ab Wheel Iso","img":"images/ab-wheel-iso.png","force":"up"},{"slug":"bird-dog-hold","iso_class":"brace","iso_mode":"yielding","body_part":"core","execution":"on hands and knees, opposite arm and leg extended straight and level, spine neutral","name":"Bird Dog Hold","img":"images/bird-dog-hold.png","force":"brace"},{"slug":"hollow-body-hold","iso_class":"brace","iso_mode":"yielding","body_part":"core","execution":"supine, low back to floor, arms overhead and legs straight and low, shallow banana","name":"Hollow Body Hold","img":"images/hollow-body-hold.png","force":"brace"},{"slug":"pallof-press-iso","iso_class":"brace","iso_mode":"overcoming","body_part":"core","execution":"side-on to an anchored band, arms pressed straight out from sternum resisting the pull","name":"Pallof Press Iso","img":"images/pallof-press-iso.png","force":"up"},{"slug":"plank-forearm","iso_class":"brace","iso_mode":"yielding","body_part":"core","execution":"forearms and toes on floor, body one rigid line head to heels, hips level","name":"Plank Forearm","img":"images/plank-forearm.png","force":"brace"},{"slug":"plank-high","iso_class":"brace","iso_mode":"yielding","body_part":"core","execution":"hands and toes, arms straight, straight-line body, shoulders over wrists","name":"Plank High","img":"images/plank-high.png","force":"brace"},{"slug":"side-plank-forearm","iso_class":"brace","iso_mode":"yielding","body_part":"core","execution":"on one forearm and stacked feet, body a straight line side-on, top hip lifted","name":"Side Plank Forearm","img":"images/side-plank-forearm.png","force":"brace"},{"slug":"pullup-iso-mid","iso_class":"hang","iso_mode":"yielding","body_part":"back","execution":"pull-up frozen at 90 deg elbow, eyes at bar height","name":"Pullup Iso Mid","img":"images/pullup-iso-mid.png","force":"down"},{"slug":"pullup-iso-top","iso_class":"hang","iso_mode":"yielding","body_part":"back","execution":"chin held over the bar, elbows fully bent, chest to bar","name":"Pullup Iso Top","img":"images/pullup-iso-top.png","force":"down"},{"slug":"tiptoe-heel-hang","iso_class":"hang","iso_mode":"yielding","body_part":"feet","execution":"balls of feet on a step edge, heels dropped and held, plantar loaded","name":"Tiptoe Heel Hang","img":"images/tiptoe-heel-hang.png","force":"down"},{"slug":"dead-hang-grip","iso_class":"hang","iso_mode":"yielding","body_part":"grip","execution":"hanging from a bar with both hands, straight arms, full bodyweight on fingers","name":"Dead Hang Grip","img":"images/dead-hang-grip.png","force":"down"},{"slug":"one-arm-hang-grip","iso_class":"hang","iso_mode":"yielding","body_part":"grip","execution":"hanging from a bar with one hand, straight arm, whole bodyweight on one grip","name":"One Arm Hang Grip","img":"images/one-arm-hang-grip.png","force":"down"},{"slug":"towel-hang-grip","iso_class":"hang","iso_mode":"yielding","body_part":"grip","execution":"hanging from two towels over a bar, thick pinch in fists, straight arms","name":"Towel Hang Grip","img":"images/towel-hang-grip.png","force":"down"},{"slug":"neck-hang-strap","iso_class":"hang","iso_mode":"yielding","body_part":"neck","execution":"standing, padded head-harness under chin anchored to weight, neck holds load, spine tall","name":"Neck Hang Strap","img":"images/neck-hang-strap.png","force":"down"},{"slug":"scap-hang-active","iso_class":"hang","iso_mode":"yielding","body_part":"shoulder","execution":"hanging from bar, shoulders pulled down and back into sockets, elbows straight","name":"Scap Hang Active","img":"images/scap-hang-active.png","force":"down"},{"slug":"side-lying-abduction-iso","iso_class":"hold","iso_mode":"yielding","body_part":"abductors","execution":"side-lying, top leg raised to 45 deg and frozen in the air, hips stacked","name":"Side Lying Abduction Iso","img":"images/side-lying-abduction-iso.png","force":"side"},{"slug":"sumo-squat-iso","iso_class":"hold","iso_mode":"yielding","body_part":"adductors","execution":"very wide stance toes out, sunk to parallel, knees tracking out, torso tall","name":"Sumo Squat Iso","img":"images/sumo-squat-iso.png","force":"up"},{"slug":"single-leg-balance-iso","iso_class":"hold","iso_mode":"yielding","body_part":"ankle","execution":"standing on one foot, other lifted, holding still and controlling every wobble","name":"Single Leg Balance Iso","img":"images/single-leg-balance-iso.png","force":"brace"},{"slug":"biceps-curl-iso-weight","iso_class":"hold","iso_mode":"yielding","body_part":"arm","execution":"elbows at 90 deg holding a heavy load frozen mid-curl, upper arms vertical","name":"Biceps Curl Iso Weight","img":"images/biceps-curl-iso-weight.png","force":"down"},{"slug":"triceps-bench-lockout","iso_class":"hold","iso_mode":"yielding","body_part":"arm","execution":"supine, arms straight holding a load at lockout over chest, elbows locked","name":"Triceps Bench Lockout","img":"images/triceps-bench-lockout.png","force":"up"},{"slug":"calf-raise-iso-top","iso_class":"hold","iso_mode":"yielding","body_part":"calves","execution":"standing on balls of feet at full tip-toe, heels max-high, ankles plantarflexed","name":"Calf Raise Iso Top","img":"images/calf-raise-iso-top.png","force":"up"},{"slug":"seated-calf-iso","iso_class":"hold","iso_mode":"yielding","body_part":"calves","execution":"seated, weight on knees, up on balls of feet, heels raised max","name":"Seated Calf Iso","img":"images/seated-calf-iso.png","force":"up"},{"slug":"single-leg-calf-iso","iso_class":"hold","iso_mode":"yielding","body_part":"calves","execution":"on one foot at full tip-toe, other foot off ground, heel high","name":"Single Leg Calf Iso","img":"images/single-leg-calf-iso.png","force":"up"},{"slug":"chest-fly-iso-hold","iso_class":"hold","iso_mode":"yielding","body_part":"chest","execution":"supine, arms wide and slightly bent holding weights in the stretched fly position","name":"Chest Fly Iso Hold","img":"images/chest-fly-iso-hold.png","force":"brace"},{"slug":"suitcase-hold","iso_class":"hold","iso_mode":"yielding","body_part":"core","execution":"standing tall holding a heavy weight in one hand at the side, torso vertical un-tilted","name":"Suitcase Hold","img":"images/suitcase-hold.png","force":"brace"},{"slug":"toe-stand-hold","iso_class":"hold","iso_mode":"yielding","body_part":"feet","execution":"standing pushed all the way onto the toe pads past the balls, weight on toes","name":"Toe Stand Hold","img":"images/toe-stand-hold.png","force":"brace"},{"slug":"plate-pinch-hold","iso_class":"hold","iso_mode":"yielding","body_part":"grip","execution":"thumb-and-fingers pinching a smooth plate at the side, arm straight","name":"Plate Pinch Hold","img":"images/plate-pinch-hold.png","force":"down"},{"slug":"bridge-heels-iso","iso_class":"hold","iso_mode":"yielding","body_part":"hams","execution":"supine, heels on a raised surface, hips lifted, legs long, hamstrings loaded","name":"Bridge Heels Iso","img":"images/bridge-heels-iso.png","force":"up"},{"slug":"nordic-iso-hold","iso_class":"hold","iso_mode":"yielding","body_part":"hams","execution":"kneeling ankles anchored, torso leaned forward held mid-range by the hamstrings","name":"Nordic Iso Hold","img":"images/nordic-iso-hold.png","force":"brace"},{"slug":"single-leg-rdl-iso","iso_class":"hold","iso_mode":"yielding","body_part":"hams","execution":"balanced on one leg, torso and free leg horizontal in a T, weight hanging","name":"Single Leg Rdl Iso","img":"images/single-leg-rdl-iso.png","force":"up"},{"slug":"glute-bridge-hold","iso_class":"hold","iso_mode":"yielding","body_part":"hips","execution":"supine, feet flat, hips lifted to straight shoulder-knee line, glutes squeezed","name":"Glute Bridge Hold","img":"images/glute-bridge-hold.png","force":"up"},{"slug":"hip-thrust-iso","iso_class":"hold","iso_mode":"yielding","body_part":"hips","execution":"shoulders on bench, barbell across hips, hips lifted to full lockout horizontal","name":"Hip Thrust Iso","img":"images/hip-thrust-iso.png","force":"up"},{"slug":"single-leg-bridge-hold","iso_class":"hold","iso_mode":"yielding","body_part":"hips","execution":"supine, one foot planted, other leg straight out, hips lifted level on one leg","name":"Single Leg Bridge Hold","img":"images/single-leg-bridge-hold.png","force":"up"},{"slug":"back-extension-iso","iso_class":"hold","iso_mode":"yielding","body_part":"lowback","execution":"hips on a bench pad, torso straight out horizontal, holding a plate","name":"Back Extension Iso","img":"images/back-extension-iso.png","force":"up"},{"slug":"reverse-hyper-iso","iso_class":"hold","iso_mode":"yielding","body_part":"lowback","execution":"face-down on a bench edge, legs straight and lifted to horizontal behind","name":"Reverse Hyper Iso","img":"images/reverse-hyper-iso.png","force":"up"},{"slug":"superman-hold","iso_class":"hold","iso_mode":"yielding","body_part":"lowback","execution":"prone, arms and legs lifted off floor, back extended, chest and thighs raised","name":"Superman Hold","img":"images/superman-hold.png","force":"brace"},{"slug":"neck-bridge-back","iso_class":"hold","iso_mode":"yielding","body_part":"neck","execution":"supine wrestler bridge, weight on crown and feet, hips lifted, back arched","name":"Neck Bridge Back","img":"images/neck-bridge-back.png","force":"up"},{"slug":"neck-bridge-front","iso_class":"hold","iso_mode":"yielding","body_part":"neck","execution":"prone bridge on forehead and toes, body arched face-down, neck loaded","name":"Neck Bridge Front","img":"images/neck-bridge-front.png","force":"up"},{"slug":"copenhagen-hold","iso_class":"hold","iso_mode":"yielding","body_part":"pelvis","execution":"side-plank with top inner-foot on a bench, bottom leg lifted to it, hips stacked","name":"Copenhagen Hold","img":"images/copenhagen-hold.png","force":"brace"},{"slug":"frog-stance-hold","iso_class":"hold","iso_mode":"yielding","body_part":"pelvis","execution":"deep squat knees wide, elbows inside knees, hips fully flexed and open","name":"Frog Stance Hold","img":"images/frog-stance-hold.png","force":"brace"},{"slug":"horse-stance-mabu","iso_class":"hold","iso_mode":"yielding","body_part":"quads","execution":"wide stance toes forward, hips sunk to thigh-parallel, torso vertical, arms out","name":"Horse Stance Mabu","img":"images/horse-stance-mabu.png","force":"up"},{"slug":"split-squat-iso","iso_class":"hold","iso_mode":"yielding","body_part":"quads","execution":"long lunge stance, back knee near floor, front thigh parallel, torso upright","name":"Split Squat Iso","img":"images/split-squat-iso.png","force":"up"},{"slug":"squat-iso-hold","iso_class":"hold","iso_mode":"yielding","body_part":"quads","execution":"free-standing squat held at 90 deg knee, chest up, arms forward","name":"Squat Iso Hold","img":"images/squat-iso-hold.png","force":"up"},{"slug":"wall-sit","iso_class":"hold","iso_mode":"yielding","body_part":"quads","execution":"back flat on wall, thighs parallel to floor, knees 90 deg, shins vertical","name":"Wall Sit","img":"images/wall-sit.png","force":"brace"},{"slug":"lateral-raise-iso","iso_class":"hold","iso_mode":"yielding","body_part":"shoulder","execution":"arms straight out to sides at shoulder height holding weights, frozen in a T","name":"Lateral Raise Iso","img":"images/lateral-raise-iso.png","force":"up"},{"slug":"scap-wall-slide-hold","iso_class":"hold","iso_mode":"yielding","body_part":"shoulder","execution":"back to wall, arms in goalpost pressed flat against wall at 90 deg","name":"Scap Wall Slide Hold","img":"images/scap-wall-slide-hold.png","force":"brace"},{"slug":"tibialis-raise-iso","iso_class":"hold","iso_mode":"yielding","body_part":"tibialis","execution":"heels planted, back against wall, toes pulled up max toward shins, holding dorsiflexion","name":"Tibialis Raise Iso","img":"images/tibialis-raise-iso.png","force":"up"},{"slug":"reverse-plank-wrist","iso_class":"hold","iso_mode":"yielding","body_part":"wrist","execution":"seated hands behind fingers-forward, hips lifted, wrists loaded under bodyweight","name":"Reverse Plank Wrist","img":"images/reverse-plank-wrist.png","force":"brace"},{"slug":"ankle-dorsiflexion-iso","iso_class":"pull","iso_mode":"overcoming","body_part":"ankle","execution":"seated, top of foot pulling up against a fixed strap, shin still","name":"Ankle Dorsiflexion Iso","img":"images/ankle-dorsiflexion-iso.png","force":"up"},{"slug":"biceps-curl-iso-wall","iso_class":"pull","iso_mode":"overcoming","body_part":"arm","execution":"forearms at 90 deg pulling up on a fixed bar under a table, elbows pinned to ribs","name":"Biceps Curl Iso Wall","img":"images/biceps-curl-iso-wall.png","force":"down"},{"slug":"inverted-row-iso","iso_class":"pull","iso_mode":"yielding","body_part":"back","execution":"body straight under a low bar, chest pulled to bar, heels on floor","name":"Inverted Row Iso","img":"images/inverted-row-iso.png","force":"down"},{"slug":"lat-pulldown-iso","iso_class":"pull","iso_mode":"overcoming","body_part":"back","execution":"kneeling under an anchored band overhead, elbows pulled down to sides","name":"Lat Pulldown Iso","img":"images/lat-pulldown-iso.png","force":"down"},{"slug":"row-iso-wall","iso_class":"pull","iso_mode":"overcoming","body_part":"back","execution":"hinged at hips, hands pulling back on a fixed bar toward the ribs","name":"Row Iso Wall","img":"images/row-iso-wall.png","force":"down"},{"slug":"short-foot-iso","iso_class":"pull","iso_mode":"overcoming","body_part":"feet","execution":"standing, drawing the ball of the foot toward the heel to raise the arch, holding the dome","name":"Short Foot Iso","img":"images/short-foot-iso.png","force":"up"},{"slug":"toe-extension-iso","iso_class":"pull","iso_mode":"overcoming","body_part":"feet","execution":"seated, toes lifting up against a band over them while forefoot stays down","name":"Toe Extension Iso","img":"images/toe-extension-iso.png","force":"up"},{"slug":"toe-flexion-iso","iso_class":"pull","iso_mode":"overcoming","body_part":"feet","execution":"toes gripping and curling a towel into the arch maximally, holding the crunch","name":"Toe Flexion Iso","img":"images/toe-flexion-iso.png","force":"up"},{"slug":"ham-curl-iso-wall","iso_class":"pull","iso_mode":"overcoming","body_part":"hams","execution":"prone, heel pulling up against a fixed strap to bend the knee, thigh flat","name":"Ham Curl Iso Wall","img":"images/ham-curl-iso-wall.png","force":"down"},{"slug":"good-morning-iso-pins","iso_class":"pull","iso_mode":"overcoming","body_part":"lowback","execution":"hinged forward, bar across back jammed under fixed pins, driving to stand","name":"Good Morning Iso Pins","img":"images/good-morning-iso-pins.png","force":"up"},{"slug":"90-90-hip-iso","iso_class":"pull","iso_mode":"overcoming","body_part":"pelvis","execution":"seated in 90/90, front shin pressing down and back shin into floor isometrically","name":"90 90 Hip Iso","img":"images/90-90-hip-iso.png","force":"up"},{"slug":"face-pull-iso","iso_class":"pull","iso_mode":"overcoming","body_part":"shoulder","execution":"band at eye level, elbows high pulled back beside ears, holding end-range","name":"Face Pull Iso","img":"images/face-pull-iso.png","force":"down"},{"slug":"tib-iso-band","iso_class":"pull","iso_mode":"overcoming","body_part":"tibialis","execution":"seated leg straight, band over top of foot pulling down, foot pulling up against it","name":"Tib Iso Band","img":"images/tib-iso-band.png","force":"up"},{"slug":"wrist-extension-iso","iso_class":"pull","iso_mode":"overcoming","body_part":"wrist","execution":"forearm on thigh palm-down, back of hand lifting against a fixed strap","name":"Wrist Extension Iso","img":"images/wrist-extension-iso.png","force":"up"},{"slug":"wrist-flexion-iso","iso_class":"pull","iso_mode":"overcoming","body_part":"wrist","execution":"forearm on thigh palm-up, hand pulling up against a fixed strap, wrist frozen","name":"Wrist Flexion Iso","img":"images/wrist-flexion-iso.png","force":"up"},{"slug":"abduction-iso-wall","iso_class":"push","iso_mode":"overcoming","body_part":"abductors","execution":"standing side-on to a doorframe, outer foot pressing outward against the frame","name":"Abduction Iso Wall","img":"images/abduction-iso-wall.png","force":"side"},{"slug":"adduction-iso-wall","iso_class":"push","iso_mode":"overcoming","body_part":"adductors","execution":"inner foot pressing a fixed object inward, leg straight","name":"Adduction Iso Wall","img":"images/adduction-iso-wall.png","force":"up"},{"slug":"ankle-eversion-iso","iso_class":"push","iso_mode":"overcoming","body_part":"ankle","execution":"seated, outer edge of foot pressing outward against a fixed object","name":"Ankle Eversion Iso","img":"images/ankle-eversion-iso.png","force":"side"},{"slug":"ankle-inversion-iso","iso_class":"push","iso_mode":"overcoming","body_part":"ankle","execution":"seated, inner edge of foot pressing inward against a fixed object","name":"Ankle Inversion Iso","img":"images/ankle-inversion-iso.png","force":"side"},{"slug":"ankle-plantarflexion-iso","iso_class":"push","iso_mode":"overcoming","body_part":"ankle","execution":"seated, ball of foot pressing down forward into a fixed strap","name":"Ankle Plantarflexion Iso","img":"images/ankle-plantarflexion-iso.png","force":"up"},{"slug":"triceps-ext-iso-wall","iso_class":"push","iso_mode":"overcoming","body_part":"arm","execution":"hands pressing down against a fixed bar to straighten elbows, upper arms fixed at sides","name":"Triceps Ext Iso Wall","img":"images/triceps-ext-iso-wall.png","force":"up"},{"slug":"calf-iso-pins","iso_class":"push","iso_mode":"overcoming","body_part":"calves","execution":"balls of feet under a fixed bar, driving up onto toes into the immovable bar","name":"Calf Iso Pins","img":"images/calf-iso-pins.png","force":"up"},{"slug":"pushup-iso-bottom","iso_class":"push","iso_mode":"yielding","body_part":"chest","execution":"push-up frozen at bottom, chest an inch off floor, elbows 90 deg, body one line","name":"Pushup Iso Bottom","img":"images/pushup-iso-bottom.png","force":"up"},{"slug":"pushup-iso-mid","iso_class":"push","iso_mode":"yielding","body_part":"chest","execution":"push-up frozen halfway up, elbows 110 deg, rigid plank line","name":"Pushup Iso Mid","img":"images/pushup-iso-mid.png","force":"up"},{"slug":"wall-press-iso","iso_class":"push","iso_mode":"overcoming","body_part":"chest","execution":"staggered stance, both palms pressing hard into a wall at chest height","name":"Wall Press Iso","img":"images/wall-press-iso.png","force":"up"},{"slug":"hip-abduction-iso-band","iso_class":"push","iso_mode":"overcoming","body_part":"hips","execution":"band around knees, knees pressing outward against the band, holding spread","name":"Hip Abduction Iso Band","img":"images/hip-abduction-iso-band.png","force":"side"},{"slug":"hip-extension-iso-wall","iso_class":"push","iso_mode":"overcoming","body_part":"hips","execution":"standing, one heel pressing back into a fixed pad, glute driving, torso upright","name":"Hip Extension Iso Wall","img":"images/hip-extension-iso-wall.png","force":"back"},{"slug":"neck-extension-hold","iso_class":"push","iso_mode":"overcoming","body_part":"neck","execution":"hands behind skull, head presses back into hands, neck straight","name":"Neck Extension Hold","img":"images/neck-extension-hold.png","force":"back"},{"slug":"neck-flexion-hold","iso_class":"push","iso_mode":"overcoming","body_part":"neck","execution":"seated upright, palms on forehead, head pushes forward into hands, nothing moves","name":"Neck Flexion Hold","img":"images/neck-flexion-hold.png","force":"forward"},{"slug":"neck-lateral-hold-L","iso_class":"push","iso_mode":"overcoming","body_part":"neck","execution":"right palm on left temple, head presses sideways into hand, ears level","name":"Neck Lateral Hold L","img":"images/neck-lateral-hold-L.png","force":"left"},{"slug":"neck-lateral-hold-R","iso_class":"push","iso_mode":"overcoming","body_part":"neck","execution":"left palm on right temple, head presses sideways into hand, ears level","name":"Neck Lateral Hold R","img":"images/neck-lateral-hold-R.png","force":"right"},{"slug":"adductor-squeeze-iso","iso_class":"push","iso_mode":"overcoming","body_part":"pelvis","execution":"supine knees bent, a ball between knees, knees squeezing inward maximally","name":"Adductor Squeeze Iso","img":"images/adductor-squeeze-iso.png","force":"in"},{"slug":"leg-extension-iso-wall","iso_class":"push","iso_mode":"overcoming","body_part":"quads","execution":"seated, top of foot pressing forward against a fixed strap to straighten the knee","name":"Leg Extension Iso Wall","img":"images/leg-extension-iso-wall.png","force":"forward"},{"slug":"squat-iso-pins","iso_class":"push","iso_mode":"overcoming","body_part":"quads","execution":"bar on back jammed under fixed pins at parallel, driving up into the pins","name":"Squat Iso Pins","img":"images/squat-iso-pins.png","force":"up"},{"slug":"wall-shoulder-press-iso","iso_class":"push","iso_mode":"overcoming","body_part":"shoulder","execution":"under a fixed ledge, arms overhead pressing up into immovable surface","name":"Wall Shoulder Press Iso","img":"images/wall-shoulder-press-iso.png","force":"up"},{"slug":"wrist-radial-ulnar-iso","iso_class":"push","iso_mode":"overcoming","body_part":"wrist","execution":"forearm neutral thumb up, hand pressing a fixed object side to side, wrist locked","name":"Wrist Radial Ulnar Iso","img":"images/wrist-radial-ulnar-iso.png","force":"side"}],"routines":{"short":["neck-flexion-hold","neck-extension-hold","scap-hang-active","pushup-iso-mid","row-iso-wall","squat-iso-hold","single-leg-rdl-iso","glute-bridge-hold","calf-raise-iso-top","plank-forearm","side-plank-forearm","suitcase-hold"],"medium":["neck-flexion-hold","neck-extension-hold","neck-lateral-hold-L","neck-lateral-hold-R","scap-hang-active","wall-shoulder-press-iso","pushup-iso-bottom","row-iso-wall","lat-pulldown-iso","biceps-curl-iso-wall","triceps-ext-iso-wall","wrist-radial-ulnar-iso","squat-iso-hold","split-squat-iso","single-leg-rdl-iso","glute-bridge-hold","hip-extension-iso-wall","copenhagen-hold","adductor-squeeze-iso","calf-raise-iso-top","tibialis-raise-iso","plank-forearm","side-plank-forearm","suitcase-hold"],"long":["neck-flexion-hold","neck-extension-hold","neck-lateral-hold-L","neck-lateral-hold-R","scap-hang-active","face-pull-iso","wall-shoulder-press-iso","lateral-raise-iso","pushup-iso-bottom","chest-fly-iso-hold","row-iso-wall","lat-pulldown-iso","dead-hang-grip","biceps-curl-iso-wall","triceps-ext-iso-wall","wrist-extension-iso","wrist-flexion-iso","wrist-radial-ulnar-iso","squat-iso-hold","squat-iso-pins","split-squat-iso","wall-sit","single-leg-rdl-iso","nordic-iso-hold","glute-bridge-hold","hip-extension-iso-wall","copenhagen-hold","adductor-squeeze-iso","calf-raise-iso-top","tibialis-raise-iso","short-foot-iso","plank-forearm","side-plank-forearm","pallof-press-iso","back-extension-iso","suitcase-hold"]},"intensities":{"regular":20,"hard":40,"ultimate":60}};
+
+    document.querySelectorAll(".page-tab").forEach(function (tab) {
+      tab.addEventListener("click", function () {
+        var view = tab.getAttribute("data-view");
+        document.querySelectorAll(".page-tab").forEach(function (t) { t.classList.remove("active"); });
+        tab.classList.add("active");
+        document.getElementById("catalogView").hidden = view !== "catalog";
+        document.getElementById("routinesView").hidden = view !== "routines";
+        document.querySelector(".tabs").hidden = view !== "catalog";
+      });
+    });
+
     var cards = Array.prototype.slice.call(document.querySelectorAll(".card"));
     document.querySelectorAll(".tab").forEach(function (tab) {
       tab.addEventListener("click", function () {
@@ -815,6 +908,131 @@
     });
     document.addEventListener("keydown", function (e) {
       if (e.key === "Escape" && !lb.hidden) close();
+    });
+
+    var routineBySlug = {};
+    routineData.holds.forEach(function (h) { routineBySlug[h.slug] = h; });
+    var routineState = {
+      length: "short",
+      intensity: "regular",
+      steps: [],
+      index: 0,
+      interval: null,
+      startedAt: 0,
+      duration: 0
+    };
+    var routinePlayer = document.querySelector(".routine-player");
+    var routineStage = document.querySelector(".routine-stage");
+    var routineImg = routineStage.querySelector("img");
+    var routineForce = routineStage.querySelector(".force");
+    var routineName = document.querySelector(".routine-name");
+    var routineCue = document.querySelector(".routine-cue");
+    var routineStep = document.querySelector(".routine-step");
+    var routineTotal = document.querySelector(".routine-total");
+    var routineHold = document.querySelector(".routine-hold");
+    var routineReadout = document.querySelector(".routine-timer .readout");
+    var routineFill = document.querySelector(".routine-timer .bar i");
+    var routineTimer = document.querySelector(".routine-timer");
+    var routinePrev = document.querySelector(".routine-prev");
+    var routineNext = document.querySelector(".routine-next");
+
+    document.querySelectorAll(".seg button").forEach(function (button) {
+      button.addEventListener("click", function () {
+        var group = button.closest(".seg");
+        group.querySelectorAll("button").forEach(function (b) { b.classList.remove("active"); });
+        button.classList.add("active");
+        routineState[group.getAttribute("data-choice")] = button.getAttribute("data-value");
+        if (!routinePlayer.hidden) startRoutine();
+      });
+    });
+
+    function resetRoutineTimer() {
+      if (routineState.interval) clearInterval(routineState.interval);
+      routineState.interval = null;
+      routineTimer.setAttribute("data-running", "false");
+      routineReadout.textContent = fmt(routineData.intensities[routineState.intensity]);
+      routineFill.style.width = "0%";
+      routineHold.textContent = "Start Hold";
+    }
+
+    function startRoutineTimer() {
+      resetRoutineTimer();
+      var seconds = routineData.intensities[routineState.intensity];
+      routineState.duration = seconds * 1000;
+      routineState.startedAt = Date.now();
+      routineTimer.setAttribute("data-running", "true");
+      routineHold.textContent = "Holding";
+      routineState.interval = setInterval(function () {
+        var elapsed = Date.now() - routineState.startedAt;
+        var left = Math.max(0, (routineState.duration - elapsed) / 1000);
+        routineReadout.textContent = fmt(left);
+        routineFill.style.width = Math.min(100, elapsed / routineState.duration * 100) + "%";
+        if (elapsed >= routineState.duration) {
+          clearInterval(routineState.interval);
+          routineState.interval = null;
+          routineTimer.setAttribute("data-running", "done");
+          routineReadout.textContent = "00:00";
+          routineFill.style.width = "100%";
+          routineHold.textContent = "Done";
+          routineNext.focus();
+        }
+      }, 200);
+    }
+
+    function renderRoutineStep() {
+      var h = routineState.steps[routineState.index];
+      resetRoutineTimer();
+      routineImg.src = h.img;
+      routineImg.alt = h.name;
+      routineForce.setAttribute("data-force", h.force);
+      routineName.textContent = h.name;
+      routineCue.textContent = h.execution;
+      routineStep.textContent = "Hold " + (routineState.index + 1) + " / " + routineState.steps.length;
+      routineTotal.textContent = titleFor(routineState.length) + " · " + titleFor(routineState.intensity);
+      routinePrev.disabled = routineState.index === 0;
+      routineNext.textContent = routineState.index === routineState.steps.length - 1 ? "Finish" : "Next";
+    }
+
+    function titleFor(value) {
+      return value.replace(/\b\w/g, function (c) { return c.toUpperCase(); });
+    }
+
+    function startRoutine() {
+      routineState.steps = routineData.routines[routineState.length].map(function (slug) {
+        return routineBySlug[slug];
+      }).filter(Boolean);
+      routineState.index = 0;
+      routinePlayer.hidden = false;
+      renderRoutineStep();
+    }
+
+    function goRoutine(delta) {
+      var next = routineState.index + delta;
+      if (next < 0) return;
+      if (next >= routineState.steps.length) {
+        resetRoutineTimer();
+        routineName.textContent = "Complete";
+        routineCue.textContent = "No tracking. Done when done.";
+        routineStep.textContent = "Routine complete";
+        routineNext.textContent = "Restart";
+        routinePrev.disabled = false;
+        routineState.index = 0;
+        return;
+      }
+      routineStage.classList.add("fading");
+      setTimeout(function () {
+        routineState.index = next;
+        renderRoutineStep();
+        routineStage.classList.remove("fading");
+      }, 160);
+    }
+
+    document.querySelector(".routine-start").addEventListener("click", startRoutine);
+    routineHold.addEventListener("click", startRoutineTimer);
+    routinePrev.addEventListener("click", function () { goRoutine(-1); });
+    routineNext.addEventListener("click", function () {
+      if (routineNext.textContent === "Restart") startRoutine();
+      else goRoutine(1);
     });
   })();
   </script>
