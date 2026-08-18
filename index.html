@@ -23,20 +23,59 @@
   .sub { color: var(--muted); max-width: 40ch; margin: 0 0 1.25rem; font-size: 0.9rem; }
   .count { display: inline-block; border: 1px solid var(--border); padding: 0.4rem 0.7rem; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
   .count b { color: var(--fg); font-weight: 700; }
+  .tabs { position: sticky; top: 0; z-index: 5; display: flex; gap: 0.4rem; overflow-x: auto; margin-top: 1.35rem; padding: 0.65rem 0; background: rgba(10,10,10,0.92); backdrop-filter: blur(10px); scrollbar-width: none; }
+  .tabs::-webkit-scrollbar { display: none; }
+  .tab { appearance: none; border: 1px solid var(--border); background: #0d0d0d; color: var(--muted); padding: 0.45rem 0.65rem; font: inherit; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; white-space: nowrap; cursor: pointer; }
+  .tab.active { border-color: var(--border-strong); color: var(--fg); background: #151515; }
   ul.grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 0.75rem; }
   .card { border: 1px solid var(--border); background: #0d0d0d; overflow: hidden; display: flex; flex-direction: column; }
+  .card[hidden] { display: none; }
   .media { aspect-ratio: 1 / 1; background: #0f0f0f; display: grid; place-items: center; overflow: hidden; border-bottom: 1px solid var(--border); }
   .media img { width: 100%; height: 100%; object-fit: cover; display: block; filter: grayscale(0.15) contrast(1.03); cursor: zoom-in; }
-  #lb { position: fixed; inset: 0; z-index: 50; background: rgba(5,5,5,0.96); display: grid; place-items: center; padding: 1rem; cursor: zoom-out; }
+  #lb { position: fixed; inset: 0; z-index: 50; background: rgba(5,5,5,0.96); display: grid; place-items: center; padding: 1rem; }
   #lb[hidden] { display: none; }
-  #lb img { max-width: 100%; max-height: 100%; object-fit: contain; border: 1px solid var(--border); }
-  #lb .cap { position: fixed; left: 0; right: 0; bottom: env(safe-area-inset-bottom, 1rem); text-align: center; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+  .lb-panel { position: relative; width: min(100%, 920px); max-height: calc(100vh - 2rem); display: grid; gap: 0.7rem; }
+  .close { position: absolute; top: 0.5rem; right: 0.5rem; z-index: 2; width: 36px; height: 36px; border: 1px solid var(--border); background: rgba(10,10,10,0.78); color: var(--fg); font: inherit; font-size: 20px; line-height: 1; cursor: pointer; }
+  .lb-stage { position: relative; min-height: 0; display: grid; place-items: center; overflow: hidden; border: 1px solid var(--border); background: #080808; }
+  #lb img { max-width: 100%; max-height: min(72vh, 760px); object-fit: contain; display: block; }
+  .force { position: absolute; inset: 0; pointer-events: none; display: grid; place-items: center; opacity: 0.92; }
+  .force span { width: min(24vw, 190px); height: 3px; background: #ededed; position: relative; filter: drop-shadow(0 0 8px rgba(255,255,255,0.28)); }
+  .force span::after { content: ""; position: absolute; right: -2px; top: 50%; width: 17px; height: 17px; border-top: 3px solid #ededed; border-right: 3px solid #ededed; transform: translateY(-50%) rotate(45deg); }
+  .force[data-force="up"] span { transform: rotate(-90deg); }
+  .force[data-force="down"] span { transform: rotate(90deg); }
+  .force[data-force="left"] span { transform: rotate(180deg); }
+  .force[data-force="right"] span, .force[data-force="forward"] span, .force[data-force="side"] span { transform: rotate(0deg); }
+  .force[data-force="back"] span { transform: rotate(180deg); }
+  .force[data-force="in"] span::before { content: ""; position: absolute; left: -2px; top: 50%; width: 17px; height: 17px; border-top: 3px solid #ededed; border-right: 3px solid #ededed; transform: translateY(-50%) rotate(-135deg); }
+  .force[data-force="brace"] { opacity: 0.5; }
+  .force[data-force="brace"] span { width: min(16vw, 120px); border: 2px solid #ededed; height: min(16vw, 120px); border-radius: 999px; background: transparent; }
+  .force[data-force="brace"] span::after { display: none; }
+  .lb-meta { display: grid; gap: 0.3rem; text-align: center; }
+  #lb .cap { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--fg); }
+  #lb .cue { max-width: 80ch; margin: 0 auto; font-size: 10px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--muted); }
+  .timer { display: grid; grid-template-columns: repeat(3, minmax(52px, 1fr)) minmax(64px, 0.8fr) minmax(48px, 0.7fr) minmax(64px, 0.8fr); gap: 0.45rem; align-items: center; }
+  .timer button, .timer input { height: 38px; border: 1px solid var(--border); background: #101010; color: var(--fg); font: inherit; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; text-align: center; }
+  .timer button { cursor: pointer; }
+  .timer button:hover { border-color: var(--border-strong); background: #171717; }
+  .timer input::placeholder { color: #555; }
+  .readout { height: 38px; border: 1px solid var(--border); display: grid; place-items: center; color: var(--fg); font-size: 12px; letter-spacing: 0.14em; }
+  .bar { grid-column: 1 / -1; height: 3px; background: #181818; overflow: hidden; }
+  .bar i { display: block; width: 0%; height: 100%; background: #ededed; transition: width 0.18s linear; }
   .ph { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: #3f3f3f; }
   .card.no-img { opacity: 0.62; }
   .meta { padding: 0.7rem 0.75rem 0.85rem; }
   .name { font-size: 0.8rem; letter-spacing: 0.01em; text-transform: uppercase; line-height: 1.25; }
   .tags { margin-top: 0.4rem; font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
   footer { margin-top: 3.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border); color: var(--muted); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; }
+  @media (max-width: 640px) {
+    .wrap { padding-top: 2rem; }
+    ul.grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .timer { grid-template-columns: repeat(3, 1fr); }
+    .timer input, .timer button[data-custom], .readout { grid-column: span 1; }
+    #lb { padding: 0.65rem; }
+    .lb-panel { max-height: calc(100vh - 1.3rem); }
+    #lb img { max-height: 58vh; }
+  }
 </style>
 </head>
 <body>
@@ -45,592 +84,614 @@
       <p class="kicker">all is ours</p>
       <h1>Isometric Training</h1>
       <p class="sub">The isometric hold catalog. Full body, head to toe. No performance theater.</p>
-      <span class="count"><b>79</b> / 84 rendered</span>
+      <span class="count"><b>84</b> / 84 rendered</span>
+      <nav class="tabs" aria-label="Body part filters">
+        <button type="button" class="tab active" data-filter="all">All</button>
+        <button type="button" class="tab" data-filter="abductors">Abductors</button>
+        <button type="button" class="tab" data-filter="adductors">Adductors</button>
+        <button type="button" class="tab" data-filter="ankle">Ankle</button>
+        <button type="button" class="tab" data-filter="arm">Arm</button>
+        <button type="button" class="tab" data-filter="back">Back</button>
+        <button type="button" class="tab" data-filter="calves">Calves</button>
+        <button type="button" class="tab" data-filter="chest">Chest</button>
+        <button type="button" class="tab" data-filter="core">Core</button>
+        <button type="button" class="tab" data-filter="feet">Feet</button>
+        <button type="button" class="tab" data-filter="grip">Grip</button>
+        <button type="button" class="tab" data-filter="hams">Hams</button>
+        <button type="button" class="tab" data-filter="hips">Hips</button>
+        <button type="button" class="tab" data-filter="lowback">Lowback</button>
+        <button type="button" class="tab" data-filter="neck">Neck</button>
+        <button type="button" class="tab" data-filter="pelvis">Pelvis</button>
+        <button type="button" class="tab" data-filter="quads">Quads</button>
+        <button type="button" class="tab" data-filter="shoulder">Shoulder</button>
+        <button type="button" class="tab" data-filter="tibialis">Tibialis</button>
+        <button type="button" class="tab" data-filter="wrist">Wrist</button>
+      </nav>
     </header>
     <ul class="grid">
-      <li class="card">
+      <li class="card" data-body="core" data-force="up" data-execution="rolled-out on wheel, arms extended forward, body a straight diagonal off knees">
         <div class="media"><img src="images/ab-wheel-iso.png" alt="Ab Wheel Iso" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Ab Wheel Iso</div>
           <div class="tags">brace &middot; yielding &middot; core</div>
         </div>
       </li>
-      <li class="card">
+      <li class="card" data-body="core" data-force="brace" data-execution="on hands and knees, opposite arm and leg extended straight and level, spine neutral">
         <div class="media"><img src="images/bird-dog-hold.png" alt="Bird Dog Hold" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Bird Dog Hold</div>
           <div class="tags">brace &middot; yielding &middot; core</div>
         </div>
       </li>
-      <li class="card">
+      <li class="card" data-body="core" data-force="brace" data-execution="supine, low back to floor, arms overhead and legs straight and low, shallow banana">
         <div class="media"><img src="images/hollow-body-hold.png" alt="Hollow Body Hold" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Hollow Body Hold</div>
           <div class="tags">brace &middot; yielding &middot; core</div>
         </div>
       </li>
-      <li class="card">
+      <li class="card" data-body="core" data-force="up" data-execution="side-on to an anchored band, arms pressed straight out from sternum resisting the pull">
         <div class="media"><img src="images/pallof-press-iso.png" alt="Pallof Press Iso" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Pallof Press Iso</div>
           <div class="tags">brace &middot; overcoming &middot; core</div>
         </div>
       </li>
-      <li class="card">
+      <li class="card" data-body="core" data-force="brace" data-execution="forearms and toes on floor, body one rigid line head to heels, hips level">
         <div class="media"><img src="images/plank-forearm.png" alt="Plank Forearm" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Plank Forearm</div>
           <div class="tags">brace &middot; yielding &middot; core</div>
         </div>
       </li>
-      <li class="card">
+      <li class="card" data-body="core" data-force="brace" data-execution="hands and toes, arms straight, straight-line body, shoulders over wrists">
         <div class="media"><img src="images/plank-high.png" alt="Plank High" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Plank High</div>
           <div class="tags">brace &middot; yielding &middot; core</div>
         </div>
       </li>
-      <li class="card">
+      <li class="card" data-body="core" data-force="brace" data-execution="on one forearm and stacked feet, body a straight line side-on, top hip lifted">
         <div class="media"><img src="images/side-plank-forearm.png" alt="Side Plank Forearm" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Side Plank Forearm</div>
           <div class="tags">brace &middot; yielding &middot; core</div>
         </div>
       </li>
-      <li class="card">
+      <li class="card" data-body="back" data-force="down" data-execution="pull-up frozen at 90 deg elbow, eyes at bar height">
         <div class="media"><img src="images/pullup-iso-mid.png" alt="Pullup Iso Mid" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Pullup Iso Mid</div>
           <div class="tags">hang &middot; yielding &middot; back</div>
         </div>
       </li>
-      <li class="card">
+      <li class="card" data-body="back" data-force="down" data-execution="chin held over the bar, elbows fully bent, chest to bar">
         <div class="media"><img src="images/pullup-iso-top.png" alt="Pullup Iso Top" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Pullup Iso Top</div>
           <div class="tags">hang &middot; yielding &middot; back</div>
         </div>
       </li>
-      <li class="card">
+      <li class="card" data-body="feet" data-force="down" data-execution="balls of feet on a step edge, heels dropped and held, plantar loaded">
         <div class="media"><img src="images/tiptoe-heel-hang.png" alt="Tiptoe Heel Hang" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Tiptoe Heel Hang</div>
           <div class="tags">hang &middot; yielding &middot; feet</div>
         </div>
       </li>
-      <li class="card">
+      <li class="card" data-body="grip" data-force="down" data-execution="hanging from a bar with both hands, straight arms, full bodyweight on fingers">
         <div class="media"><img src="images/dead-hang-grip.png" alt="Dead Hang Grip" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Dead Hang Grip</div>
           <div class="tags">hang &middot; yielding &middot; grip</div>
         </div>
       </li>
-      <li class="card">
+      <li class="card" data-body="grip" data-force="down" data-execution="hanging from a bar with one hand, straight arm, whole bodyweight on one grip">
         <div class="media"><img src="images/one-arm-hang-grip.png" alt="One Arm Hang Grip" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">One Arm Hang Grip</div>
           <div class="tags">hang &middot; yielding &middot; grip</div>
         </div>
       </li>
-      <li class="card">
+      <li class="card" data-body="grip" data-force="down" data-execution="hanging from two towels over a bar, thick pinch in fists, straight arms">
         <div class="media"><img src="images/towel-hang-grip.png" alt="Towel Hang Grip" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Towel Hang Grip</div>
           <div class="tags">hang &middot; yielding &middot; grip</div>
         </div>
       </li>
-      <li class="card">
+      <li class="card" data-body="neck" data-force="down" data-execution="standing, padded head-harness under chin anchored to weight, neck holds load, spine tall">
         <div class="media"><img src="images/neck-hang-strap.png" alt="Neck Hang Strap" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Neck Hang Strap</div>
           <div class="tags">hang &middot; yielding &middot; neck</div>
         </div>
       </li>
-      <li class="card">
+      <li class="card" data-body="shoulder" data-force="down" data-execution="hanging from bar, shoulders pulled down and back into sockets, elbows straight">
         <div class="media"><img src="images/scap-hang-active.png" alt="Scap Hang Active" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Scap Hang Active</div>
           <div class="tags">hang &middot; yielding &middot; shoulder</div>
         </div>
       </li>
-      <li class="card">
+      <li class="card" data-body="abductors" data-force="side" data-execution="side-lying, top leg raised to 45 deg and frozen in the air, hips stacked">
         <div class="media"><img src="images/side-lying-abduction-iso.png" alt="Side Lying Abduction Iso" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Side Lying Abduction Iso</div>
           <div class="tags">hold &middot; yielding &middot; abductors</div>
         </div>
       </li>
-      <li class="card">
+      <li class="card" data-body="adductors" data-force="up" data-execution="very wide stance toes out, sunk to parallel, knees tracking out, torso tall">
         <div class="media"><img src="images/sumo-squat-iso.png" alt="Sumo Squat Iso" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Sumo Squat Iso</div>
           <div class="tags">hold &middot; yielding &middot; adductors</div>
         </div>
       </li>
-      <li class="card">
+      <li class="card" data-body="ankle" data-force="brace" data-execution="standing on one foot, other lifted, holding still and controlling every wobble">
         <div class="media"><img src="images/single-leg-balance-iso.png" alt="Single Leg Balance Iso" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Single Leg Balance Iso</div>
           <div class="tags">hold &middot; yielding &middot; ankle</div>
         </div>
       </li>
-      <li class="card">
+      <li class="card" data-body="arm" data-force="down" data-execution="elbows at 90 deg holding a heavy load frozen mid-curl, upper arms vertical">
         <div class="media"><img src="images/biceps-curl-iso-weight.png" alt="Biceps Curl Iso Weight" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Biceps Curl Iso Weight</div>
           <div class="tags">hold &middot; yielding &middot; arm</div>
         </div>
       </li>
-      <li class="card">
+      <li class="card" data-body="arm" data-force="up" data-execution="supine, arms straight holding a load at lockout over chest, elbows locked">
         <div class="media"><img src="images/triceps-bench-lockout.png" alt="Triceps Bench Lockout" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Triceps Bench Lockout</div>
           <div class="tags">hold &middot; yielding &middot; arm</div>
         </div>
       </li>
-      <li class="card">
+      <li class="card" data-body="calves" data-force="up" data-execution="standing on balls of feet at full tip-toe, heels max-high, ankles plantarflexed">
         <div class="media"><img src="images/calf-raise-iso-top.png" alt="Calf Raise Iso Top" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Calf Raise Iso Top</div>
           <div class="tags">hold &middot; yielding &middot; calves</div>
         </div>
       </li>
-      <li class="card">
+      <li class="card" data-body="calves" data-force="up" data-execution="seated, weight on knees, up on balls of feet, heels raised max">
         <div class="media"><img src="images/seated-calf-iso.png" alt="Seated Calf Iso" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Seated Calf Iso</div>
           <div class="tags">hold &middot; yielding &middot; calves</div>
         </div>
       </li>
-      <li class="card">
+      <li class="card" data-body="calves" data-force="up" data-execution="on one foot at full tip-toe, other foot off ground, heel high">
         <div class="media"><img src="images/single-leg-calf-iso.png" alt="Single Leg Calf Iso" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Single Leg Calf Iso</div>
           <div class="tags">hold &middot; yielding &middot; calves</div>
         </div>
       </li>
-      <li class="card">
+      <li class="card" data-body="chest" data-force="brace" data-execution="supine, arms wide and slightly bent holding weights in the stretched fly position">
         <div class="media"><img src="images/chest-fly-iso-hold.png" alt="Chest Fly Iso Hold" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Chest Fly Iso Hold</div>
           <div class="tags">hold &middot; yielding &middot; chest</div>
         </div>
       </li>
-      <li class="card">
+      <li class="card" data-body="core" data-force="brace" data-execution="standing tall holding a heavy weight in one hand at the side, torso vertical un-tilted">
         <div class="media"><img src="images/suitcase-hold.png" alt="Suitcase Hold" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Suitcase Hold</div>
           <div class="tags">hold &middot; yielding &middot; core</div>
         </div>
       </li>
-      <li class="card">
+      <li class="card" data-body="feet" data-force="brace" data-execution="standing pushed all the way onto the toe pads past the balls, weight on toes">
         <div class="media"><img src="images/toe-stand-hold.png" alt="Toe Stand Hold" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Toe Stand Hold</div>
           <div class="tags">hold &middot; yielding &middot; feet</div>
         </div>
       </li>
-      <li class="card">
+      <li class="card" data-body="grip" data-force="down" data-execution="thumb-and-fingers pinching a smooth plate at the side, arm straight">
         <div class="media"><img src="images/plate-pinch-hold.png" alt="Plate Pinch Hold" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Plate Pinch Hold</div>
           <div class="tags">hold &middot; yielding &middot; grip</div>
         </div>
       </li>
-      <li class="card">
+      <li class="card" data-body="hams" data-force="up" data-execution="supine, heels on a raised surface, hips lifted, legs long, hamstrings loaded">
         <div class="media"><img src="images/bridge-heels-iso.png" alt="Bridge Heels Iso" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Bridge Heels Iso</div>
           <div class="tags">hold &middot; yielding &middot; hams</div>
         </div>
       </li>
-      <li class="card">
+      <li class="card" data-body="hams" data-force="brace" data-execution="kneeling ankles anchored, torso leaned forward held mid-range by the hamstrings">
         <div class="media"><img src="images/nordic-iso-hold.png" alt="Nordic Iso Hold" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Nordic Iso Hold</div>
           <div class="tags">hold &middot; yielding &middot; hams</div>
         </div>
       </li>
-      <li class="card">
+      <li class="card" data-body="hams" data-force="up" data-execution="balanced on one leg, torso and free leg horizontal in a T, weight hanging">
         <div class="media"><img src="images/single-leg-rdl-iso.png" alt="Single Leg Rdl Iso" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Single Leg Rdl Iso</div>
           <div class="tags">hold &middot; yielding &middot; hams</div>
         </div>
       </li>
-      <li class="card">
+      <li class="card" data-body="hips" data-force="up" data-execution="supine, feet flat, hips lifted to straight shoulder-knee line, glutes squeezed">
         <div class="media"><img src="images/glute-bridge-hold.png" alt="Glute Bridge Hold" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Glute Bridge Hold</div>
           <div class="tags">hold &middot; yielding &middot; hips</div>
         </div>
       </li>
-      <li class="card">
+      <li class="card" data-body="hips" data-force="up" data-execution="shoulders on bench, barbell across hips, hips lifted to full lockout horizontal">
         <div class="media"><img src="images/hip-thrust-iso.png" alt="Hip Thrust Iso" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Hip Thrust Iso</div>
           <div class="tags">hold &middot; yielding &middot; hips</div>
         </div>
       </li>
-      <li class="card">
+      <li class="card" data-body="hips" data-force="up" data-execution="supine, one foot planted, other leg straight out, hips lifted level on one leg">
         <div class="media"><img src="images/single-leg-bridge-hold.png" alt="Single Leg Bridge Hold" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Single Leg Bridge Hold</div>
           <div class="tags">hold &middot; yielding &middot; hips</div>
         </div>
       </li>
-      <li class="card">
+      <li class="card" data-body="lowback" data-force="up" data-execution="hips on a bench pad, torso straight out horizontal, holding a plate">
         <div class="media"><img src="images/back-extension-iso.png" alt="Back Extension Iso" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Back Extension Iso</div>
           <div class="tags">hold &middot; yielding &middot; lowback</div>
         </div>
       </li>
-      <li class="card">
+      <li class="card" data-body="lowback" data-force="up" data-execution="face-down on a bench edge, legs straight and lifted to horizontal behind">
         <div class="media"><img src="images/reverse-hyper-iso.png" alt="Reverse Hyper Iso" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Reverse Hyper Iso</div>
           <div class="tags">hold &middot; yielding &middot; lowback</div>
         </div>
       </li>
-      <li class="card">
+      <li class="card" data-body="lowback" data-force="brace" data-execution="prone, arms and legs lifted off floor, back extended, chest and thighs raised">
         <div class="media"><img src="images/superman-hold.png" alt="Superman Hold" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Superman Hold</div>
           <div class="tags">hold &middot; yielding &middot; lowback</div>
         </div>
       </li>
-      <li class="card">
+      <li class="card" data-body="neck" data-force="up" data-execution="supine wrestler bridge, weight on crown and feet, hips lifted, back arched">
         <div class="media"><img src="images/neck-bridge-back.png" alt="Neck Bridge Back" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Neck Bridge Back</div>
           <div class="tags">hold &middot; yielding &middot; neck</div>
         </div>
       </li>
-      <li class="card">
+      <li class="card" data-body="neck" data-force="up" data-execution="prone bridge on forehead and toes, body arched face-down, neck loaded">
         <div class="media"><img src="images/neck-bridge-front.png" alt="Neck Bridge Front" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Neck Bridge Front</div>
           <div class="tags">hold &middot; yielding &middot; neck</div>
         </div>
       </li>
-      <li class="card">
+      <li class="card" data-body="pelvis" data-force="brace" data-execution="side-plank with top inner-foot on a bench, bottom leg lifted to it, hips stacked">
         <div class="media"><img src="images/copenhagen-hold.png" alt="Copenhagen Hold" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Copenhagen Hold</div>
           <div class="tags">hold &middot; yielding &middot; pelvis</div>
         </div>
       </li>
-      <li class="card">
+      <li class="card" data-body="pelvis" data-force="brace" data-execution="deep squat knees wide, elbows inside knees, hips fully flexed and open">
         <div class="media"><img src="images/frog-stance-hold.png" alt="Frog Stance Hold" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Frog Stance Hold</div>
           <div class="tags">hold &middot; yielding &middot; pelvis</div>
         </div>
       </li>
-      <li class="card">
+      <li class="card" data-body="quads" data-force="up" data-execution="wide stance toes forward, hips sunk to thigh-parallel, torso vertical, arms out">
         <div class="media"><img src="images/horse-stance-mabu.png" alt="Horse Stance Mabu" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Horse Stance Mabu</div>
           <div class="tags">hold &middot; yielding &middot; quads</div>
         </div>
       </li>
-      <li class="card">
+      <li class="card" data-body="quads" data-force="up" data-execution="long lunge stance, back knee near floor, front thigh parallel, torso upright">
         <div class="media"><img src="images/split-squat-iso.png" alt="Split Squat Iso" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Split Squat Iso</div>
           <div class="tags">hold &middot; yielding &middot; quads</div>
         </div>
       </li>
-      <li class="card">
+      <li class="card" data-body="quads" data-force="up" data-execution="free-standing squat held at 90 deg knee, chest up, arms forward">
         <div class="media"><img src="images/squat-iso-hold.png" alt="Squat Iso Hold" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Squat Iso Hold</div>
           <div class="tags">hold &middot; yielding &middot; quads</div>
         </div>
       </li>
-      <li class="card">
+      <li class="card" data-body="quads" data-force="brace" data-execution="back flat on wall, thighs parallel to floor, knees 90 deg, shins vertical">
         <div class="media"><img src="images/wall-sit.png" alt="Wall Sit" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Wall Sit</div>
           <div class="tags">hold &middot; yielding &middot; quads</div>
         </div>
       </li>
-      <li class="card">
+      <li class="card" data-body="shoulder" data-force="up" data-execution="arms straight out to sides at shoulder height holding weights, frozen in a T">
         <div class="media"><img src="images/lateral-raise-iso.png" alt="Lateral Raise Iso" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Lateral Raise Iso</div>
           <div class="tags">hold &middot; yielding &middot; shoulder</div>
         </div>
       </li>
-      <li class="card">
+      <li class="card" data-body="shoulder" data-force="brace" data-execution="back to wall, arms in goalpost pressed flat against wall at 90 deg">
         <div class="media"><img src="images/scap-wall-slide-hold.png" alt="Scap Wall Slide Hold" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Scap Wall Slide Hold</div>
           <div class="tags">hold &middot; yielding &middot; shoulder</div>
         </div>
       </li>
-      <li class="card">
+      <li class="card" data-body="tibialis" data-force="up" data-execution="heels planted, back against wall, toes pulled up max toward shins, holding dorsiflexion">
         <div class="media"><img src="images/tibialis-raise-iso.png" alt="Tibialis Raise Iso" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Tibialis Raise Iso</div>
           <div class="tags">hold &middot; yielding &middot; tibialis</div>
         </div>
       </li>
-      <li class="card">
+      <li class="card" data-body="wrist" data-force="brace" data-execution="seated hands behind fingers-forward, hips lifted, wrists loaded under bodyweight">
         <div class="media"><img src="images/reverse-plank-wrist.png" alt="Reverse Plank Wrist" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Reverse Plank Wrist</div>
           <div class="tags">hold &middot; yielding &middot; wrist</div>
         </div>
       </li>
-      <li class="card">
+      <li class="card" data-body="ankle" data-force="up" data-execution="seated, top of foot pulling up against a fixed strap, shin still">
         <div class="media"><img src="images/ankle-dorsiflexion-iso.png" alt="Ankle Dorsiflexion Iso" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Ankle Dorsiflexion Iso</div>
           <div class="tags">pull &middot; overcoming &middot; ankle</div>
         </div>
       </li>
-      <li class="card">
+      <li class="card" data-body="arm" data-force="down" data-execution="forearms at 90 deg pulling up on a fixed bar under a table, elbows pinned to ribs">
         <div class="media"><img src="images/biceps-curl-iso-wall.png" alt="Biceps Curl Iso Wall" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Biceps Curl Iso Wall</div>
           <div class="tags">pull &middot; overcoming &middot; arm</div>
         </div>
       </li>
-      <li class="card">
+      <li class="card" data-body="back" data-force="down" data-execution="body straight under a low bar, chest pulled to bar, heels on floor">
         <div class="media"><img src="images/inverted-row-iso.png" alt="Inverted Row Iso" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Inverted Row Iso</div>
           <div class="tags">pull &middot; yielding &middot; back</div>
         </div>
       </li>
-      <li class="card">
+      <li class="card" data-body="back" data-force="down" data-execution="kneeling under an anchored band overhead, elbows pulled down to sides">
         <div class="media"><img src="images/lat-pulldown-iso.png" alt="Lat Pulldown Iso" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Lat Pulldown Iso</div>
           <div class="tags">pull &middot; overcoming &middot; back</div>
         </div>
       </li>
-      <li class="card">
+      <li class="card" data-body="back" data-force="down" data-execution="hinged at hips, hands pulling back on a fixed bar toward the ribs">
         <div class="media"><img src="images/row-iso-wall.png" alt="Row Iso Wall" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Row Iso Wall</div>
           <div class="tags">pull &middot; overcoming &middot; back</div>
         </div>
       </li>
-      <li class="card">
+      <li class="card" data-body="feet" data-force="up" data-execution="standing, drawing the ball of the foot toward the heel to raise the arch, holding the dome">
         <div class="media"><img src="images/short-foot-iso.png" alt="Short Foot Iso" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Short Foot Iso</div>
           <div class="tags">pull &middot; overcoming &middot; feet</div>
         </div>
       </li>
-      <li class="card">
+      <li class="card" data-body="feet" data-force="up" data-execution="seated, toes lifting up against a band over them while forefoot stays down">
         <div class="media"><img src="images/toe-extension-iso.png" alt="Toe Extension Iso" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Toe Extension Iso</div>
           <div class="tags">pull &middot; overcoming &middot; feet</div>
         </div>
       </li>
-      <li class="card">
+      <li class="card" data-body="feet" data-force="up" data-execution="toes gripping and curling a towel into the arch maximally, holding the crunch">
         <div class="media"><img src="images/toe-flexion-iso.png" alt="Toe Flexion Iso" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Toe Flexion Iso</div>
           <div class="tags">pull &middot; overcoming &middot; feet</div>
         </div>
       </li>
-      <li class="card">
+      <li class="card" data-body="hams" data-force="down" data-execution="prone, heel pulling up against a fixed strap to bend the knee, thigh flat">
         <div class="media"><img src="images/ham-curl-iso-wall.png" alt="Ham Curl Iso Wall" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Ham Curl Iso Wall</div>
           <div class="tags">pull &middot; overcoming &middot; hams</div>
         </div>
       </li>
-      <li class="card">
+      <li class="card" data-body="lowback" data-force="up" data-execution="hinged forward, bar across back jammed under fixed pins, driving to stand">
         <div class="media"><img src="images/good-morning-iso-pins.png" alt="Good Morning Iso Pins" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Good Morning Iso Pins</div>
           <div class="tags">pull &middot; overcoming &middot; lowback</div>
         </div>
       </li>
-      <li class="card">
+      <li class="card" data-body="pelvis" data-force="up" data-execution="seated in 90/90, front shin pressing down and back shin into floor isometrically">
         <div class="media"><img src="images/90-90-hip-iso.png" alt="90 90 Hip Iso" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">90 90 Hip Iso</div>
           <div class="tags">pull &middot; overcoming &middot; pelvis</div>
         </div>
       </li>
-      <li class="card">
+      <li class="card" data-body="shoulder" data-force="down" data-execution="band at eye level, elbows high pulled back beside ears, holding end-range">
         <div class="media"><img src="images/face-pull-iso.png" alt="Face Pull Iso" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Face Pull Iso</div>
           <div class="tags">pull &middot; overcoming &middot; shoulder</div>
         </div>
       </li>
-      <li class="card">
+      <li class="card" data-body="tibialis" data-force="up" data-execution="seated leg straight, band over top of foot pulling down, foot pulling up against it">
         <div class="media"><img src="images/tib-iso-band.png" alt="Tib Iso Band" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Tib Iso Band</div>
           <div class="tags">pull &middot; overcoming &middot; tibialis</div>
         </div>
       </li>
-      <li class="card">
+      <li class="card" data-body="wrist" data-force="up" data-execution="forearm on thigh palm-down, back of hand lifting against a fixed strap">
         <div class="media"><img src="images/wrist-extension-iso.png" alt="Wrist Extension Iso" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Wrist Extension Iso</div>
           <div class="tags">pull &middot; overcoming &middot; wrist</div>
         </div>
       </li>
-      <li class="card">
+      <li class="card" data-body="wrist" data-force="up" data-execution="forearm on thigh palm-up, hand pulling up against a fixed strap, wrist frozen">
         <div class="media"><img src="images/wrist-flexion-iso.png" alt="Wrist Flexion Iso" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Wrist Flexion Iso</div>
           <div class="tags">pull &middot; overcoming &middot; wrist</div>
         </div>
       </li>
-      <li class="card">
+      <li class="card" data-body="abductors" data-force="side" data-execution="standing side-on to a doorframe, outer foot pressing outward against the frame">
         <div class="media"><img src="images/abduction-iso-wall.png" alt="Abduction Iso Wall" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Abduction Iso Wall</div>
           <div class="tags">push &middot; overcoming &middot; abductors</div>
         </div>
       </li>
-      <li class="card">
+      <li class="card" data-body="adductors" data-force="up" data-execution="inner foot pressing a fixed object inward, leg straight">
         <div class="media"><img src="images/adduction-iso-wall.png" alt="Adduction Iso Wall" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Adduction Iso Wall</div>
           <div class="tags">push &middot; overcoming &middot; adductors</div>
         </div>
       </li>
-      <li class="card">
+      <li class="card" data-body="ankle" data-force="side" data-execution="seated, outer edge of foot pressing outward against a fixed object">
         <div class="media"><img src="images/ankle-eversion-iso.png" alt="Ankle Eversion Iso" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Ankle Eversion Iso</div>
           <div class="tags">push &middot; overcoming &middot; ankle</div>
         </div>
       </li>
-      <li class="card">
+      <li class="card" data-body="ankle" data-force="side" data-execution="seated, inner edge of foot pressing inward against a fixed object">
         <div class="media"><img src="images/ankle-inversion-iso.png" alt="Ankle Inversion Iso" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Ankle Inversion Iso</div>
           <div class="tags">push &middot; overcoming &middot; ankle</div>
         </div>
       </li>
-      <li class="card">
+      <li class="card" data-body="ankle" data-force="up" data-execution="seated, ball of foot pressing down forward into a fixed strap">
         <div class="media"><img src="images/ankle-plantarflexion-iso.png" alt="Ankle Plantarflexion Iso" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Ankle Plantarflexion Iso</div>
           <div class="tags">push &middot; overcoming &middot; ankle</div>
         </div>
       </li>
-      <li class="card">
+      <li class="card" data-body="arm" data-force="up" data-execution="hands pressing down against a fixed bar to straighten elbows, upper arms fixed at sides">
         <div class="media"><img src="images/triceps-ext-iso-wall.png" alt="Triceps Ext Iso Wall" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Triceps Ext Iso Wall</div>
           <div class="tags">push &middot; overcoming &middot; arm</div>
         </div>
       </li>
-      <li class="card">
+      <li class="card" data-body="calves" data-force="up" data-execution="balls of feet under a fixed bar, driving up onto toes into the immovable bar">
         <div class="media"><img src="images/calf-iso-pins.png" alt="Calf Iso Pins" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Calf Iso Pins</div>
           <div class="tags">push &middot; overcoming &middot; calves</div>
         </div>
       </li>
-      <li class="card">
+      <li class="card" data-body="chest" data-force="up" data-execution="push-up frozen at bottom, chest an inch off floor, elbows 90 deg, body one line">
         <div class="media"><img src="images/pushup-iso-bottom.png" alt="Pushup Iso Bottom" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Pushup Iso Bottom</div>
           <div class="tags">push &middot; yielding &middot; chest</div>
         </div>
       </li>
-      <li class="card">
+      <li class="card" data-body="chest" data-force="up" data-execution="push-up frozen halfway up, elbows 110 deg, rigid plank line">
         <div class="media"><img src="images/pushup-iso-mid.png" alt="Pushup Iso Mid" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Pushup Iso Mid</div>
           <div class="tags">push &middot; yielding &middot; chest</div>
         </div>
       </li>
-      <li class="card">
+      <li class="card" data-body="chest" data-force="up" data-execution="staggered stance, both palms pressing hard into a wall at chest height">
         <div class="media"><img src="images/wall-press-iso.png" alt="Wall Press Iso" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Wall Press Iso</div>
           <div class="tags">push &middot; overcoming &middot; chest</div>
         </div>
       </li>
-      <li class="card">
+      <li class="card" data-body="hips" data-force="side" data-execution="band around knees, knees pressing outward against the band, holding spread">
         <div class="media"><img src="images/hip-abduction-iso-band.png" alt="Hip Abduction Iso Band" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Hip Abduction Iso Band</div>
           <div class="tags">push &middot; overcoming &middot; hips</div>
         </div>
       </li>
-      <li class="card">
+      <li class="card" data-body="hips" data-force="back" data-execution="standing, one heel pressing back into a fixed pad, glute driving, torso upright">
         <div class="media"><img src="images/hip-extension-iso-wall.png" alt="Hip Extension Iso Wall" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Hip Extension Iso Wall</div>
           <div class="tags">push &middot; overcoming &middot; hips</div>
         </div>
       </li>
-      <li class="card">
+      <li class="card" data-body="neck" data-force="back" data-execution="hands behind skull, head presses back into hands, neck straight">
         <div class="media"><img src="images/neck-extension-hold.png" alt="Neck Extension Hold" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Neck Extension Hold</div>
           <div class="tags">push &middot; overcoming &middot; neck</div>
         </div>
       </li>
-      <li class="card">
+      <li class="card" data-body="neck" data-force="forward" data-execution="seated upright, palms on forehead, head pushes forward into hands, nothing moves">
         <div class="media"><img src="images/neck-flexion-hold.png" alt="Neck Flexion Hold" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Neck Flexion Hold</div>
           <div class="tags">push &middot; overcoming &middot; neck</div>
         </div>
       </li>
-      <li class="card">
+      <li class="card" data-body="neck" data-force="left" data-execution="right palm on left temple, head presses sideways into hand, ears level">
+        <div class="media"><img src="images/neck-lateral-hold-L.png" alt="Neck Lateral Hold L" loading="lazy" decoding="async"></div>
+        <div class="meta">
+          <div class="name">Neck Lateral Hold L</div>
+          <div class="tags">push &middot; overcoming &middot; neck</div>
+        </div>
+      </li>
+      <li class="card" data-body="neck" data-force="right" data-execution="left palm on right temple, head presses sideways into hand, ears level">
+        <div class="media"><img src="images/neck-lateral-hold-R.png" alt="Neck Lateral Hold R" loading="lazy" decoding="async"></div>
+        <div class="meta">
+          <div class="name">Neck Lateral Hold R</div>
+          <div class="tags">push &middot; overcoming &middot; neck</div>
+        </div>
+      </li>
+      <li class="card" data-body="pelvis" data-force="in" data-execution="supine knees bent, a ball between knees, knees squeezing inward maximally">
         <div class="media"><img src="images/adductor-squeeze-iso.png" alt="Adductor Squeeze Iso" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Adductor Squeeze Iso</div>
           <div class="tags">push &middot; overcoming &middot; pelvis</div>
         </div>
       </li>
-      <li class="card">
+      <li class="card" data-body="quads" data-force="forward" data-execution="seated, top of foot pressing forward against a fixed strap to straighten the knee">
         <div class="media"><img src="images/leg-extension-iso-wall.png" alt="Leg Extension Iso Wall" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Leg Extension Iso Wall</div>
           <div class="tags">push &middot; overcoming &middot; quads</div>
         </div>
       </li>
-      <li class="card no-img">
-        <div class="media"><div class="ph" aria-hidden="true">push</div></div>
-        <div class="meta">
-          <div class="name">Neck Lateral Hold L</div>
-          <div class="tags">push &middot; overcoming &middot; neck</div>
-        </div>
-      </li>
-      <li class="card no-img">
-        <div class="media"><div class="ph" aria-hidden="true">push</div></div>
-        <div class="meta">
-          <div class="name">Neck Lateral Hold R</div>
-          <div class="tags">push &middot; overcoming &middot; neck</div>
-        </div>
-      </li>
-      <li class="card no-img">
-        <div class="media"><div class="ph" aria-hidden="true">push</div></div>
+      <li class="card" data-body="quads" data-force="up" data-execution="bar on back jammed under fixed pins at parallel, driving up into the pins">
+        <div class="media"><img src="images/squat-iso-pins.png" alt="Squat Iso Pins" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Squat Iso Pins</div>
           <div class="tags">push &middot; overcoming &middot; quads</div>
         </div>
       </li>
-      <li class="card no-img">
-        <div class="media"><div class="ph" aria-hidden="true">push</div></div>
+      <li class="card" data-body="shoulder" data-force="up" data-execution="under a fixed ledge, arms overhead pressing up into immovable surface">
+        <div class="media"><img src="images/wall-shoulder-press-iso.png" alt="Wall Shoulder Press Iso" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Wall Shoulder Press Iso</div>
           <div class="tags">push &middot; overcoming &middot; shoulder</div>
         </div>
       </li>
-      <li class="card no-img">
-        <div class="media"><div class="ph" aria-hidden="true">push</div></div>
+      <li class="card" data-body="wrist" data-force="side" data-execution="forearm neutral thumb up, hand pressing a fixed object side to side, wrist locked">
+        <div class="media"><img src="images/wrist-radial-ulnar-iso.png" alt="Wrist Radial Ulnar Iso" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Wrist Radial Ulnar Iso</div>
           <div class="tags">push &middot; overcoming &middot; wrist</div>
@@ -639,21 +700,119 @@
     </ul>
     <footer>Empty Words &middot; isometric hold catalog</footer>
   </div>
-  <div id="lb" hidden><img alt=""><span class="cap"></span></div>
+  <div id="lb" hidden>
+    <div class="lb-panel" role="dialog" aria-modal="true" aria-label="Hold view">
+      <button type="button" class="close" aria-label="Close">×</button>
+      <div class="lb-stage">
+        <img alt="">
+        <div class="force" aria-hidden="true"><span></span></div>
+      </div>
+      <div class="lb-meta">
+        <span class="cap"></span>
+        <span class="cue"></span>
+      </div>
+      <div class="timer" data-running="false">
+        <button type="button" data-seconds="20">20s</button>
+        <button type="button" data-seconds="40">40s</button>
+        <button type="button" data-seconds="60">60s</button>
+        <input type="number" min="5" max="600" step="5" inputmode="numeric" placeholder="sec" aria-label="Custom seconds">
+        <button type="button" data-custom="true">Go</button>
+        <div class="readout">00:00</div>
+        <div class="bar"><i></i></div>
+      </div>
+    </div>
+  </div>
   <script>
   (function () {
+    var cards = Array.prototype.slice.call(document.querySelectorAll(".card"));
+    document.querySelectorAll(".tab").forEach(function (tab) {
+      tab.addEventListener("click", function () {
+        var filter = tab.getAttribute("data-filter");
+        document.querySelectorAll(".tab").forEach(function (t) { t.classList.remove("active"); });
+        tab.classList.add("active");
+        cards.forEach(function (card) {
+          card.hidden = filter !== "all" && card.getAttribute("data-body") !== filter;
+        });
+      });
+    });
+
     var lb = document.getElementById("lb");
     var lbimg = lb.querySelector("img");
     var cap = lb.querySelector(".cap");
+    var cue = lb.querySelector(".cue");
+    var force = lb.querySelector(".force");
+    var timer = lb.querySelector(".timer");
+    var input = timer.querySelector("input");
+    var readout = timer.querySelector(".readout");
+    var fill = timer.querySelector(".bar i");
+    var interval = null;
+    var startedAt = 0;
+    var duration = 0;
+    function fmt(seconds) {
+      var s = Math.max(0, Math.ceil(seconds));
+      return String(Math.floor(s / 60)).padStart(2, "0") + ":" + String(s % 60).padStart(2, "0");
+    }
+    function stopTimer() {
+      if (interval) clearInterval(interval);
+      interval = null;
+      timer.setAttribute("data-running", "false");
+      fill.style.width = "0%";
+      readout.textContent = "00:00";
+    }
+    function startTimer(seconds) {
+      seconds = Number(seconds);
+      if (!Number.isFinite(seconds) || seconds <= 0) return;
+      stopTimer();
+      duration = seconds * 1000;
+      startedAt = Date.now();
+      timer.setAttribute("data-running", "true");
+      readout.textContent = fmt(seconds);
+      interval = setInterval(function () {
+        var elapsed = Date.now() - startedAt;
+        var left = Math.max(0, (duration - elapsed) / 1000);
+        readout.textContent = fmt(left);
+        fill.style.width = Math.min(100, elapsed / duration * 100) + "%";
+        if (elapsed >= duration) {
+          clearInterval(interval);
+          interval = null;
+          timer.setAttribute("data-running", "done");
+          readout.textContent = "00:00";
+          fill.style.width = "100%";
+        }
+      }, 200);
+    }
+    timer.querySelectorAll("button[data-seconds]").forEach(function (button) {
+      button.addEventListener("click", function (e) {
+        e.stopPropagation();
+        startTimer(button.getAttribute("data-seconds"));
+      });
+    });
+    timer.querySelector("button[data-custom]").addEventListener("click", function (e) {
+      e.stopPropagation();
+      startTimer(input.value);
+    });
+    input.addEventListener("click", function (e) { e.stopPropagation(); });
+    input.addEventListener("keydown", function (e) {
+      if (e.key === "Enter") startTimer(input.value);
+    });
+    lb.querySelector(".close").addEventListener("click", function (e) {
+      e.stopPropagation();
+      close();
+    });
     document.querySelectorAll(".media img").forEach(function (im) {
       im.addEventListener("click", function () {
+        var card = im.closest(".card");
         lbimg.src = im.src; lbimg.alt = im.alt;
         cap.textContent = im.alt;
+        cue.textContent = card.getAttribute("data-execution") || "";
+        force.setAttribute("data-force", card.getAttribute("data-force") || "up");
         lb.hidden = false; document.body.style.overflow = "hidden";
       });
     });
-    function close() { lb.hidden = true; lbimg.src = ""; document.body.style.overflow = ""; }
-    lb.addEventListener("click", close);
+    function close() { stopTimer(); lb.hidden = true; lbimg.src = ""; document.body.style.overflow = ""; }
+    lb.addEventListener("click", function (e) {
+      if (e.target === lb) close();
+    });
     document.addEventListener("keydown", function (e) {
       if (e.key === "Escape" && !lb.hidden) close();
     });
