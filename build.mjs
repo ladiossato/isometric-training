@@ -67,7 +67,11 @@ const html = `<!doctype html>
   ul.grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 0.75rem; }
   .card { border: 1px solid var(--border); background: #0d0d0d; overflow: hidden; display: flex; flex-direction: column; }
   .media { aspect-ratio: 1 / 1; background: #0f0f0f; display: grid; place-items: center; overflow: hidden; border-bottom: 1px solid var(--border); }
-  .media img { width: 100%; height: 100%; object-fit: cover; display: block; filter: grayscale(0.15) contrast(1.03); }
+  .media img { width: 100%; height: 100%; object-fit: cover; display: block; filter: grayscale(0.15) contrast(1.03); cursor: zoom-in; }
+  #lb { position: fixed; inset: 0; z-index: 50; background: rgba(5,5,5,0.96); display: grid; place-items: center; padding: 1rem; cursor: zoom-out; }
+  #lb[hidden] { display: none; }
+  #lb img { max-width: 100%; max-height: 100%; object-fit: contain; border: 1px solid var(--border); }
+  #lb .cap { position: fixed; left: 0; right: 0; bottom: env(safe-area-inset-bottom, 1rem); text-align: center; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
   .ph { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: #3f3f3f; }
   .card.no-img { opacity: 0.62; }
   .meta { padding: 0.7rem 0.75rem 0.85rem; }
@@ -89,6 +93,26 @@ ${ordered.map(card).join("\n")}
     </ul>
     <footer>Empty Words &middot; isometric hold catalog</footer>
   </div>
+  <div id="lb" hidden><img alt=""><span class="cap"></span></div>
+  <script>
+  (function () {
+    var lb = document.getElementById("lb");
+    var lbimg = lb.querySelector("img");
+    var cap = lb.querySelector(".cap");
+    document.querySelectorAll(".media img").forEach(function (im) {
+      im.addEventListener("click", function () {
+        lbimg.src = im.src; lbimg.alt = im.alt;
+        cap.textContent = im.alt;
+        lb.hidden = false; document.body.style.overflow = "hidden";
+      });
+    });
+    function close() { lb.hidden = true; lbimg.src = ""; document.body.style.overflow = ""; }
+    lb.addEventListener("click", close);
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && !lb.hidden) close();
+    });
+  })();
+  </script>
 </body>
 </html>
 `;
