@@ -16,6 +16,7 @@ const esc = (s) =>
 const imgPath = (slug) => `images/${slug}.png`;
 const hasImg = (slug) => existsSync(new URL(`./images/${slug}.png`, import.meta.url));
 const bodyParts = [...new Set(holds.map((h) => h.body_part))].sort();
+const isoModes = [...new Set(holds.map((h) => h.iso_mode))].sort();
 
 const rendered = holds.filter((h) => hasImg(h.slug)).length;
 
@@ -140,7 +141,7 @@ const card = (h) => {
   const media = has
     ? `<img src="${esc(imgPath(h.slug))}" alt="${esc(titleCase(h.slug))}" loading="lazy" decoding="async">`
     : `<div class="ph" aria-hidden="true">${esc(h.iso_class)}</div>`;
-  return `      <li class="card${has ? "" : " no-img"}" data-body="${esc(h.body_part)}" data-force="${esc(forceDirection(h))}" data-execution="${esc(h.execution)}">
+  return `      <li class="card${has ? "" : " no-img"}" data-body="${esc(h.body_part)}" data-mode="${esc(h.iso_mode)}" data-force="${esc(forceDirection(h))}" data-execution="${esc(h.execution)}">
         <div class="media">${media}</div>
         <div class="meta">
           <div class="name">${esc(titleCase(h.slug))}</div>
@@ -184,9 +185,9 @@ const html = `<!doctype html>
   .page-tabs { display: flex; gap: 0.5rem; margin-top: 1.35rem; }
   .page-tab { appearance: none; border: 1px solid var(--border); background: #0d0d0d; color: var(--muted); padding: 0.55rem 0.75rem; font: inherit; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; cursor: pointer; }
   .page-tab.active { border-color: var(--border-strong); color: var(--fg); background: #151515; }
-  .tabs { position: sticky; top: 0; z-index: 5; display: flex; gap: 0.4rem; overflow-x: auto; margin-top: 1.35rem; padding: 0.65rem 0; background: rgba(10,10,10,0.92); backdrop-filter: blur(10px); scrollbar-width: none; }
-  .tabs[hidden] { display: none; }
-  .tabs::-webkit-scrollbar { display: none; }
+  .filter-tabs { display: flex; gap: 0.4rem; overflow-x: auto; margin-top: 1rem; padding: 0.45rem 0; background: rgba(10,10,10,0.92); scrollbar-width: none; }
+  .filter-tabs[hidden] { display: none; }
+  .filter-tabs::-webkit-scrollbar { display: none; }
   .tab { appearance: none; border: 1px solid var(--border); background: #0d0d0d; color: var(--muted); padding: 0.45rem 0.65rem; font: inherit; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; white-space: nowrap; cursor: pointer; }
   .tab.active { border-color: var(--border-strong); color: var(--fg); background: #151515; }
   ul.grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 0.75rem; }
@@ -221,7 +222,7 @@ const html = `<!doctype html>
   .timer button:hover { border-color: var(--border-strong); background: #171717; }
   .timer input::placeholder { color: #555; }
   .readout { height: 38px; border: 1px solid var(--border); display: grid; place-items: center; color: var(--fg); font-size: 12px; letter-spacing: 0.14em; }
-  .bar { grid-column: 1 / -1; height: 3px; background: #181818; overflow: hidden; }
+  .bar { grid-column: 1 / -1; height: 5px; background: #181818; overflow: hidden; }
   .bar i { display: block; width: 0%; height: 100%; background: #ededed; transition: width 0.18s linear; }
   .ph { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: #3f3f3f; }
   .card.no-img { opacity: 0.62; }
@@ -273,7 +274,11 @@ const html = `<!doctype html>
         <button type="button" class="page-tab active" data-view="catalog">Catalog</button>
         <button type="button" class="page-tab" data-view="routines">Routines</button>
       </nav>
-      <nav class="tabs" aria-label="Body part filters">
+      <nav class="filter-tabs mode-tabs" aria-label="Isometric mode filters">
+        <button type="button" class="tab active" data-mode-filter="all">All Types</button>
+${isoModes.map((mode) => `        <button type="button" class="tab" data-mode-filter="${esc(mode)}">${esc(titleCase(mode))}</button>`).join("\n")}
+      </nav>
+      <nav class="filter-tabs body-tabs" aria-label="Body part filters">
         <button type="button" class="tab active" data-filter="all">All</button>
 ${bodyParts.map((part) => `        <button type="button" class="tab" data-filter="${esc(part)}">${esc(titleCase(part))}</button>`).join("\n")}
       </nav>
@@ -366,19 +371,36 @@ ${ordered.map(card).join("\n")}
         tab.classList.add("active");
         document.getElementById("catalogView").hidden = view !== "catalog";
         document.getElementById("routinesView").hidden = view !== "routines";
-        document.querySelector(".tabs").hidden = view !== "catalog";
+        document.querySelectorAll(".filter-tabs").forEach(function (filters) {
+          filters.hidden = view !== "catalog";
+        });
       });
     });
 
     var cards = Array.prototype.slice.call(document.querySelectorAll(".card"));
-    document.querySelectorAll(".tab").forEach(function (tab) {
+    var activeBody = "all";
+    var activeMode = "all";
+    function applyCatalogFilters() {
+      cards.forEach(function (card) {
+        var bodyPass = activeBody === "all" || card.getAttribute("data-body") === activeBody;
+        var modePass = activeMode === "all" || card.getAttribute("data-mode") === activeMode;
+        card.hidden = !(bodyPass && modePass);
+      });
+    }
+    document.querySelectorAll(".body-tabs .tab").forEach(function (tab) {
       tab.addEventListener("click", function () {
-        var filter = tab.getAttribute("data-filter");
-        document.querySelectorAll(".tab").forEach(function (t) { t.classList.remove("active"); });
+        activeBody = tab.getAttribute("data-filter");
+        document.querySelectorAll(".body-tabs .tab").forEach(function (t) { t.classList.remove("active"); });
         tab.classList.add("active");
-        cards.forEach(function (card) {
-          card.hidden = filter !== "all" && card.getAttribute("data-body") !== filter;
-        });
+        applyCatalogFilters();
+      });
+    });
+    document.querySelectorAll(".mode-tabs .tab").forEach(function (tab) {
+      tab.addEventListener("click", function () {
+        activeMode = tab.getAttribute("data-mode-filter");
+        document.querySelectorAll(".mode-tabs .tab").forEach(function (t) { t.classList.remove("active"); });
+        tab.classList.add("active");
+        applyCatalogFilters();
       });
     });
 
@@ -395,7 +417,7 @@ ${ordered.map(card).join("\n")}
     var startedAt = 0;
     var duration = 0;
     function fmt(seconds) {
-      var s = Math.max(0, Math.ceil(seconds));
+      var s = Math.max(0, Math.floor(seconds));
       return String(Math.floor(s / 60)).padStart(2, "0") + ":" + String(s % 60).padStart(2, "0");
     }
     function stopTimer() {
@@ -515,6 +537,7 @@ ${ordered.map(card).join("\n")}
       routineState.startedAt = Date.now();
       routineTimer.setAttribute("data-running", "true");
       routineHold.textContent = "Holding";
+      routineFill.style.width = "1%";
       routineState.interval = setInterval(function () {
         var elapsed = Date.now() - routineState.startedAt;
         var left = Math.max(0, (routineState.duration - elapsed) / 1000);
@@ -557,6 +580,7 @@ ${ordered.map(card).join("\n")}
       routineState.index = 0;
       routinePlayer.hidden = false;
       renderRoutineStep();
+      routinePlayer.scrollIntoView({ block: "start", behavior: "smooth" });
     }
 
     function goRoutine(delta) {
