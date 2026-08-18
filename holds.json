@@ -1,0 +1,506 @@
+[
+  {
+    "slug": "ab-wheel-iso",
+    "iso_mode": "yielding",
+    "iso_class": "brace",
+    "body_part": "core"
+  },
+  {
+    "slug": "bird-dog-hold",
+    "iso_mode": "yielding",
+    "iso_class": "brace",
+    "body_part": "core"
+  },
+  {
+    "slug": "hollow-body-hold",
+    "iso_mode": "yielding",
+    "iso_class": "brace",
+    "body_part": "core"
+  },
+  {
+    "slug": "pallof-press-iso",
+    "iso_mode": "overcoming",
+    "iso_class": "brace",
+    "body_part": "core"
+  },
+  {
+    "slug": "plank-forearm",
+    "iso_mode": "yielding",
+    "iso_class": "brace",
+    "body_part": "core"
+  },
+  {
+    "slug": "plank-high",
+    "iso_mode": "yielding",
+    "iso_class": "brace",
+    "body_part": "core"
+  },
+  {
+    "slug": "side-plank-forearm",
+    "iso_mode": "yielding",
+    "iso_class": "brace",
+    "body_part": "core"
+  },
+  {
+    "slug": "pullup-iso-mid",
+    "iso_mode": "yielding",
+    "iso_class": "hang",
+    "body_part": "back"
+  },
+  {
+    "slug": "pullup-iso-top",
+    "iso_mode": "yielding",
+    "iso_class": "hang",
+    "body_part": "back"
+  },
+  {
+    "slug": "tiptoe-heel-hang",
+    "iso_mode": "yielding",
+    "iso_class": "hang",
+    "body_part": "feet"
+  },
+  {
+    "slug": "dead-hang-grip",
+    "iso_mode": "yielding",
+    "iso_class": "hang",
+    "body_part": "grip"
+  },
+  {
+    "slug": "one-arm-hang-grip",
+    "iso_mode": "yielding",
+    "iso_class": "hang",
+    "body_part": "grip"
+  },
+  {
+    "slug": "towel-hang-grip",
+    "iso_mode": "yielding",
+    "iso_class": "hang",
+    "body_part": "grip"
+  },
+  {
+    "slug": "neck-hang-strap",
+    "iso_mode": "yielding",
+    "iso_class": "hang",
+    "body_part": "neck"
+  },
+  {
+    "slug": "scap-hang-active",
+    "iso_mode": "yielding",
+    "iso_class": "hang",
+    "body_part": "shoulder"
+  },
+  {
+    "slug": "side-lying-abduction-iso",
+    "iso_mode": "yielding",
+    "iso_class": "hold",
+    "body_part": "abductors"
+  },
+  {
+    "slug": "sumo-squat-iso",
+    "iso_mode": "yielding",
+    "iso_class": "hold",
+    "body_part": "adductors"
+  },
+  {
+    "slug": "single-leg-balance-iso",
+    "iso_mode": "yielding",
+    "iso_class": "hold",
+    "body_part": "ankle"
+  },
+  {
+    "slug": "biceps-curl-iso-weight",
+    "iso_mode": "yielding",
+    "iso_class": "hold",
+    "body_part": "arm"
+  },
+  {
+    "slug": "triceps-bench-lockout",
+    "iso_mode": "yielding",
+    "iso_class": "hold",
+    "body_part": "arm"
+  },
+  {
+    "slug": "calf-raise-iso-top",
+    "iso_mode": "yielding",
+    "iso_class": "hold",
+    "body_part": "calves"
+  },
+  {
+    "slug": "seated-calf-iso",
+    "iso_mode": "yielding",
+    "iso_class": "hold",
+    "body_part": "calves"
+  },
+  {
+    "slug": "single-leg-calf-iso",
+    "iso_mode": "yielding",
+    "iso_class": "hold",
+    "body_part": "calves"
+  },
+  {
+    "slug": "chest-fly-iso-hold",
+    "iso_mode": "yielding",
+    "iso_class": "hold",
+    "body_part": "chest"
+  },
+  {
+    "slug": "suitcase-hold",
+    "iso_mode": "yielding",
+    "iso_class": "hold",
+    "body_part": "core"
+  },
+  {
+    "slug": "toe-stand-hold",
+    "iso_mode": "yielding",
+    "iso_class": "hold",
+    "body_part": "feet"
+  },
+  {
+    "slug": "plate-pinch-hold",
+    "iso_mode": "yielding",
+    "iso_class": "hold",
+    "body_part": "grip"
+  },
+  {
+    "slug": "bridge-heels-iso",
+    "iso_mode": "yielding",
+    "iso_class": "hold",
+    "body_part": "hams"
+  },
+  {
+    "slug": "nordic-iso-hold",
+    "iso_mode": "yielding",
+    "iso_class": "hold",
+    "body_part": "hams"
+  },
+  {
+    "slug": "single-leg-rdl-iso",
+    "iso_mode": "yielding",
+    "iso_class": "hold",
+    "body_part": "hams"
+  },
+  {
+    "slug": "glute-bridge-hold",
+    "iso_mode": "yielding",
+    "iso_class": "hold",
+    "body_part": "hips"
+  },
+  {
+    "slug": "hip-thrust-iso",
+    "iso_mode": "yielding",
+    "iso_class": "hold",
+    "body_part": "hips"
+  },
+  {
+    "slug": "single-leg-bridge-hold",
+    "iso_mode": "yielding",
+    "iso_class": "hold",
+    "body_part": "hips"
+  },
+  {
+    "slug": "back-extension-iso",
+    "iso_mode": "yielding",
+    "iso_class": "hold",
+    "body_part": "lowback"
+  },
+  {
+    "slug": "reverse-hyper-iso",
+    "iso_mode": "yielding",
+    "iso_class": "hold",
+    "body_part": "lowback"
+  },
+  {
+    "slug": "superman-hold",
+    "iso_mode": "yielding",
+    "iso_class": "hold",
+    "body_part": "lowback"
+  },
+  {
+    "slug": "neck-bridge-back",
+    "iso_mode": "yielding",
+    "iso_class": "hold",
+    "body_part": "neck"
+  },
+  {
+    "slug": "neck-bridge-front",
+    "iso_mode": "yielding",
+    "iso_class": "hold",
+    "body_part": "neck"
+  },
+  {
+    "slug": "copenhagen-hold",
+    "iso_mode": "yielding",
+    "iso_class": "hold",
+    "body_part": "pelvis"
+  },
+  {
+    "slug": "frog-stance-hold",
+    "iso_mode": "yielding",
+    "iso_class": "hold",
+    "body_part": "pelvis"
+  },
+  {
+    "slug": "horse-stance-mabu",
+    "iso_mode": "yielding",
+    "iso_class": "hold",
+    "body_part": "quads"
+  },
+  {
+    "slug": "split-squat-iso",
+    "iso_mode": "yielding",
+    "iso_class": "hold",
+    "body_part": "quads"
+  },
+  {
+    "slug": "squat-iso-hold",
+    "iso_mode": "yielding",
+    "iso_class": "hold",
+    "body_part": "quads"
+  },
+  {
+    "slug": "wall-sit",
+    "iso_mode": "yielding",
+    "iso_class": "hold",
+    "body_part": "quads"
+  },
+  {
+    "slug": "lateral-raise-iso",
+    "iso_mode": "yielding",
+    "iso_class": "hold",
+    "body_part": "shoulder"
+  },
+  {
+    "slug": "scap-wall-slide-hold",
+    "iso_mode": "yielding",
+    "iso_class": "hold",
+    "body_part": "shoulder"
+  },
+  {
+    "slug": "tibialis-raise-iso",
+    "iso_mode": "yielding",
+    "iso_class": "hold",
+    "body_part": "tibialis"
+  },
+  {
+    "slug": "reverse-plank-wrist",
+    "iso_mode": "yielding",
+    "iso_class": "hold",
+    "body_part": "wrist"
+  },
+  {
+    "slug": "ankle-dorsiflexion-iso",
+    "iso_mode": "overcoming",
+    "iso_class": "pull",
+    "body_part": "ankle"
+  },
+  {
+    "slug": "biceps-curl-iso-wall",
+    "iso_mode": "overcoming",
+    "iso_class": "pull",
+    "body_part": "arm"
+  },
+  {
+    "slug": "inverted-row-iso",
+    "iso_mode": "yielding",
+    "iso_class": "pull",
+    "body_part": "back"
+  },
+  {
+    "slug": "lat-pulldown-iso",
+    "iso_mode": "overcoming",
+    "iso_class": "pull",
+    "body_part": "back"
+  },
+  {
+    "slug": "row-iso-wall",
+    "iso_mode": "overcoming",
+    "iso_class": "pull",
+    "body_part": "back"
+  },
+  {
+    "slug": "short-foot-iso",
+    "iso_mode": "overcoming",
+    "iso_class": "pull",
+    "body_part": "feet"
+  },
+  {
+    "slug": "toe-extension-iso",
+    "iso_mode": "overcoming",
+    "iso_class": "pull",
+    "body_part": "feet"
+  },
+  {
+    "slug": "toe-flexion-iso",
+    "iso_mode": "overcoming",
+    "iso_class": "pull",
+    "body_part": "feet"
+  },
+  {
+    "slug": "ham-curl-iso-wall",
+    "iso_mode": "overcoming",
+    "iso_class": "pull",
+    "body_part": "hams"
+  },
+  {
+    "slug": "good-morning-iso-pins",
+    "iso_mode": "overcoming",
+    "iso_class": "pull",
+    "body_part": "lowback"
+  },
+  {
+    "slug": "90-90-hip-iso",
+    "iso_mode": "overcoming",
+    "iso_class": "pull",
+    "body_part": "pelvis"
+  },
+  {
+    "slug": "face-pull-iso",
+    "iso_mode": "overcoming",
+    "iso_class": "pull",
+    "body_part": "shoulder"
+  },
+  {
+    "slug": "tib-iso-band",
+    "iso_mode": "overcoming",
+    "iso_class": "pull",
+    "body_part": "tibialis"
+  },
+  {
+    "slug": "wrist-extension-iso",
+    "iso_mode": "overcoming",
+    "iso_class": "pull",
+    "body_part": "wrist"
+  },
+  {
+    "slug": "wrist-flexion-iso",
+    "iso_mode": "overcoming",
+    "iso_class": "pull",
+    "body_part": "wrist"
+  },
+  {
+    "slug": "abduction-iso-wall",
+    "iso_mode": "overcoming",
+    "iso_class": "push",
+    "body_part": "abductors"
+  },
+  {
+    "slug": "adduction-iso-wall",
+    "iso_mode": "overcoming",
+    "iso_class": "push",
+    "body_part": "adductors"
+  },
+  {
+    "slug": "ankle-eversion-iso",
+    "iso_mode": "overcoming",
+    "iso_class": "push",
+    "body_part": "ankle"
+  },
+  {
+    "slug": "ankle-inversion-iso",
+    "iso_mode": "overcoming",
+    "iso_class": "push",
+    "body_part": "ankle"
+  },
+  {
+    "slug": "ankle-plantarflexion-iso",
+    "iso_mode": "overcoming",
+    "iso_class": "push",
+    "body_part": "ankle"
+  },
+  {
+    "slug": "triceps-ext-iso-wall",
+    "iso_mode": "overcoming",
+    "iso_class": "push",
+    "body_part": "arm"
+  },
+  {
+    "slug": "calf-iso-pins",
+    "iso_mode": "overcoming",
+    "iso_class": "push",
+    "body_part": "calves"
+  },
+  {
+    "slug": "pushup-iso-bottom",
+    "iso_mode": "yielding",
+    "iso_class": "push",
+    "body_part": "chest"
+  },
+  {
+    "slug": "pushup-iso-mid",
+    "iso_mode": "yielding",
+    "iso_class": "push",
+    "body_part": "chest"
+  },
+  {
+    "slug": "wall-press-iso",
+    "iso_mode": "overcoming",
+    "iso_class": "push",
+    "body_part": "chest"
+  },
+  {
+    "slug": "hip-abduction-iso-band",
+    "iso_mode": "overcoming",
+    "iso_class": "push",
+    "body_part": "hips"
+  },
+  {
+    "slug": "hip-extension-iso-wall",
+    "iso_mode": "overcoming",
+    "iso_class": "push",
+    "body_part": "hips"
+  },
+  {
+    "slug": "neck-extension-hold",
+    "iso_mode": "overcoming",
+    "iso_class": "push",
+    "body_part": "neck"
+  },
+  {
+    "slug": "neck-flexion-hold",
+    "iso_mode": "overcoming",
+    "iso_class": "push",
+    "body_part": "neck"
+  },
+  {
+    "slug": "neck-lateral-hold-L",
+    "iso_mode": "overcoming",
+    "iso_class": "push",
+    "body_part": "neck"
+  },
+  {
+    "slug": "neck-lateral-hold-R",
+    "iso_mode": "overcoming",
+    "iso_class": "push",
+    "body_part": "neck"
+  },
+  {
+    "slug": "adductor-squeeze-iso",
+    "iso_mode": "overcoming",
+    "iso_class": "push",
+    "body_part": "pelvis"
+  },
+  {
+    "slug": "leg-extension-iso-wall",
+    "iso_mode": "overcoming",
+    "iso_class": "push",
+    "body_part": "quads"
+  },
+  {
+    "slug": "squat-iso-pins",
+    "iso_mode": "overcoming",
+    "iso_class": "push",
+    "body_part": "quads"
+  },
+  {
+    "slug": "wall-shoulder-press-iso",
+    "iso_mode": "overcoming",
+    "iso_class": "push",
+    "body_part": "shoulder"
+  },
+  {
+    "slug": "wrist-radial-ulnar-iso",
+    "iso_mode": "overcoming",
+    "iso_class": "push",
+    "body_part": "wrist"
+  }
+]

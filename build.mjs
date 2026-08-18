@@ -1,36 +1,43 @@
-// Regenerates index.html from the training.movements catalog.
-// Usage: set -a; source /home/kai/.config/hhg-credentials/empty-words-training.env; set +a; node build.mjs
-import postgres from "postgres";
-import { writeFileSync } from "fs";
+// Regenerates index.html from holds.json + local images/.
+// No database or network needed. Run: node build.mjs
+//
+// To add an exercise image: drop a file at images/<slug>.png (slug = the
+// "slug" field in holds.json, e.g. images/dead-hang-grip.png). Then rerun
+// this script and commit. Missing images render as a clean placeholder.
+import { readFileSync, writeFileSync, existsSync } from "fs";
 
-const sql = postgres(process.env.DATABASE_URL, { ssl: "require" });
+const holds = JSON.parse(readFileSync(new URL("./holds.json", import.meta.url)));
 
 const titleCase = (s) =>
   s.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
 const esc = (s) =>
   String(s ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 
-const rows = await sql`
-  select name, iso_mode, iso_class, body_part, image_url
-  from training.movements
-  where active = true
-  order by (image_url is null), iso_class, body_part, name`;
-await sql.end();
+const imgPath = (slug) => `images/${slug}.png`;
+const hasImg = (slug) => existsSync(new URL(`./images/${slug}.png`, import.meta.url));
 
-const rendered = rows.filter((r) => r.image_url).length;
+const rendered = holds.filter((h) => hasImg(h.slug)).length;
 
-const card = (r) => {
-  const media = r.image_url
-    ? `<img src="${esc(r.image_url)}" alt="${esc(titleCase(r.name))}" loading="lazy" decoding="async">`
-    : `<div class="ph" aria-hidden="true">${esc(r.iso_class)}</div>`;
-  return `      <li class="card${r.image_url ? "" : " no-img"}">
+const card = (h) => {
+  const has = hasImg(h.slug);
+  const media = has
+    ? `<img src="${esc(imgPath(h.slug))}" alt="${esc(titleCase(h.slug))}" loading="lazy" decoding="async">`
+    : `<div class="ph" aria-hidden="true">${esc(h.iso_class)}</div>`;
+  return `      <li class="card${has ? "" : " no-img"}">
         <div class="media">${media}</div>
         <div class="meta">
-          <div class="name">${esc(titleCase(r.name))}</div>
-          <div class="tags">${esc(r.iso_class)} &middot; ${esc(r.iso_mode)} &middot; ${esc(r.body_part)}</div>
+          <div class="name">${esc(titleCase(h.slug))}</div>
+          <div class="tags">${esc(h.iso_class)} &middot; ${esc(h.iso_mode)} &middot; ${esc(h.body_part)}</div>
         </div>
       </li>`;
 };
+
+// images first, then by class/body_part/slug
+const ordered = [...holds].sort((a, b) => {
+  const ai = hasImg(a.slug) ? 0 : 1, bi = hasImg(b.slug) ? 0 : 1;
+  return ai - bi || a.iso_class.localeCompare(b.iso_class) ||
+    a.body_part.localeCompare(b.body_part) || a.slug.localeCompare(b.slug);
+});
 
 const html = `<!doctype html>
 <html lang="en">
@@ -75,10 +82,10 @@ const html = `<!doctype html>
       <p class="kicker">all is ours</p>
       <h1>Isometric Training</h1>
       <p class="sub">The isometric hold catalog. Full body, head to toe. No performance theater.</p>
-      <span class="count"><b>${rendered}</b> / ${rows.length} rendered</span>
+      <span class="count"><b>${rendered}</b> / ${holds.length} rendered</span>
     </header>
     <ul class="grid">
-${rows.map(card).join("\n")}
+${ordered.map(card).join("\n")}
     </ul>
     <footer>Empty Words &middot; isometric hold catalog</footer>
   </div>
@@ -87,4 +94,4 @@ ${rows.map(card).join("\n")}
 `;
 
 writeFileSync(new URL("./index.html", import.meta.url), html);
-console.log(`wrote index.html — ${rows.length} holds, ${rendered} with images`);
+console.log(`wrote index.html — ${holds.length} holds, ${rendered} with images`);
