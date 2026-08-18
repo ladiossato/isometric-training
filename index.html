@@ -5,6 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Isometric Training</title>
 <meta name="description" content="Isometric hold catalog. Full body. No performance theater.">
+<meta name="theme-color" content="#0a0a0a">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Isometrics">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
 <style>
   :root {
     --bg: #0a0a0a; --fg: #ededed; --muted: #7d7d7d; --border: #222; --border-strong: #3a3a3a;
@@ -1058,6 +1064,12 @@
       if (routineNext.textContent === "Restart") startRoutine();
       else goRoutine(1);
     });
+
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", function () {
+        navigator.serviceWorker.register("sw.js", { scope: "./" }).catch(function () {});
+      });
+    }
   })();
   </script>
 </body>
