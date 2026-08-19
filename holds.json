@@ -4,6 +4,9 @@
     "iso_class": "brace",
     "iso_mode": "yielding",
     "body_part": "core",
+    "settings": [
+      "equipment"
+    ],
     "execution": "rolled-out on wheel, arms extended forward, body a straight diagonal off knees"
   },
   {
@@ -11,6 +14,9 @@
     "iso_class": "brace",
     "iso_mode": "yielding",
     "body_part": "core",
+    "settings": [
+      "no-equipment"
+    ],
     "execution": "on hands and knees, opposite arm and leg extended straight and level, spine neutral"
   },
   {
@@ -18,6 +24,9 @@
     "iso_class": "brace",
     "iso_mode": "yielding",
     "body_part": "core",
+    "settings": [
+      "no-equipment"
+    ],
     "execution": "supine, low back to floor, arms overhead and legs straight and low, shallow banana"
   },
   {
@@ -25,6 +34,9 @@
     "iso_class": "brace",
     "iso_mode": "overcoming",
     "body_part": "core",
+    "settings": [
+      "equipment"
+    ],
     "execution": "side-on to an anchored band, arms pressed straight out from sternum resisting the pull"
   },
   {
@@ -32,6 +44,9 @@
     "iso_class": "brace",
     "iso_mode": "yielding",
     "body_part": "core",
+    "settings": [
+      "no-equipment"
+    ],
     "execution": "forearms and toes on floor, body one rigid line head to heels, hips level"
   },
   {
@@ -39,6 +54,9 @@
     "iso_class": "brace",
     "iso_mode": "yielding",
     "body_part": "core",
+    "settings": [
+      "no-equipment"
+    ],
     "execution": "hands and toes, arms straight, straight-line body, shoulders over wrists"
   },
   {
@@ -46,6 +64,9 @@
     "iso_class": "brace",
     "iso_mode": "yielding",
     "body_part": "core",
+    "settings": [
+      "no-equipment"
+    ],
     "execution": "on one forearm and stacked feet, body a straight line side-on, top hip lifted"
   },
   {
@@ -53,6 +74,9 @@
     "iso_class": "hang",
     "iso_mode": "yielding",
     "body_part": "back",
+    "settings": [
+      "gym"
+    ],
     "execution": "pull-up frozen at 90 deg elbow, eyes at bar height"
   },
   {
@@ -60,6 +84,9 @@
     "iso_class": "hang",
     "iso_mode": "yielding",
     "body_part": "back",
+    "settings": [
+      "gym"
+    ],
     "execution": "chin held over the bar, elbows fully bent, chest to bar"
   },
   {
@@ -67,6 +94,9 @@
     "iso_class": "hang",
     "iso_mode": "yielding",
     "body_part": "feet",
+    "settings": [
+      "no-equipment"
+    ],
     "execution": "balls of feet on a step edge, heels dropped and held, plantar loaded"
   },
   {
@@ -74,6 +104,9 @@
     "iso_class": "hang",
     "iso_mode": "yielding",
     "body_part": "grip",
+    "settings": [
+      "gym"
+    ],
     "execution": "hanging from a bar with both hands, straight arms, full bodyweight on fingers"
   },
   {
@@ -81,6 +114,9 @@
     "iso_class": "hang",
     "iso_mode": "yielding",
     "body_part": "grip",
+    "settings": [
+      "gym"
+    ],
     "execution": "hanging from a bar with one hand, straight arm, whole bodyweight on one grip"
   },
   {
@@ -88,6 +124,9 @@
     "iso_class": "hang",
     "iso_mode": "yielding",
     "body_part": "grip",
+    "settings": [
+      "gym"
+    ],
     "execution": "hanging from two towels over a bar, thick pinch in fists, straight arms"
   },
   {
@@ -95,6 +134,10 @@
     "iso_class": "hang",
     "iso_mode": "yielding",
     "body_part": "neck",
+    "settings": [
+      "equipment",
+      "gym"
+    ],
     "execution": "standing, padded head-harness under chin anchored to weight, neck holds load, spine tall"
   },
   {
@@ -102,6 +145,9 @@
     "iso_class": "hang",
     "iso_mode": "yielding",
     "body_part": "shoulder",
+    "settings": [
+      "gym"
+    ],
     "execution": "hanging from bar, shoulders pulled down and back into sockets, elbows straight"
   },
   {
@@ -109,6 +155,9 @@
     "iso_class": "hold",
     "iso_mode": "yielding",
     "body_part": "abductors",
+    "settings": [
+      "no-equipment"
+    ],
     "execution": "side-lying, top leg raised to 45 deg and frozen in the air, hips stacked"
   },
   {
@@ -116,6 +165,9 @@
     "iso_class": "hold",
     "iso_mode": "yielding",
     "body_part": "adductors",
+    "settings": [
+      "no-equipment"
+    ],
     "execution": "very wide stance toes out, sunk to parallel, knees tracking out, torso tall"
   },
   {
@@ -123,6 +175,9 @@
     "iso_class": "hold",
     "iso_mode": "yielding",
     "body_part": "ankle",
+    "settings": [
+      "no-equipment"
+    ],
     "execution": "standing on one foot, other lifted, holding still and controlling every wobble"
   },
   {
@@ -130,6 +185,9 @@
     "iso_class": "hold",
     "iso_mode": "yielding",
     "body_part": "arm",
+    "settings": [
+      "equipment"
+    ],
     "execution": "elbows at 90 deg holding a heavy load frozen mid-curl, upper arms vertical"
   },
   {
@@ -137,6 +195,9 @@
     "iso_class": "hold",
     "iso_mode": "yielding",
     "body_part": "arm",
+    "settings": [
+      "equipment"
+    ],
     "execution": "supine, arms straight holding a load at lockout over chest, elbows locked"
   },
   {
@@ -144,6 +205,9 @@
     "iso_class": "hold",
     "iso_mode": "yielding",
     "body_part": "calves",
+    "settings": [
+      "no-equipment"
+    ],
     "execution": "standing on balls of feet at full tip-toe, heels max-high, ankles plantarflexed"
   },
   {
@@ -151,6 +215,10 @@
     "iso_class": "hold",
     "iso_mode": "yielding",
     "body_part": "calves",
+    "settings": [
+      "seated",
+      "equipment"
+    ],
     "execution": "seated, weight on knees, up on balls of feet, heels raised max"
   },
   {
@@ -158,6 +226,9 @@
     "iso_class": "hold",
     "iso_mode": "yielding",
     "body_part": "calves",
+    "settings": [
+      "no-equipment"
+    ],
     "execution": "on one foot at full tip-toe, other foot off ground, heel high"
   },
   {
@@ -165,6 +236,9 @@
     "iso_class": "hold",
     "iso_mode": "yielding",
     "body_part": "chest",
+    "settings": [
+      "equipment"
+    ],
     "execution": "supine, arms wide and slightly bent holding weights in the stretched fly position"
   },
   {
@@ -172,6 +246,9 @@
     "iso_class": "hold",
     "iso_mode": "yielding",
     "body_part": "core",
+    "settings": [
+      "equipment"
+    ],
     "execution": "standing tall holding a heavy weight in one hand at the side, torso vertical un-tilted"
   },
   {
@@ -179,6 +256,9 @@
     "iso_class": "hold",
     "iso_mode": "yielding",
     "body_part": "feet",
+    "settings": [
+      "no-equipment"
+    ],
     "execution": "standing pushed all the way onto the toe pads past the balls, weight on toes"
   },
   {
@@ -186,6 +266,9 @@
     "iso_class": "hold",
     "iso_mode": "yielding",
     "body_part": "grip",
+    "settings": [
+      "equipment"
+    ],
     "execution": "thumb-and-fingers pinching a smooth plate at the side, arm straight"
   },
   {
@@ -193,6 +276,9 @@
     "iso_class": "hold",
     "iso_mode": "yielding",
     "body_part": "hams",
+    "settings": [
+      "no-equipment"
+    ],
     "execution": "supine, heels on a raised surface, hips lifted, legs long, hamstrings loaded"
   },
   {
@@ -200,6 +286,9 @@
     "iso_class": "hold",
     "iso_mode": "yielding",
     "body_part": "hams",
+    "settings": [
+      "no-equipment"
+    ],
     "execution": "kneeling ankles anchored, torso leaned forward held mid-range by the hamstrings"
   },
   {
@@ -207,6 +296,9 @@
     "iso_class": "hold",
     "iso_mode": "yielding",
     "body_part": "hams",
+    "settings": [
+      "no-equipment"
+    ],
     "execution": "balanced on one leg, torso and free leg horizontal in a T, weight hanging"
   },
   {
@@ -214,6 +306,9 @@
     "iso_class": "hold",
     "iso_mode": "yielding",
     "body_part": "hips",
+    "settings": [
+      "no-equipment"
+    ],
     "execution": "supine, feet flat, hips lifted to straight shoulder-knee line, glutes squeezed"
   },
   {
@@ -221,6 +316,9 @@
     "iso_class": "hold",
     "iso_mode": "yielding",
     "body_part": "hips",
+    "settings": [
+      "gym"
+    ],
     "execution": "shoulders on bench, barbell across hips, hips lifted to full lockout horizontal"
   },
   {
@@ -228,6 +326,9 @@
     "iso_class": "hold",
     "iso_mode": "yielding",
     "body_part": "hips",
+    "settings": [
+      "no-equipment"
+    ],
     "execution": "supine, one foot planted, other leg straight out, hips lifted level on one leg"
   },
   {
@@ -235,6 +336,9 @@
     "iso_class": "hold",
     "iso_mode": "yielding",
     "body_part": "lowback",
+    "settings": [
+      "gym"
+    ],
     "execution": "hips on a bench pad, torso straight out horizontal, holding a plate"
   },
   {
@@ -242,6 +346,9 @@
     "iso_class": "hold",
     "iso_mode": "yielding",
     "body_part": "lowback",
+    "settings": [
+      "gym"
+    ],
     "execution": "face-down on a bench edge, legs straight and lifted to horizontal behind"
   },
   {
@@ -249,6 +356,9 @@
     "iso_class": "hold",
     "iso_mode": "yielding",
     "body_part": "lowback",
+    "settings": [
+      "no-equipment"
+    ],
     "execution": "prone, arms and legs lifted off floor, back extended, chest and thighs raised"
   },
   {
@@ -256,6 +366,9 @@
     "iso_class": "hold",
     "iso_mode": "yielding",
     "body_part": "neck",
+    "settings": [
+      "no-equipment"
+    ],
     "execution": "supine wrestler bridge, weight on crown and feet, hips lifted, back arched"
   },
   {
@@ -263,6 +376,9 @@
     "iso_class": "hold",
     "iso_mode": "yielding",
     "body_part": "neck",
+    "settings": [
+      "no-equipment"
+    ],
     "execution": "prone bridge on forehead and toes, body arched face-down, neck loaded"
   },
   {
@@ -270,6 +386,9 @@
     "iso_class": "hold",
     "iso_mode": "yielding",
     "body_part": "pelvis",
+    "settings": [
+      "gym"
+    ],
     "execution": "side-plank with top inner-foot on a bench, bottom leg lifted to it, hips stacked"
   },
   {
@@ -277,6 +396,9 @@
     "iso_class": "hold",
     "iso_mode": "yielding",
     "body_part": "pelvis",
+    "settings": [
+      "no-equipment"
+    ],
     "execution": "deep squat knees wide, elbows inside knees, hips fully flexed and open"
   },
   {
@@ -284,6 +406,9 @@
     "iso_class": "hold",
     "iso_mode": "yielding",
     "body_part": "quads",
+    "settings": [
+      "no-equipment"
+    ],
     "execution": "wide stance toes forward, hips sunk to thigh-parallel, torso vertical, arms out"
   },
   {
@@ -291,6 +416,9 @@
     "iso_class": "hold",
     "iso_mode": "yielding",
     "body_part": "quads",
+    "settings": [
+      "no-equipment"
+    ],
     "execution": "long lunge stance, back knee near floor, front thigh parallel, torso upright"
   },
   {
@@ -298,6 +426,9 @@
     "iso_class": "hold",
     "iso_mode": "yielding",
     "body_part": "quads",
+    "settings": [
+      "no-equipment"
+    ],
     "execution": "free-standing squat held at 90 deg knee, chest up, arms forward"
   },
   {
@@ -305,6 +436,9 @@
     "iso_class": "hold",
     "iso_mode": "yielding",
     "body_part": "quads",
+    "settings": [
+      "no-equipment"
+    ],
     "execution": "back flat on wall, thighs parallel to floor, knees 90 deg, shins vertical"
   },
   {
@@ -312,6 +446,9 @@
     "iso_class": "hold",
     "iso_mode": "yielding",
     "body_part": "shoulder",
+    "settings": [
+      "equipment"
+    ],
     "execution": "arms straight out to sides at shoulder height holding weights, frozen in a T"
   },
   {
@@ -319,6 +456,9 @@
     "iso_class": "hold",
     "iso_mode": "yielding",
     "body_part": "shoulder",
+    "settings": [
+      "no-equipment"
+    ],
     "execution": "back to wall, arms in goalpost pressed flat against wall at 90 deg"
   },
   {
@@ -326,6 +466,9 @@
     "iso_class": "hold",
     "iso_mode": "yielding",
     "body_part": "tibialis",
+    "settings": [
+      "no-equipment"
+    ],
     "execution": "heels planted, back against wall, toes pulled up max toward shins, holding dorsiflexion"
   },
   {
@@ -333,6 +476,9 @@
     "iso_class": "hold",
     "iso_mode": "yielding",
     "body_part": "wrist",
+    "settings": [
+      "no-equipment"
+    ],
     "execution": "seated hands behind fingers-forward, hips lifted, wrists loaded under bodyweight"
   },
   {
@@ -340,6 +486,10 @@
     "iso_class": "pull",
     "iso_mode": "overcoming",
     "body_part": "ankle",
+    "settings": [
+      "seated",
+      "equipment"
+    ],
     "execution": "seated, top of foot pulling up against a fixed strap, shin still"
   },
   {
@@ -347,6 +497,9 @@
     "iso_class": "pull",
     "iso_mode": "overcoming",
     "body_part": "arm",
+    "settings": [
+      "no-equipment"
+    ],
     "execution": "forearms at 90 deg pulling up on a fixed bar under a table, elbows pinned to ribs"
   },
   {
@@ -354,6 +507,9 @@
     "iso_class": "pull",
     "iso_mode": "yielding",
     "body_part": "back",
+    "settings": [
+      "gym"
+    ],
     "execution": "body straight under a low bar, chest pulled to bar, heels on floor"
   },
   {
@@ -361,6 +517,9 @@
     "iso_class": "pull",
     "iso_mode": "overcoming",
     "body_part": "back",
+    "settings": [
+      "equipment"
+    ],
     "execution": "kneeling under an anchored band overhead, elbows pulled down to sides"
   },
   {
@@ -368,6 +527,9 @@
     "iso_class": "pull",
     "iso_mode": "overcoming",
     "body_part": "back",
+    "settings": [
+      "no-equipment"
+    ],
     "execution": "hinged at hips, hands pulling back on a fixed bar toward the ribs"
   },
   {
@@ -375,6 +537,9 @@
     "iso_class": "pull",
     "iso_mode": "overcoming",
     "body_part": "feet",
+    "settings": [
+      "no-equipment"
+    ],
     "execution": "standing, drawing the ball of the foot toward the heel to raise the arch, holding the dome"
   },
   {
@@ -382,6 +547,10 @@
     "iso_class": "pull",
     "iso_mode": "overcoming",
     "body_part": "feet",
+    "settings": [
+      "seated",
+      "equipment"
+    ],
     "execution": "seated, toes lifting up against a band over them while forefoot stays down"
   },
   {
@@ -389,6 +558,9 @@
     "iso_class": "pull",
     "iso_mode": "overcoming",
     "body_part": "feet",
+    "settings": [
+      "equipment"
+    ],
     "execution": "toes gripping and curling a towel into the arch maximally, holding the crunch"
   },
   {
@@ -396,6 +568,9 @@
     "iso_class": "pull",
     "iso_mode": "overcoming",
     "body_part": "hams",
+    "settings": [
+      "equipment"
+    ],
     "execution": "prone, heel pulling up against a fixed strap to bend the knee, thigh flat"
   },
   {
@@ -403,6 +578,9 @@
     "iso_class": "pull",
     "iso_mode": "overcoming",
     "body_part": "lowback",
+    "settings": [
+      "gym"
+    ],
     "execution": "hinged forward, bar across back jammed under fixed pins, driving to stand"
   },
   {
@@ -410,6 +588,10 @@
     "iso_class": "pull",
     "iso_mode": "overcoming",
     "body_part": "pelvis",
+    "settings": [
+      "seated",
+      "no-equipment"
+    ],
     "execution": "seated in 90/90, front shin pressing down and back shin into floor isometrically"
   },
   {
@@ -417,6 +599,9 @@
     "iso_class": "pull",
     "iso_mode": "overcoming",
     "body_part": "shoulder",
+    "settings": [
+      "equipment"
+    ],
     "execution": "band at eye level, elbows high pulled back beside ears, holding end-range"
   },
   {
@@ -424,6 +609,10 @@
     "iso_class": "pull",
     "iso_mode": "overcoming",
     "body_part": "tibialis",
+    "settings": [
+      "seated",
+      "equipment"
+    ],
     "execution": "seated leg straight, band over top of foot pulling down, foot pulling up against it"
   },
   {
@@ -431,6 +620,10 @@
     "iso_class": "pull",
     "iso_mode": "overcoming",
     "body_part": "wrist",
+    "settings": [
+      "seated",
+      "equipment"
+    ],
     "execution": "forearm on thigh palm-down, back of hand lifting against a fixed strap"
   },
   {
@@ -438,6 +631,10 @@
     "iso_class": "pull",
     "iso_mode": "overcoming",
     "body_part": "wrist",
+    "settings": [
+      "seated",
+      "equipment"
+    ],
     "execution": "forearm on thigh palm-up, hand pulling up against a fixed strap, wrist frozen"
   },
   {
@@ -445,6 +642,9 @@
     "iso_class": "push",
     "iso_mode": "overcoming",
     "body_part": "abductors",
+    "settings": [
+      "no-equipment"
+    ],
     "execution": "standing side-on to a doorframe, outer foot pressing outward against the frame"
   },
   {
@@ -452,6 +652,9 @@
     "iso_class": "push",
     "iso_mode": "overcoming",
     "body_part": "adductors",
+    "settings": [
+      "no-equipment"
+    ],
     "execution": "inner foot pressing a fixed object inward, leg straight"
   },
   {
@@ -459,6 +662,10 @@
     "iso_class": "push",
     "iso_mode": "overcoming",
     "body_part": "ankle",
+    "settings": [
+      "seated",
+      "no-equipment"
+    ],
     "execution": "seated, outer edge of foot pressing outward against a fixed object"
   },
   {
@@ -466,6 +673,10 @@
     "iso_class": "push",
     "iso_mode": "overcoming",
     "body_part": "ankle",
+    "settings": [
+      "seated",
+      "no-equipment"
+    ],
     "execution": "seated, inner edge of foot pressing inward against a fixed object"
   },
   {
@@ -473,6 +684,10 @@
     "iso_class": "push",
     "iso_mode": "overcoming",
     "body_part": "ankle",
+    "settings": [
+      "seated",
+      "equipment"
+    ],
     "execution": "seated, ball of foot pressing down forward into a fixed strap"
   },
   {
@@ -480,6 +695,9 @@
     "iso_class": "push",
     "iso_mode": "overcoming",
     "body_part": "arm",
+    "settings": [
+      "no-equipment"
+    ],
     "execution": "hands pressing down against a fixed bar to straighten elbows, upper arms fixed at sides"
   },
   {
@@ -487,6 +705,9 @@
     "iso_class": "push",
     "iso_mode": "overcoming",
     "body_part": "calves",
+    "settings": [
+      "gym"
+    ],
     "execution": "balls of feet under a fixed bar, driving up onto toes into the immovable bar"
   },
   {
@@ -494,6 +715,9 @@
     "iso_class": "push",
     "iso_mode": "yielding",
     "body_part": "chest",
+    "settings": [
+      "no-equipment"
+    ],
     "execution": "push-up frozen at bottom, chest an inch off floor, elbows 90 deg, body one line"
   },
   {
@@ -501,6 +725,9 @@
     "iso_class": "push",
     "iso_mode": "yielding",
     "body_part": "chest",
+    "settings": [
+      "no-equipment"
+    ],
     "execution": "push-up frozen halfway up, elbows 110 deg, rigid plank line"
   },
   {
@@ -508,6 +735,9 @@
     "iso_class": "push",
     "iso_mode": "overcoming",
     "body_part": "chest",
+    "settings": [
+      "no-equipment"
+    ],
     "execution": "staggered stance, both palms pressing hard into a wall at chest height"
   },
   {
@@ -515,6 +745,9 @@
     "iso_class": "push",
     "iso_mode": "overcoming",
     "body_part": "hips",
+    "settings": [
+      "equipment"
+    ],
     "execution": "band around knees, knees pressing outward against the band, holding spread"
   },
   {
@@ -522,6 +755,9 @@
     "iso_class": "push",
     "iso_mode": "overcoming",
     "body_part": "hips",
+    "settings": [
+      "no-equipment"
+    ],
     "execution": "standing, one heel pressing back into a fixed pad, glute driving, torso upright"
   },
   {
@@ -529,6 +765,10 @@
     "iso_class": "push",
     "iso_mode": "overcoming",
     "body_part": "neck",
+    "settings": [
+      "seated",
+      "no-equipment"
+    ],
     "execution": "hands behind skull, head presses back into hands, neck straight"
   },
   {
@@ -536,6 +776,10 @@
     "iso_class": "push",
     "iso_mode": "overcoming",
     "body_part": "neck",
+    "settings": [
+      "seated",
+      "no-equipment"
+    ],
     "execution": "seated upright, palms on forehead, head pushes forward into hands, nothing moves"
   },
   {
@@ -543,6 +787,10 @@
     "iso_class": "push",
     "iso_mode": "overcoming",
     "body_part": "neck",
+    "settings": [
+      "seated",
+      "no-equipment"
+    ],
     "execution": "right palm on left temple, head presses sideways into hand, ears level"
   },
   {
@@ -550,6 +798,10 @@
     "iso_class": "push",
     "iso_mode": "overcoming",
     "body_part": "neck",
+    "settings": [
+      "seated",
+      "no-equipment"
+    ],
     "execution": "left palm on right temple, head presses sideways into hand, ears level"
   },
   {
@@ -557,6 +809,9 @@
     "iso_class": "push",
     "iso_mode": "overcoming",
     "body_part": "pelvis",
+    "settings": [
+      "equipment"
+    ],
     "execution": "supine knees bent, a ball between knees, knees squeezing inward maximally"
   },
   {
@@ -564,6 +819,10 @@
     "iso_class": "push",
     "iso_mode": "overcoming",
     "body_part": "quads",
+    "settings": [
+      "seated",
+      "equipment"
+    ],
     "execution": "seated, top of foot pressing forward against a fixed strap to straighten the knee"
   },
   {
@@ -571,6 +830,9 @@
     "iso_class": "push",
     "iso_mode": "overcoming",
     "body_part": "quads",
+    "settings": [
+      "gym"
+    ],
     "execution": "bar on back jammed under fixed pins at parallel, driving up into the pins"
   },
   {
@@ -578,6 +840,9 @@
     "iso_class": "push",
     "iso_mode": "overcoming",
     "body_part": "shoulder",
+    "settings": [
+      "no-equipment"
+    ],
     "execution": "under a fixed ledge, arms overhead pressing up into immovable surface"
   },
   {
@@ -585,6 +850,10 @@
     "iso_class": "push",
     "iso_mode": "overcoming",
     "body_part": "wrist",
+    "settings": [
+      "seated",
+      "no-equipment"
+    ],
     "execution": "forearm neutral thumb up, hand pressing a fixed object side to side, wrist locked"
   }
 ]

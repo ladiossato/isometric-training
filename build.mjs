@@ -17,6 +17,16 @@ const imgPath = (slug) => `images/${slug}.png`;
 const hasImg = (slug) => existsSync(new URL(`./images/${slug}.png`, import.meta.url));
 const bodyParts = [...new Set(holds.map((h) => h.body_part))].sort();
 const isoModes = [...new Set(holds.map((h) => h.iso_mode))].sort();
+const settingOrder = ["no-equipment", "equipment", "gym", "seated"];
+const settingLabels = {
+  "no-equipment": "No Equipment",
+  equipment: "Equipment",
+  gym: "Gym",
+  seated: "Seated",
+};
+const settings = settingOrder.filter((s) =>
+  holds.some((h) => (h.settings || []).includes(s))
+);
 
 const rendered = holds.filter((h) => hasImg(h.slug)).length;
 
@@ -141,7 +151,7 @@ const card = (h) => {
   const media = has
     ? `<img src="${esc(imgPath(h.slug))}" alt="${esc(titleCase(h.slug))}" loading="lazy" decoding="async">`
     : `<div class="ph" aria-hidden="true">${esc(h.iso_class)}</div>`;
-  return `      <li class="card${has ? "" : " no-img"}" data-body="${esc(h.body_part)}" data-mode="${esc(h.iso_mode)}" data-force="${esc(forceDirection(h))}" data-execution="${esc(h.execution)}">
+  return `      <li class="card${has ? "" : " no-img"}" data-body="${esc(h.body_part)}" data-mode="${esc(h.iso_mode)}" data-settings="${esc((h.settings || []).join(" "))}" data-force="${esc(forceDirection(h))}" data-execution="${esc(h.execution)}">
         <div class="media">${media}</div>
         <div class="meta">
           <div class="name">${esc(titleCase(h.slug))}</div>
@@ -288,6 +298,10 @@ ${isoModes.map((mode) => `        <button type="button" class="tab" data-mode-fi
         <button type="button" class="tab active" data-filter="all">All</button>
 ${bodyParts.map((part) => `        <button type="button" class="tab" data-filter="${esc(part)}">${esc(titleCase(part))}</button>`).join("\n")}
       </nav>
+      <nav class="filter-tabs setting-tabs" aria-label="Situation filters">
+        <button type="button" class="tab active" data-setting-filter="all">Any Setting</button>
+${settings.map((s) => `        <button type="button" class="tab" data-setting-filter="${esc(s)}">${esc(settingLabels[s] || titleCase(s))}</button>`).join("\n")}
+      </nav>
     </header>
     <main id="catalogView" class="view">
       <ul class="grid">
@@ -386,11 +400,14 @@ ${ordered.map(card).join("\n")}
     var cards = Array.prototype.slice.call(document.querySelectorAll(".card"));
     var activeBody = "all";
     var activeMode = "all";
+    var activeSetting = "all";
     function applyCatalogFilters() {
       cards.forEach(function (card) {
         var bodyPass = activeBody === "all" || card.getAttribute("data-body") === activeBody;
         var modePass = activeMode === "all" || card.getAttribute("data-mode") === activeMode;
-        card.hidden = !(bodyPass && modePass);
+        var settingPass = activeSetting === "all" ||
+          (" " + (card.getAttribute("data-settings") || "") + " ").indexOf(" " + activeSetting + " ") !== -1;
+        card.hidden = !(bodyPass && modePass && settingPass);
       });
     }
     document.querySelectorAll(".body-tabs .tab").forEach(function (tab) {
@@ -405,6 +422,14 @@ ${ordered.map(card).join("\n")}
       tab.addEventListener("click", function () {
         activeMode = tab.getAttribute("data-mode-filter");
         document.querySelectorAll(".mode-tabs .tab").forEach(function (t) { t.classList.remove("active"); });
+        tab.classList.add("active");
+        applyCatalogFilters();
+      });
+    });
+    document.querySelectorAll(".setting-tabs .tab").forEach(function (tab) {
+      tab.addEventListener("click", function () {
+        activeSetting = tab.getAttribute("data-setting-filter");
+        document.querySelectorAll(".setting-tabs .tab").forEach(function (t) { t.classList.remove("active"); });
         tab.classList.add("active");
         applyCatalogFilters();
       });
@@ -426,6 +451,33 @@ ${ordered.map(card).join("\n")}
       var s = Math.max(0, Math.floor(seconds));
       return String(Math.floor(s / 60)).padStart(2, "0") + ":" + String(s % 60).padStart(2, "0");
     }
+    var audioCtx = null;
+    function ensureAudio() {
+      if (!audioCtx) {
+        var Ctx = window.AudioContext || window.webkitAudioContext;
+        if (Ctx) { try { audioCtx = new Ctx(); } catch (e) { audioCtx = null; } }
+      }
+      if (audioCtx && audioCtx.state === "suspended") audioCtx.resume();
+      return audioCtx;
+    }
+    function playChime() {
+      var ctx = ensureAudio();
+      if (!ctx) return;
+      var now = ctx.currentTime;
+      [0, 0.19, 0.38].forEach(function (offset) {
+        var osc = ctx.createOscillator();
+        var gain = ctx.createGain();
+        var t = now + offset;
+        osc.type = "sine";
+        osc.frequency.value = 880;
+        gain.gain.setValueAtTime(0.0001, t);
+        gain.gain.exponentialRampToValueAtTime(0.32, t + 0.02);
+        gain.gain.exponentialRampToValueAtTime(0.0001, t + 0.16);
+        osc.connect(gain).connect(ctx.destination);
+        osc.start(t);
+        osc.stop(t + 0.18);
+      });
+    }
     function stopTimer() {
       if (interval) clearInterval(interval);
       interval = null;
@@ -437,6 +489,7 @@ ${ordered.map(card).join("\n")}
       seconds = Number(seconds);
       if (!Number.isFinite(seconds) || seconds <= 0) return;
       stopTimer();
+      ensureAudio();
       duration = seconds * 1000;
       startedAt = Date.now();
       timer.setAttribute("data-running", "true");
@@ -452,6 +505,7 @@ ${ordered.map(card).join("\n")}
           timer.setAttribute("data-running", "done");
           readout.textContent = "00:00";
           fill.style.width = "100%";
+          playChime();
         }
       }, 200);
     }
@@ -538,6 +592,7 @@ ${ordered.map(card).join("\n")}
 
     function startRoutineTimer() {
       resetRoutineTimer();
+      ensureAudio();
       var seconds = routineData.intensities[routineState.intensity];
       routineState.duration = seconds * 1000;
       routineState.startedAt = Date.now();
@@ -556,6 +611,7 @@ ${ordered.map(card).join("\n")}
           routineReadout.textContent = "00:00";
           routineFill.style.width = "100%";
           routineHold.textContent = "Done";
+          playChime();
           routineNext.focus();
         }
       }, 200);

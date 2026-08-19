@@ -148,591 +148,598 @@
         <button type="button" class="tab" data-filter="tibialis">Tibialis</button>
         <button type="button" class="tab" data-filter="wrist">Wrist</button>
       </nav>
+      <nav class="filter-tabs setting-tabs" aria-label="Situation filters">
+        <button type="button" class="tab active" data-setting-filter="all">Any Setting</button>
+        <button type="button" class="tab" data-setting-filter="no-equipment">No Equipment</button>
+        <button type="button" class="tab" data-setting-filter="equipment">Equipment</button>
+        <button type="button" class="tab" data-setting-filter="gym">Gym</button>
+        <button type="button" class="tab" data-setting-filter="seated">Seated</button>
+      </nav>
     </header>
     <main id="catalogView" class="view">
       <ul class="grid">
-      <li class="card" data-body="core" data-mode="yielding" data-force="up" data-execution="rolled-out on wheel, arms extended forward, body a straight diagonal off knees">
+      <li class="card" data-body="core" data-mode="yielding" data-settings="equipment" data-force="up" data-execution="rolled-out on wheel, arms extended forward, body a straight diagonal off knees">
         <div class="media"><img src="images/ab-wheel-iso.png" alt="Ab Wheel Iso" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Ab Wheel Iso</div>
           <div class="tags">brace &middot; yielding &middot; core</div>
         </div>
       </li>
-      <li class="card" data-body="core" data-mode="yielding" data-force="brace" data-execution="on hands and knees, opposite arm and leg extended straight and level, spine neutral">
+      <li class="card" data-body="core" data-mode="yielding" data-settings="no-equipment" data-force="brace" data-execution="on hands and knees, opposite arm and leg extended straight and level, spine neutral">
         <div class="media"><img src="images/bird-dog-hold.png" alt="Bird Dog Hold" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Bird Dog Hold</div>
           <div class="tags">brace &middot; yielding &middot; core</div>
         </div>
       </li>
-      <li class="card" data-body="core" data-mode="yielding" data-force="brace" data-execution="supine, low back to floor, arms overhead and legs straight and low, shallow banana">
+      <li class="card" data-body="core" data-mode="yielding" data-settings="no-equipment" data-force="brace" data-execution="supine, low back to floor, arms overhead and legs straight and low, shallow banana">
         <div class="media"><img src="images/hollow-body-hold.png" alt="Hollow Body Hold" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Hollow Body Hold</div>
           <div class="tags">brace &middot; yielding &middot; core</div>
         </div>
       </li>
-      <li class="card" data-body="core" data-mode="overcoming" data-force="up" data-execution="side-on to an anchored band, arms pressed straight out from sternum resisting the pull">
+      <li class="card" data-body="core" data-mode="overcoming" data-settings="equipment" data-force="up" data-execution="side-on to an anchored band, arms pressed straight out from sternum resisting the pull">
         <div class="media"><img src="images/pallof-press-iso.png" alt="Pallof Press Iso" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Pallof Press Iso</div>
           <div class="tags">brace &middot; overcoming &middot; core</div>
         </div>
       </li>
-      <li class="card" data-body="core" data-mode="yielding" data-force="brace" data-execution="forearms and toes on floor, body one rigid line head to heels, hips level">
+      <li class="card" data-body="core" data-mode="yielding" data-settings="no-equipment" data-force="brace" data-execution="forearms and toes on floor, body one rigid line head to heels, hips level">
         <div class="media"><img src="images/plank-forearm.png" alt="Plank Forearm" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Plank Forearm</div>
           <div class="tags">brace &middot; yielding &middot; core</div>
         </div>
       </li>
-      <li class="card" data-body="core" data-mode="yielding" data-force="brace" data-execution="hands and toes, arms straight, straight-line body, shoulders over wrists">
+      <li class="card" data-body="core" data-mode="yielding" data-settings="no-equipment" data-force="brace" data-execution="hands and toes, arms straight, straight-line body, shoulders over wrists">
         <div class="media"><img src="images/plank-high.png" alt="Plank High" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Plank High</div>
           <div class="tags">brace &middot; yielding &middot; core</div>
         </div>
       </li>
-      <li class="card" data-body="core" data-mode="yielding" data-force="brace" data-execution="on one forearm and stacked feet, body a straight line side-on, top hip lifted">
+      <li class="card" data-body="core" data-mode="yielding" data-settings="no-equipment" data-force="brace" data-execution="on one forearm and stacked feet, body a straight line side-on, top hip lifted">
         <div class="media"><img src="images/side-plank-forearm.png" alt="Side Plank Forearm" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Side Plank Forearm</div>
           <div class="tags">brace &middot; yielding &middot; core</div>
         </div>
       </li>
-      <li class="card" data-body="back" data-mode="yielding" data-force="down" data-execution="pull-up frozen at 90 deg elbow, eyes at bar height">
+      <li class="card" data-body="back" data-mode="yielding" data-settings="gym" data-force="down" data-execution="pull-up frozen at 90 deg elbow, eyes at bar height">
         <div class="media"><img src="images/pullup-iso-mid.png" alt="Pullup Iso Mid" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Pullup Iso Mid</div>
           <div class="tags">hang &middot; yielding &middot; back</div>
         </div>
       </li>
-      <li class="card" data-body="back" data-mode="yielding" data-force="down" data-execution="chin held over the bar, elbows fully bent, chest to bar">
+      <li class="card" data-body="back" data-mode="yielding" data-settings="gym" data-force="down" data-execution="chin held over the bar, elbows fully bent, chest to bar">
         <div class="media"><img src="images/pullup-iso-top.png" alt="Pullup Iso Top" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Pullup Iso Top</div>
           <div class="tags">hang &middot; yielding &middot; back</div>
         </div>
       </li>
-      <li class="card" data-body="feet" data-mode="yielding" data-force="down" data-execution="balls of feet on a step edge, heels dropped and held, plantar loaded">
+      <li class="card" data-body="feet" data-mode="yielding" data-settings="no-equipment" data-force="down" data-execution="balls of feet on a step edge, heels dropped and held, plantar loaded">
         <div class="media"><img src="images/tiptoe-heel-hang.png" alt="Tiptoe Heel Hang" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Tiptoe Heel Hang</div>
           <div class="tags">hang &middot; yielding &middot; feet</div>
         </div>
       </li>
-      <li class="card" data-body="grip" data-mode="yielding" data-force="down" data-execution="hanging from a bar with both hands, straight arms, full bodyweight on fingers">
+      <li class="card" data-body="grip" data-mode="yielding" data-settings="gym" data-force="down" data-execution="hanging from a bar with both hands, straight arms, full bodyweight on fingers">
         <div class="media"><img src="images/dead-hang-grip.png" alt="Dead Hang Grip" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Dead Hang Grip</div>
           <div class="tags">hang &middot; yielding &middot; grip</div>
         </div>
       </li>
-      <li class="card" data-body="grip" data-mode="yielding" data-force="down" data-execution="hanging from a bar with one hand, straight arm, whole bodyweight on one grip">
+      <li class="card" data-body="grip" data-mode="yielding" data-settings="gym" data-force="down" data-execution="hanging from a bar with one hand, straight arm, whole bodyweight on one grip">
         <div class="media"><img src="images/one-arm-hang-grip.png" alt="One Arm Hang Grip" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">One Arm Hang Grip</div>
           <div class="tags">hang &middot; yielding &middot; grip</div>
         </div>
       </li>
-      <li class="card" data-body="grip" data-mode="yielding" data-force="down" data-execution="hanging from two towels over a bar, thick pinch in fists, straight arms">
+      <li class="card" data-body="grip" data-mode="yielding" data-settings="gym" data-force="down" data-execution="hanging from two towels over a bar, thick pinch in fists, straight arms">
         <div class="media"><img src="images/towel-hang-grip.png" alt="Towel Hang Grip" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Towel Hang Grip</div>
           <div class="tags">hang &middot; yielding &middot; grip</div>
         </div>
       </li>
-      <li class="card" data-body="neck" data-mode="yielding" data-force="down" data-execution="standing, padded head-harness under chin anchored to weight, neck holds load, spine tall">
+      <li class="card" data-body="neck" data-mode="yielding" data-settings="equipment gym" data-force="down" data-execution="standing, padded head-harness under chin anchored to weight, neck holds load, spine tall">
         <div class="media"><img src="images/neck-hang-strap.png" alt="Neck Hang Strap" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Neck Hang Strap</div>
           <div class="tags">hang &middot; yielding &middot; neck</div>
         </div>
       </li>
-      <li class="card" data-body="shoulder" data-mode="yielding" data-force="down" data-execution="hanging from bar, shoulders pulled down and back into sockets, elbows straight">
+      <li class="card" data-body="shoulder" data-mode="yielding" data-settings="gym" data-force="down" data-execution="hanging from bar, shoulders pulled down and back into sockets, elbows straight">
         <div class="media"><img src="images/scap-hang-active.png" alt="Scap Hang Active" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Scap Hang Active</div>
           <div class="tags">hang &middot; yielding &middot; shoulder</div>
         </div>
       </li>
-      <li class="card" data-body="abductors" data-mode="yielding" data-force="side" data-execution="side-lying, top leg raised to 45 deg and frozen in the air, hips stacked">
+      <li class="card" data-body="abductors" data-mode="yielding" data-settings="no-equipment" data-force="side" data-execution="side-lying, top leg raised to 45 deg and frozen in the air, hips stacked">
         <div class="media"><img src="images/side-lying-abduction-iso.png" alt="Side Lying Abduction Iso" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Side Lying Abduction Iso</div>
           <div class="tags">hold &middot; yielding &middot; abductors</div>
         </div>
       </li>
-      <li class="card" data-body="adductors" data-mode="yielding" data-force="up" data-execution="very wide stance toes out, sunk to parallel, knees tracking out, torso tall">
+      <li class="card" data-body="adductors" data-mode="yielding" data-settings="no-equipment" data-force="up" data-execution="very wide stance toes out, sunk to parallel, knees tracking out, torso tall">
         <div class="media"><img src="images/sumo-squat-iso.png" alt="Sumo Squat Iso" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Sumo Squat Iso</div>
           <div class="tags">hold &middot; yielding &middot; adductors</div>
         </div>
       </li>
-      <li class="card" data-body="ankle" data-mode="yielding" data-force="brace" data-execution="standing on one foot, other lifted, holding still and controlling every wobble">
+      <li class="card" data-body="ankle" data-mode="yielding" data-settings="no-equipment" data-force="brace" data-execution="standing on one foot, other lifted, holding still and controlling every wobble">
         <div class="media"><img src="images/single-leg-balance-iso.png" alt="Single Leg Balance Iso" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Single Leg Balance Iso</div>
           <div class="tags">hold &middot; yielding &middot; ankle</div>
         </div>
       </li>
-      <li class="card" data-body="arm" data-mode="yielding" data-force="down" data-execution="elbows at 90 deg holding a heavy load frozen mid-curl, upper arms vertical">
+      <li class="card" data-body="arm" data-mode="yielding" data-settings="equipment" data-force="down" data-execution="elbows at 90 deg holding a heavy load frozen mid-curl, upper arms vertical">
         <div class="media"><img src="images/biceps-curl-iso-weight.png" alt="Biceps Curl Iso Weight" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Biceps Curl Iso Weight</div>
           <div class="tags">hold &middot; yielding &middot; arm</div>
         </div>
       </li>
-      <li class="card" data-body="arm" data-mode="yielding" data-force="up" data-execution="supine, arms straight holding a load at lockout over chest, elbows locked">
+      <li class="card" data-body="arm" data-mode="yielding" data-settings="equipment" data-force="up" data-execution="supine, arms straight holding a load at lockout over chest, elbows locked">
         <div class="media"><img src="images/triceps-bench-lockout.png" alt="Triceps Bench Lockout" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Triceps Bench Lockout</div>
           <div class="tags">hold &middot; yielding &middot; arm</div>
         </div>
       </li>
-      <li class="card" data-body="calves" data-mode="yielding" data-force="up" data-execution="standing on balls of feet at full tip-toe, heels max-high, ankles plantarflexed">
+      <li class="card" data-body="calves" data-mode="yielding" data-settings="no-equipment" data-force="up" data-execution="standing on balls of feet at full tip-toe, heels max-high, ankles plantarflexed">
         <div class="media"><img src="images/calf-raise-iso-top.png" alt="Calf Raise Iso Top" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Calf Raise Iso Top</div>
           <div class="tags">hold &middot; yielding &middot; calves</div>
         </div>
       </li>
-      <li class="card" data-body="calves" data-mode="yielding" data-force="up" data-execution="seated, weight on knees, up on balls of feet, heels raised max">
+      <li class="card" data-body="calves" data-mode="yielding" data-settings="seated equipment" data-force="up" data-execution="seated, weight on knees, up on balls of feet, heels raised max">
         <div class="media"><img src="images/seated-calf-iso.png" alt="Seated Calf Iso" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Seated Calf Iso</div>
           <div class="tags">hold &middot; yielding &middot; calves</div>
         </div>
       </li>
-      <li class="card" data-body="calves" data-mode="yielding" data-force="up" data-execution="on one foot at full tip-toe, other foot off ground, heel high">
+      <li class="card" data-body="calves" data-mode="yielding" data-settings="no-equipment" data-force="up" data-execution="on one foot at full tip-toe, other foot off ground, heel high">
         <div class="media"><img src="images/single-leg-calf-iso.png" alt="Single Leg Calf Iso" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Single Leg Calf Iso</div>
           <div class="tags">hold &middot; yielding &middot; calves</div>
         </div>
       </li>
-      <li class="card" data-body="chest" data-mode="yielding" data-force="brace" data-execution="supine, arms wide and slightly bent holding weights in the stretched fly position">
+      <li class="card" data-body="chest" data-mode="yielding" data-settings="equipment" data-force="brace" data-execution="supine, arms wide and slightly bent holding weights in the stretched fly position">
         <div class="media"><img src="images/chest-fly-iso-hold.png" alt="Chest Fly Iso Hold" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Chest Fly Iso Hold</div>
           <div class="tags">hold &middot; yielding &middot; chest</div>
         </div>
       </li>
-      <li class="card" data-body="core" data-mode="yielding" data-force="brace" data-execution="standing tall holding a heavy weight in one hand at the side, torso vertical un-tilted">
+      <li class="card" data-body="core" data-mode="yielding" data-settings="equipment" data-force="brace" data-execution="standing tall holding a heavy weight in one hand at the side, torso vertical un-tilted">
         <div class="media"><img src="images/suitcase-hold.png" alt="Suitcase Hold" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Suitcase Hold</div>
           <div class="tags">hold &middot; yielding &middot; core</div>
         </div>
       </li>
-      <li class="card" data-body="feet" data-mode="yielding" data-force="brace" data-execution="standing pushed all the way onto the toe pads past the balls, weight on toes">
+      <li class="card" data-body="feet" data-mode="yielding" data-settings="no-equipment" data-force="brace" data-execution="standing pushed all the way onto the toe pads past the balls, weight on toes">
         <div class="media"><img src="images/toe-stand-hold.png" alt="Toe Stand Hold" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Toe Stand Hold</div>
           <div class="tags">hold &middot; yielding &middot; feet</div>
         </div>
       </li>
-      <li class="card" data-body="grip" data-mode="yielding" data-force="down" data-execution="thumb-and-fingers pinching a smooth plate at the side, arm straight">
+      <li class="card" data-body="grip" data-mode="yielding" data-settings="equipment" data-force="down" data-execution="thumb-and-fingers pinching a smooth plate at the side, arm straight">
         <div class="media"><img src="images/plate-pinch-hold.png" alt="Plate Pinch Hold" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Plate Pinch Hold</div>
           <div class="tags">hold &middot; yielding &middot; grip</div>
         </div>
       </li>
-      <li class="card" data-body="hams" data-mode="yielding" data-force="up" data-execution="supine, heels on a raised surface, hips lifted, legs long, hamstrings loaded">
+      <li class="card" data-body="hams" data-mode="yielding" data-settings="no-equipment" data-force="up" data-execution="supine, heels on a raised surface, hips lifted, legs long, hamstrings loaded">
         <div class="media"><img src="images/bridge-heels-iso.png" alt="Bridge Heels Iso" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Bridge Heels Iso</div>
           <div class="tags">hold &middot; yielding &middot; hams</div>
         </div>
       </li>
-      <li class="card" data-body="hams" data-mode="yielding" data-force="brace" data-execution="kneeling ankles anchored, torso leaned forward held mid-range by the hamstrings">
+      <li class="card" data-body="hams" data-mode="yielding" data-settings="no-equipment" data-force="brace" data-execution="kneeling ankles anchored, torso leaned forward held mid-range by the hamstrings">
         <div class="media"><img src="images/nordic-iso-hold.png" alt="Nordic Iso Hold" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Nordic Iso Hold</div>
           <div class="tags">hold &middot; yielding &middot; hams</div>
         </div>
       </li>
-      <li class="card" data-body="hams" data-mode="yielding" data-force="up" data-execution="balanced on one leg, torso and free leg horizontal in a T, weight hanging">
+      <li class="card" data-body="hams" data-mode="yielding" data-settings="no-equipment" data-force="up" data-execution="balanced on one leg, torso and free leg horizontal in a T, weight hanging">
         <div class="media"><img src="images/single-leg-rdl-iso.png" alt="Single Leg Rdl Iso" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Single Leg Rdl Iso</div>
           <div class="tags">hold &middot; yielding &middot; hams</div>
         </div>
       </li>
-      <li class="card" data-body="hips" data-mode="yielding" data-force="up" data-execution="supine, feet flat, hips lifted to straight shoulder-knee line, glutes squeezed">
+      <li class="card" data-body="hips" data-mode="yielding" data-settings="no-equipment" data-force="up" data-execution="supine, feet flat, hips lifted to straight shoulder-knee line, glutes squeezed">
         <div class="media"><img src="images/glute-bridge-hold.png" alt="Glute Bridge Hold" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Glute Bridge Hold</div>
           <div class="tags">hold &middot; yielding &middot; hips</div>
         </div>
       </li>
-      <li class="card" data-body="hips" data-mode="yielding" data-force="up" data-execution="shoulders on bench, barbell across hips, hips lifted to full lockout horizontal">
+      <li class="card" data-body="hips" data-mode="yielding" data-settings="gym" data-force="up" data-execution="shoulders on bench, barbell across hips, hips lifted to full lockout horizontal">
         <div class="media"><img src="images/hip-thrust-iso.png" alt="Hip Thrust Iso" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Hip Thrust Iso</div>
           <div class="tags">hold &middot; yielding &middot; hips</div>
         </div>
       </li>
-      <li class="card" data-body="hips" data-mode="yielding" data-force="up" data-execution="supine, one foot planted, other leg straight out, hips lifted level on one leg">
+      <li class="card" data-body="hips" data-mode="yielding" data-settings="no-equipment" data-force="up" data-execution="supine, one foot planted, other leg straight out, hips lifted level on one leg">
         <div class="media"><img src="images/single-leg-bridge-hold.png" alt="Single Leg Bridge Hold" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Single Leg Bridge Hold</div>
           <div class="tags">hold &middot; yielding &middot; hips</div>
         </div>
       </li>
-      <li class="card" data-body="lowback" data-mode="yielding" data-force="up" data-execution="hips on a bench pad, torso straight out horizontal, holding a plate">
+      <li class="card" data-body="lowback" data-mode="yielding" data-settings="gym" data-force="up" data-execution="hips on a bench pad, torso straight out horizontal, holding a plate">
         <div class="media"><img src="images/back-extension-iso.png" alt="Back Extension Iso" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Back Extension Iso</div>
           <div class="tags">hold &middot; yielding &middot; lowback</div>
         </div>
       </li>
-      <li class="card" data-body="lowback" data-mode="yielding" data-force="up" data-execution="face-down on a bench edge, legs straight and lifted to horizontal behind">
+      <li class="card" data-body="lowback" data-mode="yielding" data-settings="gym" data-force="up" data-execution="face-down on a bench edge, legs straight and lifted to horizontal behind">
         <div class="media"><img src="images/reverse-hyper-iso.png" alt="Reverse Hyper Iso" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Reverse Hyper Iso</div>
           <div class="tags">hold &middot; yielding &middot; lowback</div>
         </div>
       </li>
-      <li class="card" data-body="lowback" data-mode="yielding" data-force="brace" data-execution="prone, arms and legs lifted off floor, back extended, chest and thighs raised">
+      <li class="card" data-body="lowback" data-mode="yielding" data-settings="no-equipment" data-force="brace" data-execution="prone, arms and legs lifted off floor, back extended, chest and thighs raised">
         <div class="media"><img src="images/superman-hold.png" alt="Superman Hold" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Superman Hold</div>
           <div class="tags">hold &middot; yielding &middot; lowback</div>
         </div>
       </li>
-      <li class="card" data-body="neck" data-mode="yielding" data-force="up" data-execution="supine wrestler bridge, weight on crown and feet, hips lifted, back arched">
+      <li class="card" data-body="neck" data-mode="yielding" data-settings="no-equipment" data-force="up" data-execution="supine wrestler bridge, weight on crown and feet, hips lifted, back arched">
         <div class="media"><img src="images/neck-bridge-back.png" alt="Neck Bridge Back" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Neck Bridge Back</div>
           <div class="tags">hold &middot; yielding &middot; neck</div>
         </div>
       </li>
-      <li class="card" data-body="neck" data-mode="yielding" data-force="up" data-execution="prone bridge on forehead and toes, body arched face-down, neck loaded">
+      <li class="card" data-body="neck" data-mode="yielding" data-settings="no-equipment" data-force="up" data-execution="prone bridge on forehead and toes, body arched face-down, neck loaded">
         <div class="media"><img src="images/neck-bridge-front.png" alt="Neck Bridge Front" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Neck Bridge Front</div>
           <div class="tags">hold &middot; yielding &middot; neck</div>
         </div>
       </li>
-      <li class="card" data-body="pelvis" data-mode="yielding" data-force="brace" data-execution="side-plank with top inner-foot on a bench, bottom leg lifted to it, hips stacked">
+      <li class="card" data-body="pelvis" data-mode="yielding" data-settings="gym" data-force="brace" data-execution="side-plank with top inner-foot on a bench, bottom leg lifted to it, hips stacked">
         <div class="media"><img src="images/copenhagen-hold.png" alt="Copenhagen Hold" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Copenhagen Hold</div>
           <div class="tags">hold &middot; yielding &middot; pelvis</div>
         </div>
       </li>
-      <li class="card" data-body="pelvis" data-mode="yielding" data-force="brace" data-execution="deep squat knees wide, elbows inside knees, hips fully flexed and open">
+      <li class="card" data-body="pelvis" data-mode="yielding" data-settings="no-equipment" data-force="brace" data-execution="deep squat knees wide, elbows inside knees, hips fully flexed and open">
         <div class="media"><img src="images/frog-stance-hold.png" alt="Frog Stance Hold" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Frog Stance Hold</div>
           <div class="tags">hold &middot; yielding &middot; pelvis</div>
         </div>
       </li>
-      <li class="card" data-body="quads" data-mode="yielding" data-force="up" data-execution="wide stance toes forward, hips sunk to thigh-parallel, torso vertical, arms out">
+      <li class="card" data-body="quads" data-mode="yielding" data-settings="no-equipment" data-force="up" data-execution="wide stance toes forward, hips sunk to thigh-parallel, torso vertical, arms out">
         <div class="media"><img src="images/horse-stance-mabu.png" alt="Horse Stance Mabu" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Horse Stance Mabu</div>
           <div class="tags">hold &middot; yielding &middot; quads</div>
         </div>
       </li>
-      <li class="card" data-body="quads" data-mode="yielding" data-force="up" data-execution="long lunge stance, back knee near floor, front thigh parallel, torso upright">
+      <li class="card" data-body="quads" data-mode="yielding" data-settings="no-equipment" data-force="up" data-execution="long lunge stance, back knee near floor, front thigh parallel, torso upright">
         <div class="media"><img src="images/split-squat-iso.png" alt="Split Squat Iso" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Split Squat Iso</div>
           <div class="tags">hold &middot; yielding &middot; quads</div>
         </div>
       </li>
-      <li class="card" data-body="quads" data-mode="yielding" data-force="up" data-execution="free-standing squat held at 90 deg knee, chest up, arms forward">
+      <li class="card" data-body="quads" data-mode="yielding" data-settings="no-equipment" data-force="up" data-execution="free-standing squat held at 90 deg knee, chest up, arms forward">
         <div class="media"><img src="images/squat-iso-hold.png" alt="Squat Iso Hold" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Squat Iso Hold</div>
           <div class="tags">hold &middot; yielding &middot; quads</div>
         </div>
       </li>
-      <li class="card" data-body="quads" data-mode="yielding" data-force="brace" data-execution="back flat on wall, thighs parallel to floor, knees 90 deg, shins vertical">
+      <li class="card" data-body="quads" data-mode="yielding" data-settings="no-equipment" data-force="brace" data-execution="back flat on wall, thighs parallel to floor, knees 90 deg, shins vertical">
         <div class="media"><img src="images/wall-sit.png" alt="Wall Sit" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Wall Sit</div>
           <div class="tags">hold &middot; yielding &middot; quads</div>
         </div>
       </li>
-      <li class="card" data-body="shoulder" data-mode="yielding" data-force="up" data-execution="arms straight out to sides at shoulder height holding weights, frozen in a T">
+      <li class="card" data-body="shoulder" data-mode="yielding" data-settings="equipment" data-force="up" data-execution="arms straight out to sides at shoulder height holding weights, frozen in a T">
         <div class="media"><img src="images/lateral-raise-iso.png" alt="Lateral Raise Iso" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Lateral Raise Iso</div>
           <div class="tags">hold &middot; yielding &middot; shoulder</div>
         </div>
       </li>
-      <li class="card" data-body="shoulder" data-mode="yielding" data-force="brace" data-execution="back to wall, arms in goalpost pressed flat against wall at 90 deg">
+      <li class="card" data-body="shoulder" data-mode="yielding" data-settings="no-equipment" data-force="brace" data-execution="back to wall, arms in goalpost pressed flat against wall at 90 deg">
         <div class="media"><img src="images/scap-wall-slide-hold.png" alt="Scap Wall Slide Hold" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Scap Wall Slide Hold</div>
           <div class="tags">hold &middot; yielding &middot; shoulder</div>
         </div>
       </li>
-      <li class="card" data-body="tibialis" data-mode="yielding" data-force="up" data-execution="heels planted, back against wall, toes pulled up max toward shins, holding dorsiflexion">
+      <li class="card" data-body="tibialis" data-mode="yielding" data-settings="no-equipment" data-force="up" data-execution="heels planted, back against wall, toes pulled up max toward shins, holding dorsiflexion">
         <div class="media"><img src="images/tibialis-raise-iso.png" alt="Tibialis Raise Iso" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Tibialis Raise Iso</div>
           <div class="tags">hold &middot; yielding &middot; tibialis</div>
         </div>
       </li>
-      <li class="card" data-body="wrist" data-mode="yielding" data-force="brace" data-execution="seated hands behind fingers-forward, hips lifted, wrists loaded under bodyweight">
+      <li class="card" data-body="wrist" data-mode="yielding" data-settings="no-equipment" data-force="brace" data-execution="seated hands behind fingers-forward, hips lifted, wrists loaded under bodyweight">
         <div class="media"><img src="images/reverse-plank-wrist.png" alt="Reverse Plank Wrist" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Reverse Plank Wrist</div>
           <div class="tags">hold &middot; yielding &middot; wrist</div>
         </div>
       </li>
-      <li class="card" data-body="ankle" data-mode="overcoming" data-force="up" data-execution="seated, top of foot pulling up against a fixed strap, shin still">
+      <li class="card" data-body="ankle" data-mode="overcoming" data-settings="seated equipment" data-force="up" data-execution="seated, top of foot pulling up against a fixed strap, shin still">
         <div class="media"><img src="images/ankle-dorsiflexion-iso.png" alt="Ankle Dorsiflexion Iso" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Ankle Dorsiflexion Iso</div>
           <div class="tags">pull &middot; overcoming &middot; ankle</div>
         </div>
       </li>
-      <li class="card" data-body="arm" data-mode="overcoming" data-force="down" data-execution="forearms at 90 deg pulling up on a fixed bar under a table, elbows pinned to ribs">
+      <li class="card" data-body="arm" data-mode="overcoming" data-settings="no-equipment" data-force="down" data-execution="forearms at 90 deg pulling up on a fixed bar under a table, elbows pinned to ribs">
         <div class="media"><img src="images/biceps-curl-iso-wall.png" alt="Biceps Curl Iso Wall" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Biceps Curl Iso Wall</div>
           <div class="tags">pull &middot; overcoming &middot; arm</div>
         </div>
       </li>
-      <li class="card" data-body="back" data-mode="yielding" data-force="down" data-execution="body straight under a low bar, chest pulled to bar, heels on floor">
+      <li class="card" data-body="back" data-mode="yielding" data-settings="gym" data-force="down" data-execution="body straight under a low bar, chest pulled to bar, heels on floor">
         <div class="media"><img src="images/inverted-row-iso.png" alt="Inverted Row Iso" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Inverted Row Iso</div>
           <div class="tags">pull &middot; yielding &middot; back</div>
         </div>
       </li>
-      <li class="card" data-body="back" data-mode="overcoming" data-force="down" data-execution="kneeling under an anchored band overhead, elbows pulled down to sides">
+      <li class="card" data-body="back" data-mode="overcoming" data-settings="equipment" data-force="down" data-execution="kneeling under an anchored band overhead, elbows pulled down to sides">
         <div class="media"><img src="images/lat-pulldown-iso.png" alt="Lat Pulldown Iso" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Lat Pulldown Iso</div>
           <div class="tags">pull &middot; overcoming &middot; back</div>
         </div>
       </li>
-      <li class="card" data-body="back" data-mode="overcoming" data-force="down" data-execution="hinged at hips, hands pulling back on a fixed bar toward the ribs">
+      <li class="card" data-body="back" data-mode="overcoming" data-settings="no-equipment" data-force="down" data-execution="hinged at hips, hands pulling back on a fixed bar toward the ribs">
         <div class="media"><img src="images/row-iso-wall.png" alt="Row Iso Wall" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Row Iso Wall</div>
           <div class="tags">pull &middot; overcoming &middot; back</div>
         </div>
       </li>
-      <li class="card" data-body="feet" data-mode="overcoming" data-force="up" data-execution="standing, drawing the ball of the foot toward the heel to raise the arch, holding the dome">
+      <li class="card" data-body="feet" data-mode="overcoming" data-settings="no-equipment" data-force="up" data-execution="standing, drawing the ball of the foot toward the heel to raise the arch, holding the dome">
         <div class="media"><img src="images/short-foot-iso.png" alt="Short Foot Iso" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Short Foot Iso</div>
           <div class="tags">pull &middot; overcoming &middot; feet</div>
         </div>
       </li>
-      <li class="card" data-body="feet" data-mode="overcoming" data-force="up" data-execution="seated, toes lifting up against a band over them while forefoot stays down">
+      <li class="card" data-body="feet" data-mode="overcoming" data-settings="seated equipment" data-force="up" data-execution="seated, toes lifting up against a band over them while forefoot stays down">
         <div class="media"><img src="images/toe-extension-iso.png" alt="Toe Extension Iso" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Toe Extension Iso</div>
           <div class="tags">pull &middot; overcoming &middot; feet</div>
         </div>
       </li>
-      <li class="card" data-body="feet" data-mode="overcoming" data-force="up" data-execution="toes gripping and curling a towel into the arch maximally, holding the crunch">
+      <li class="card" data-body="feet" data-mode="overcoming" data-settings="equipment" data-force="up" data-execution="toes gripping and curling a towel into the arch maximally, holding the crunch">
         <div class="media"><img src="images/toe-flexion-iso.png" alt="Toe Flexion Iso" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Toe Flexion Iso</div>
           <div class="tags">pull &middot; overcoming &middot; feet</div>
         </div>
       </li>
-      <li class="card" data-body="hams" data-mode="overcoming" data-force="down" data-execution="prone, heel pulling up against a fixed strap to bend the knee, thigh flat">
+      <li class="card" data-body="hams" data-mode="overcoming" data-settings="equipment" data-force="down" data-execution="prone, heel pulling up against a fixed strap to bend the knee, thigh flat">
         <div class="media"><img src="images/ham-curl-iso-wall.png" alt="Ham Curl Iso Wall" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Ham Curl Iso Wall</div>
           <div class="tags">pull &middot; overcoming &middot; hams</div>
         </div>
       </li>
-      <li class="card" data-body="lowback" data-mode="overcoming" data-force="up" data-execution="hinged forward, bar across back jammed under fixed pins, driving to stand">
+      <li class="card" data-body="lowback" data-mode="overcoming" data-settings="gym" data-force="up" data-execution="hinged forward, bar across back jammed under fixed pins, driving to stand">
         <div class="media"><img src="images/good-morning-iso-pins.png" alt="Good Morning Iso Pins" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Good Morning Iso Pins</div>
           <div class="tags">pull &middot; overcoming &middot; lowback</div>
         </div>
       </li>
-      <li class="card" data-body="pelvis" data-mode="overcoming" data-force="up" data-execution="seated in 90/90, front shin pressing down and back shin into floor isometrically">
+      <li class="card" data-body="pelvis" data-mode="overcoming" data-settings="seated no-equipment" data-force="up" data-execution="seated in 90/90, front shin pressing down and back shin into floor isometrically">
         <div class="media"><img src="images/90-90-hip-iso.png" alt="90 90 Hip Iso" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">90 90 Hip Iso</div>
           <div class="tags">pull &middot; overcoming &middot; pelvis</div>
         </div>
       </li>
-      <li class="card" data-body="shoulder" data-mode="overcoming" data-force="down" data-execution="band at eye level, elbows high pulled back beside ears, holding end-range">
+      <li class="card" data-body="shoulder" data-mode="overcoming" data-settings="equipment" data-force="down" data-execution="band at eye level, elbows high pulled back beside ears, holding end-range">
         <div class="media"><img src="images/face-pull-iso.png" alt="Face Pull Iso" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Face Pull Iso</div>
           <div class="tags">pull &middot; overcoming &middot; shoulder</div>
         </div>
       </li>
-      <li class="card" data-body="tibialis" data-mode="overcoming" data-force="up" data-execution="seated leg straight, band over top of foot pulling down, foot pulling up against it">
+      <li class="card" data-body="tibialis" data-mode="overcoming" data-settings="seated equipment" data-force="up" data-execution="seated leg straight, band over top of foot pulling down, foot pulling up against it">
         <div class="media"><img src="images/tib-iso-band.png" alt="Tib Iso Band" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Tib Iso Band</div>
           <div class="tags">pull &middot; overcoming &middot; tibialis</div>
         </div>
       </li>
-      <li class="card" data-body="wrist" data-mode="overcoming" data-force="up" data-execution="forearm on thigh palm-down, back of hand lifting against a fixed strap">
+      <li class="card" data-body="wrist" data-mode="overcoming" data-settings="seated equipment" data-force="up" data-execution="forearm on thigh palm-down, back of hand lifting against a fixed strap">
         <div class="media"><img src="images/wrist-extension-iso.png" alt="Wrist Extension Iso" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Wrist Extension Iso</div>
           <div class="tags">pull &middot; overcoming &middot; wrist</div>
         </div>
       </li>
-      <li class="card" data-body="wrist" data-mode="overcoming" data-force="up" data-execution="forearm on thigh palm-up, hand pulling up against a fixed strap, wrist frozen">
+      <li class="card" data-body="wrist" data-mode="overcoming" data-settings="seated equipment" data-force="up" data-execution="forearm on thigh palm-up, hand pulling up against a fixed strap, wrist frozen">
         <div class="media"><img src="images/wrist-flexion-iso.png" alt="Wrist Flexion Iso" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Wrist Flexion Iso</div>
           <div class="tags">pull &middot; overcoming &middot; wrist</div>
         </div>
       </li>
-      <li class="card" data-body="abductors" data-mode="overcoming" data-force="side" data-execution="standing side-on to a doorframe, outer foot pressing outward against the frame">
+      <li class="card" data-body="abductors" data-mode="overcoming" data-settings="no-equipment" data-force="side" data-execution="standing side-on to a doorframe, outer foot pressing outward against the frame">
         <div class="media"><img src="images/abduction-iso-wall.png" alt="Abduction Iso Wall" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Abduction Iso Wall</div>
           <div class="tags">push &middot; overcoming &middot; abductors</div>
         </div>
       </li>
-      <li class="card" data-body="adductors" data-mode="overcoming" data-force="up" data-execution="inner foot pressing a fixed object inward, leg straight">
+      <li class="card" data-body="adductors" data-mode="overcoming" data-settings="no-equipment" data-force="up" data-execution="inner foot pressing a fixed object inward, leg straight">
         <div class="media"><img src="images/adduction-iso-wall.png" alt="Adduction Iso Wall" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Adduction Iso Wall</div>
           <div class="tags">push &middot; overcoming &middot; adductors</div>
         </div>
       </li>
-      <li class="card" data-body="ankle" data-mode="overcoming" data-force="side" data-execution="seated, outer edge of foot pressing outward against a fixed object">
+      <li class="card" data-body="ankle" data-mode="overcoming" data-settings="seated no-equipment" data-force="side" data-execution="seated, outer edge of foot pressing outward against a fixed object">
         <div class="media"><img src="images/ankle-eversion-iso.png" alt="Ankle Eversion Iso" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Ankle Eversion Iso</div>
           <div class="tags">push &middot; overcoming &middot; ankle</div>
         </div>
       </li>
-      <li class="card" data-body="ankle" data-mode="overcoming" data-force="side" data-execution="seated, inner edge of foot pressing inward against a fixed object">
+      <li class="card" data-body="ankle" data-mode="overcoming" data-settings="seated no-equipment" data-force="side" data-execution="seated, inner edge of foot pressing inward against a fixed object">
         <div class="media"><img src="images/ankle-inversion-iso.png" alt="Ankle Inversion Iso" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Ankle Inversion Iso</div>
           <div class="tags">push &middot; overcoming &middot; ankle</div>
         </div>
       </li>
-      <li class="card" data-body="ankle" data-mode="overcoming" data-force="up" data-execution="seated, ball of foot pressing down forward into a fixed strap">
+      <li class="card" data-body="ankle" data-mode="overcoming" data-settings="seated equipment" data-force="up" data-execution="seated, ball of foot pressing down forward into a fixed strap">
         <div class="media"><img src="images/ankle-plantarflexion-iso.png" alt="Ankle Plantarflexion Iso" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Ankle Plantarflexion Iso</div>
           <div class="tags">push &middot; overcoming &middot; ankle</div>
         </div>
       </li>
-      <li class="card" data-body="arm" data-mode="overcoming" data-force="up" data-execution="hands pressing down against a fixed bar to straighten elbows, upper arms fixed at sides">
+      <li class="card" data-body="arm" data-mode="overcoming" data-settings="no-equipment" data-force="up" data-execution="hands pressing down against a fixed bar to straighten elbows, upper arms fixed at sides">
         <div class="media"><img src="images/triceps-ext-iso-wall.png" alt="Triceps Ext Iso Wall" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Triceps Ext Iso Wall</div>
           <div class="tags">push &middot; overcoming &middot; arm</div>
         </div>
       </li>
-      <li class="card" data-body="calves" data-mode="overcoming" data-force="up" data-execution="balls of feet under a fixed bar, driving up onto toes into the immovable bar">
+      <li class="card" data-body="calves" data-mode="overcoming" data-settings="gym" data-force="up" data-execution="balls of feet under a fixed bar, driving up onto toes into the immovable bar">
         <div class="media"><img src="images/calf-iso-pins.png" alt="Calf Iso Pins" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Calf Iso Pins</div>
           <div class="tags">push &middot; overcoming &middot; calves</div>
         </div>
       </li>
-      <li class="card" data-body="chest" data-mode="yielding" data-force="up" data-execution="push-up frozen at bottom, chest an inch off floor, elbows 90 deg, body one line">
+      <li class="card" data-body="chest" data-mode="yielding" data-settings="no-equipment" data-force="up" data-execution="push-up frozen at bottom, chest an inch off floor, elbows 90 deg, body one line">
         <div class="media"><img src="images/pushup-iso-bottom.png" alt="Pushup Iso Bottom" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Pushup Iso Bottom</div>
           <div class="tags">push &middot; yielding &middot; chest</div>
         </div>
       </li>
-      <li class="card" data-body="chest" data-mode="yielding" data-force="up" data-execution="push-up frozen halfway up, elbows 110 deg, rigid plank line">
+      <li class="card" data-body="chest" data-mode="yielding" data-settings="no-equipment" data-force="up" data-execution="push-up frozen halfway up, elbows 110 deg, rigid plank line">
         <div class="media"><img src="images/pushup-iso-mid.png" alt="Pushup Iso Mid" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Pushup Iso Mid</div>
           <div class="tags">push &middot; yielding &middot; chest</div>
         </div>
       </li>
-      <li class="card" data-body="chest" data-mode="overcoming" data-force="up" data-execution="staggered stance, both palms pressing hard into a wall at chest height">
+      <li class="card" data-body="chest" data-mode="overcoming" data-settings="no-equipment" data-force="up" data-execution="staggered stance, both palms pressing hard into a wall at chest height">
         <div class="media"><img src="images/wall-press-iso.png" alt="Wall Press Iso" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Wall Press Iso</div>
           <div class="tags">push &middot; overcoming &middot; chest</div>
         </div>
       </li>
-      <li class="card" data-body="hips" data-mode="overcoming" data-force="side" data-execution="band around knees, knees pressing outward against the band, holding spread">
+      <li class="card" data-body="hips" data-mode="overcoming" data-settings="equipment" data-force="side" data-execution="band around knees, knees pressing outward against the band, holding spread">
         <div class="media"><img src="images/hip-abduction-iso-band.png" alt="Hip Abduction Iso Band" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Hip Abduction Iso Band</div>
           <div class="tags">push &middot; overcoming &middot; hips</div>
         </div>
       </li>
-      <li class="card" data-body="hips" data-mode="overcoming" data-force="back" data-execution="standing, one heel pressing back into a fixed pad, glute driving, torso upright">
+      <li class="card" data-body="hips" data-mode="overcoming" data-settings="no-equipment" data-force="back" data-execution="standing, one heel pressing back into a fixed pad, glute driving, torso upright">
         <div class="media"><img src="images/hip-extension-iso-wall.png" alt="Hip Extension Iso Wall" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Hip Extension Iso Wall</div>
           <div class="tags">push &middot; overcoming &middot; hips</div>
         </div>
       </li>
-      <li class="card" data-body="neck" data-mode="overcoming" data-force="back" data-execution="hands behind skull, head presses back into hands, neck straight">
+      <li class="card" data-body="neck" data-mode="overcoming" data-settings="seated no-equipment" data-force="back" data-execution="hands behind skull, head presses back into hands, neck straight">
         <div class="media"><img src="images/neck-extension-hold.png" alt="Neck Extension Hold" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Neck Extension Hold</div>
           <div class="tags">push &middot; overcoming &middot; neck</div>
         </div>
       </li>
-      <li class="card" data-body="neck" data-mode="overcoming" data-force="forward" data-execution="seated upright, palms on forehead, head pushes forward into hands, nothing moves">
+      <li class="card" data-body="neck" data-mode="overcoming" data-settings="seated no-equipment" data-force="forward" data-execution="seated upright, palms on forehead, head pushes forward into hands, nothing moves">
         <div class="media"><img src="images/neck-flexion-hold.png" alt="Neck Flexion Hold" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Neck Flexion Hold</div>
           <div class="tags">push &middot; overcoming &middot; neck</div>
         </div>
       </li>
-      <li class="card" data-body="neck" data-mode="overcoming" data-force="left" data-execution="right palm on left temple, head presses sideways into hand, ears level">
+      <li class="card" data-body="neck" data-mode="overcoming" data-settings="seated no-equipment" data-force="left" data-execution="right palm on left temple, head presses sideways into hand, ears level">
         <div class="media"><img src="images/neck-lateral-hold-L.png" alt="Neck Lateral Hold L" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Neck Lateral Hold L</div>
           <div class="tags">push &middot; overcoming &middot; neck</div>
         </div>
       </li>
-      <li class="card" data-body="neck" data-mode="overcoming" data-force="right" data-execution="left palm on right temple, head presses sideways into hand, ears level">
+      <li class="card" data-body="neck" data-mode="overcoming" data-settings="seated no-equipment" data-force="right" data-execution="left palm on right temple, head presses sideways into hand, ears level">
         <div class="media"><img src="images/neck-lateral-hold-R.png" alt="Neck Lateral Hold R" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Neck Lateral Hold R</div>
           <div class="tags">push &middot; overcoming &middot; neck</div>
         </div>
       </li>
-      <li class="card" data-body="pelvis" data-mode="overcoming" data-force="in" data-execution="supine knees bent, a ball between knees, knees squeezing inward maximally">
+      <li class="card" data-body="pelvis" data-mode="overcoming" data-settings="equipment" data-force="in" data-execution="supine knees bent, a ball between knees, knees squeezing inward maximally">
         <div class="media"><img src="images/adductor-squeeze-iso.png" alt="Adductor Squeeze Iso" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Adductor Squeeze Iso</div>
           <div class="tags">push &middot; overcoming &middot; pelvis</div>
         </div>
       </li>
-      <li class="card" data-body="quads" data-mode="overcoming" data-force="forward" data-execution="seated, top of foot pressing forward against a fixed strap to straighten the knee">
+      <li class="card" data-body="quads" data-mode="overcoming" data-settings="seated equipment" data-force="forward" data-execution="seated, top of foot pressing forward against a fixed strap to straighten the knee">
         <div class="media"><img src="images/leg-extension-iso-wall.png" alt="Leg Extension Iso Wall" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Leg Extension Iso Wall</div>
           <div class="tags">push &middot; overcoming &middot; quads</div>
         </div>
       </li>
-      <li class="card" data-body="quads" data-mode="overcoming" data-force="up" data-execution="bar on back jammed under fixed pins at parallel, driving up into the pins">
+      <li class="card" data-body="quads" data-mode="overcoming" data-settings="gym" data-force="up" data-execution="bar on back jammed under fixed pins at parallel, driving up into the pins">
         <div class="media"><img src="images/squat-iso-pins.png" alt="Squat Iso Pins" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Squat Iso Pins</div>
           <div class="tags">push &middot; overcoming &middot; quads</div>
         </div>
       </li>
-      <li class="card" data-body="shoulder" data-mode="overcoming" data-force="up" data-execution="under a fixed ledge, arms overhead pressing up into immovable surface">
+      <li class="card" data-body="shoulder" data-mode="overcoming" data-settings="no-equipment" data-force="up" data-execution="under a fixed ledge, arms overhead pressing up into immovable surface">
         <div class="media"><img src="images/wall-shoulder-press-iso.png" alt="Wall Shoulder Press Iso" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Wall Shoulder Press Iso</div>
           <div class="tags">push &middot; overcoming &middot; shoulder</div>
         </div>
       </li>
-      <li class="card" data-body="wrist" data-mode="overcoming" data-force="side" data-execution="forearm neutral thumb up, hand pressing a fixed object side to side, wrist locked">
+      <li class="card" data-body="wrist" data-mode="overcoming" data-settings="seated no-equipment" data-force="side" data-execution="forearm neutral thumb up, hand pressing a fixed object side to side, wrist locked">
         <div class="media"><img src="images/wrist-radial-ulnar-iso.png" alt="Wrist Radial Ulnar Iso" loading="lazy" decoding="async"></div>
         <div class="meta">
           <div class="name">Wrist Radial Ulnar Iso</div>
@@ -815,7 +822,7 @@
   </div>
   <script>
   (function () {
-    var routineData = {"holds":[{"slug":"ab-wheel-iso","iso_class":"brace","iso_mode":"yielding","body_part":"core","execution":"rolled-out on wheel, arms extended forward, body a straight diagonal off knees","name":"Ab Wheel Iso","img":"images/ab-wheel-iso.png","force":"up"},{"slug":"bird-dog-hold","iso_class":"brace","iso_mode":"yielding","body_part":"core","execution":"on hands and knees, opposite arm and leg extended straight and level, spine neutral","name":"Bird Dog Hold","img":"images/bird-dog-hold.png","force":"brace"},{"slug":"hollow-body-hold","iso_class":"brace","iso_mode":"yielding","body_part":"core","execution":"supine, low back to floor, arms overhead and legs straight and low, shallow banana","name":"Hollow Body Hold","img":"images/hollow-body-hold.png","force":"brace"},{"slug":"pallof-press-iso","iso_class":"brace","iso_mode":"overcoming","body_part":"core","execution":"side-on to an anchored band, arms pressed straight out from sternum resisting the pull","name":"Pallof Press Iso","img":"images/pallof-press-iso.png","force":"up"},{"slug":"plank-forearm","iso_class":"brace","iso_mode":"yielding","body_part":"core","execution":"forearms and toes on floor, body one rigid line head to heels, hips level","name":"Plank Forearm","img":"images/plank-forearm.png","force":"brace"},{"slug":"plank-high","iso_class":"brace","iso_mode":"yielding","body_part":"core","execution":"hands and toes, arms straight, straight-line body, shoulders over wrists","name":"Plank High","img":"images/plank-high.png","force":"brace"},{"slug":"side-plank-forearm","iso_class":"brace","iso_mode":"yielding","body_part":"core","execution":"on one forearm and stacked feet, body a straight line side-on, top hip lifted","name":"Side Plank Forearm","img":"images/side-plank-forearm.png","force":"brace"},{"slug":"pullup-iso-mid","iso_class":"hang","iso_mode":"yielding","body_part":"back","execution":"pull-up frozen at 90 deg elbow, eyes at bar height","name":"Pullup Iso Mid","img":"images/pullup-iso-mid.png","force":"down"},{"slug":"pullup-iso-top","iso_class":"hang","iso_mode":"yielding","body_part":"back","execution":"chin held over the bar, elbows fully bent, chest to bar","name":"Pullup Iso Top","img":"images/pullup-iso-top.png","force":"down"},{"slug":"tiptoe-heel-hang","iso_class":"hang","iso_mode":"yielding","body_part":"feet","execution":"balls of feet on a step edge, heels dropped and held, plantar loaded","name":"Tiptoe Heel Hang","img":"images/tiptoe-heel-hang.png","force":"down"},{"slug":"dead-hang-grip","iso_class":"hang","iso_mode":"yielding","body_part":"grip","execution":"hanging from a bar with both hands, straight arms, full bodyweight on fingers","name":"Dead Hang Grip","img":"images/dead-hang-grip.png","force":"down"},{"slug":"one-arm-hang-grip","iso_class":"hang","iso_mode":"yielding","body_part":"grip","execution":"hanging from a bar with one hand, straight arm, whole bodyweight on one grip","name":"One Arm Hang Grip","img":"images/one-arm-hang-grip.png","force":"down"},{"slug":"towel-hang-grip","iso_class":"hang","iso_mode":"yielding","body_part":"grip","execution":"hanging from two towels over a bar, thick pinch in fists, straight arms","name":"Towel Hang Grip","img":"images/towel-hang-grip.png","force":"down"},{"slug":"neck-hang-strap","iso_class":"hang","iso_mode":"yielding","body_part":"neck","execution":"standing, padded head-harness under chin anchored to weight, neck holds load, spine tall","name":"Neck Hang Strap","img":"images/neck-hang-strap.png","force":"down"},{"slug":"scap-hang-active","iso_class":"hang","iso_mode":"yielding","body_part":"shoulder","execution":"hanging from bar, shoulders pulled down and back into sockets, elbows straight","name":"Scap Hang Active","img":"images/scap-hang-active.png","force":"down"},{"slug":"side-lying-abduction-iso","iso_class":"hold","iso_mode":"yielding","body_part":"abductors","execution":"side-lying, top leg raised to 45 deg and frozen in the air, hips stacked","name":"Side Lying Abduction Iso","img":"images/side-lying-abduction-iso.png","force":"side"},{"slug":"sumo-squat-iso","iso_class":"hold","iso_mode":"yielding","body_part":"adductors","execution":"very wide stance toes out, sunk to parallel, knees tracking out, torso tall","name":"Sumo Squat Iso","img":"images/sumo-squat-iso.png","force":"up"},{"slug":"single-leg-balance-iso","iso_class":"hold","iso_mode":"yielding","body_part":"ankle","execution":"standing on one foot, other lifted, holding still and controlling every wobble","name":"Single Leg Balance Iso","img":"images/single-leg-balance-iso.png","force":"brace"},{"slug":"biceps-curl-iso-weight","iso_class":"hold","iso_mode":"yielding","body_part":"arm","execution":"elbows at 90 deg holding a heavy load frozen mid-curl, upper arms vertical","name":"Biceps Curl Iso Weight","img":"images/biceps-curl-iso-weight.png","force":"down"},{"slug":"triceps-bench-lockout","iso_class":"hold","iso_mode":"yielding","body_part":"arm","execution":"supine, arms straight holding a load at lockout over chest, elbows locked","name":"Triceps Bench Lockout","img":"images/triceps-bench-lockout.png","force":"up"},{"slug":"calf-raise-iso-top","iso_class":"hold","iso_mode":"yielding","body_part":"calves","execution":"standing on balls of feet at full tip-toe, heels max-high, ankles plantarflexed","name":"Calf Raise Iso Top","img":"images/calf-raise-iso-top.png","force":"up"},{"slug":"seated-calf-iso","iso_class":"hold","iso_mode":"yielding","body_part":"calves","execution":"seated, weight on knees, up on balls of feet, heels raised max","name":"Seated Calf Iso","img":"images/seated-calf-iso.png","force":"up"},{"slug":"single-leg-calf-iso","iso_class":"hold","iso_mode":"yielding","body_part":"calves","execution":"on one foot at full tip-toe, other foot off ground, heel high","name":"Single Leg Calf Iso","img":"images/single-leg-calf-iso.png","force":"up"},{"slug":"chest-fly-iso-hold","iso_class":"hold","iso_mode":"yielding","body_part":"chest","execution":"supine, arms wide and slightly bent holding weights in the stretched fly position","name":"Chest Fly Iso Hold","img":"images/chest-fly-iso-hold.png","force":"brace"},{"slug":"suitcase-hold","iso_class":"hold","iso_mode":"yielding","body_part":"core","execution":"standing tall holding a heavy weight in one hand at the side, torso vertical un-tilted","name":"Suitcase Hold","img":"images/suitcase-hold.png","force":"brace"},{"slug":"toe-stand-hold","iso_class":"hold","iso_mode":"yielding","body_part":"feet","execution":"standing pushed all the way onto the toe pads past the balls, weight on toes","name":"Toe Stand Hold","img":"images/toe-stand-hold.png","force":"brace"},{"slug":"plate-pinch-hold","iso_class":"hold","iso_mode":"yielding","body_part":"grip","execution":"thumb-and-fingers pinching a smooth plate at the side, arm straight","name":"Plate Pinch Hold","img":"images/plate-pinch-hold.png","force":"down"},{"slug":"bridge-heels-iso","iso_class":"hold","iso_mode":"yielding","body_part":"hams","execution":"supine, heels on a raised surface, hips lifted, legs long, hamstrings loaded","name":"Bridge Heels Iso","img":"images/bridge-heels-iso.png","force":"up"},{"slug":"nordic-iso-hold","iso_class":"hold","iso_mode":"yielding","body_part":"hams","execution":"kneeling ankles anchored, torso leaned forward held mid-range by the hamstrings","name":"Nordic Iso Hold","img":"images/nordic-iso-hold.png","force":"brace"},{"slug":"single-leg-rdl-iso","iso_class":"hold","iso_mode":"yielding","body_part":"hams","execution":"balanced on one leg, torso and free leg horizontal in a T, weight hanging","name":"Single Leg Rdl Iso","img":"images/single-leg-rdl-iso.png","force":"up"},{"slug":"glute-bridge-hold","iso_class":"hold","iso_mode":"yielding","body_part":"hips","execution":"supine, feet flat, hips lifted to straight shoulder-knee line, glutes squeezed","name":"Glute Bridge Hold","img":"images/glute-bridge-hold.png","force":"up"},{"slug":"hip-thrust-iso","iso_class":"hold","iso_mode":"yielding","body_part":"hips","execution":"shoulders on bench, barbell across hips, hips lifted to full lockout horizontal","name":"Hip Thrust Iso","img":"images/hip-thrust-iso.png","force":"up"},{"slug":"single-leg-bridge-hold","iso_class":"hold","iso_mode":"yielding","body_part":"hips","execution":"supine, one foot planted, other leg straight out, hips lifted level on one leg","name":"Single Leg Bridge Hold","img":"images/single-leg-bridge-hold.png","force":"up"},{"slug":"back-extension-iso","iso_class":"hold","iso_mode":"yielding","body_part":"lowback","execution":"hips on a bench pad, torso straight out horizontal, holding a plate","name":"Back Extension Iso","img":"images/back-extension-iso.png","force":"up"},{"slug":"reverse-hyper-iso","iso_class":"hold","iso_mode":"yielding","body_part":"lowback","execution":"face-down on a bench edge, legs straight and lifted to horizontal behind","name":"Reverse Hyper Iso","img":"images/reverse-hyper-iso.png","force":"up"},{"slug":"superman-hold","iso_class":"hold","iso_mode":"yielding","body_part":"lowback","execution":"prone, arms and legs lifted off floor, back extended, chest and thighs raised","name":"Superman Hold","img":"images/superman-hold.png","force":"brace"},{"slug":"neck-bridge-back","iso_class":"hold","iso_mode":"yielding","body_part":"neck","execution":"supine wrestler bridge, weight on crown and feet, hips lifted, back arched","name":"Neck Bridge Back","img":"images/neck-bridge-back.png","force":"up"},{"slug":"neck-bridge-front","iso_class":"hold","iso_mode":"yielding","body_part":"neck","execution":"prone bridge on forehead and toes, body arched face-down, neck loaded","name":"Neck Bridge Front","img":"images/neck-bridge-front.png","force":"up"},{"slug":"copenhagen-hold","iso_class":"hold","iso_mode":"yielding","body_part":"pelvis","execution":"side-plank with top inner-foot on a bench, bottom leg lifted to it, hips stacked","name":"Copenhagen Hold","img":"images/copenhagen-hold.png","force":"brace"},{"slug":"frog-stance-hold","iso_class":"hold","iso_mode":"yielding","body_part":"pelvis","execution":"deep squat knees wide, elbows inside knees, hips fully flexed and open","name":"Frog Stance Hold","img":"images/frog-stance-hold.png","force":"brace"},{"slug":"horse-stance-mabu","iso_class":"hold","iso_mode":"yielding","body_part":"quads","execution":"wide stance toes forward, hips sunk to thigh-parallel, torso vertical, arms out","name":"Horse Stance Mabu","img":"images/horse-stance-mabu.png","force":"up"},{"slug":"split-squat-iso","iso_class":"hold","iso_mode":"yielding","body_part":"quads","execution":"long lunge stance, back knee near floor, front thigh parallel, torso upright","name":"Split Squat Iso","img":"images/split-squat-iso.png","force":"up"},{"slug":"squat-iso-hold","iso_class":"hold","iso_mode":"yielding","body_part":"quads","execution":"free-standing squat held at 90 deg knee, chest up, arms forward","name":"Squat Iso Hold","img":"images/squat-iso-hold.png","force":"up"},{"slug":"wall-sit","iso_class":"hold","iso_mode":"yielding","body_part":"quads","execution":"back flat on wall, thighs parallel to floor, knees 90 deg, shins vertical","name":"Wall Sit","img":"images/wall-sit.png","force":"brace"},{"slug":"lateral-raise-iso","iso_class":"hold","iso_mode":"yielding","body_part":"shoulder","execution":"arms straight out to sides at shoulder height holding weights, frozen in a T","name":"Lateral Raise Iso","img":"images/lateral-raise-iso.png","force":"up"},{"slug":"scap-wall-slide-hold","iso_class":"hold","iso_mode":"yielding","body_part":"shoulder","execution":"back to wall, arms in goalpost pressed flat against wall at 90 deg","name":"Scap Wall Slide Hold","img":"images/scap-wall-slide-hold.png","force":"brace"},{"slug":"tibialis-raise-iso","iso_class":"hold","iso_mode":"yielding","body_part":"tibialis","execution":"heels planted, back against wall, toes pulled up max toward shins, holding dorsiflexion","name":"Tibialis Raise Iso","img":"images/tibialis-raise-iso.png","force":"up"},{"slug":"reverse-plank-wrist","iso_class":"hold","iso_mode":"yielding","body_part":"wrist","execution":"seated hands behind fingers-forward, hips lifted, wrists loaded under bodyweight","name":"Reverse Plank Wrist","img":"images/reverse-plank-wrist.png","force":"brace"},{"slug":"ankle-dorsiflexion-iso","iso_class":"pull","iso_mode":"overcoming","body_part":"ankle","execution":"seated, top of foot pulling up against a fixed strap, shin still","name":"Ankle Dorsiflexion Iso","img":"images/ankle-dorsiflexion-iso.png","force":"up"},{"slug":"biceps-curl-iso-wall","iso_class":"pull","iso_mode":"overcoming","body_part":"arm","execution":"forearms at 90 deg pulling up on a fixed bar under a table, elbows pinned to ribs","name":"Biceps Curl Iso Wall","img":"images/biceps-curl-iso-wall.png","force":"down"},{"slug":"inverted-row-iso","iso_class":"pull","iso_mode":"yielding","body_part":"back","execution":"body straight under a low bar, chest pulled to bar, heels on floor","name":"Inverted Row Iso","img":"images/inverted-row-iso.png","force":"down"},{"slug":"lat-pulldown-iso","iso_class":"pull","iso_mode":"overcoming","body_part":"back","execution":"kneeling under an anchored band overhead, elbows pulled down to sides","name":"Lat Pulldown Iso","img":"images/lat-pulldown-iso.png","force":"down"},{"slug":"row-iso-wall","iso_class":"pull","iso_mode":"overcoming","body_part":"back","execution":"hinged at hips, hands pulling back on a fixed bar toward the ribs","name":"Row Iso Wall","img":"images/row-iso-wall.png","force":"down"},{"slug":"short-foot-iso","iso_class":"pull","iso_mode":"overcoming","body_part":"feet","execution":"standing, drawing the ball of the foot toward the heel to raise the arch, holding the dome","name":"Short Foot Iso","img":"images/short-foot-iso.png","force":"up"},{"slug":"toe-extension-iso","iso_class":"pull","iso_mode":"overcoming","body_part":"feet","execution":"seated, toes lifting up against a band over them while forefoot stays down","name":"Toe Extension Iso","img":"images/toe-extension-iso.png","force":"up"},{"slug":"toe-flexion-iso","iso_class":"pull","iso_mode":"overcoming","body_part":"feet","execution":"toes gripping and curling a towel into the arch maximally, holding the crunch","name":"Toe Flexion Iso","img":"images/toe-flexion-iso.png","force":"up"},{"slug":"ham-curl-iso-wall","iso_class":"pull","iso_mode":"overcoming","body_part":"hams","execution":"prone, heel pulling up against a fixed strap to bend the knee, thigh flat","name":"Ham Curl Iso Wall","img":"images/ham-curl-iso-wall.png","force":"down"},{"slug":"good-morning-iso-pins","iso_class":"pull","iso_mode":"overcoming","body_part":"lowback","execution":"hinged forward, bar across back jammed under fixed pins, driving to stand","name":"Good Morning Iso Pins","img":"images/good-morning-iso-pins.png","force":"up"},{"slug":"90-90-hip-iso","iso_class":"pull","iso_mode":"overcoming","body_part":"pelvis","execution":"seated in 90/90, front shin pressing down and back shin into floor isometrically","name":"90 90 Hip Iso","img":"images/90-90-hip-iso.png","force":"up"},{"slug":"face-pull-iso","iso_class":"pull","iso_mode":"overcoming","body_part":"shoulder","execution":"band at eye level, elbows high pulled back beside ears, holding end-range","name":"Face Pull Iso","img":"images/face-pull-iso.png","force":"down"},{"slug":"tib-iso-band","iso_class":"pull","iso_mode":"overcoming","body_part":"tibialis","execution":"seated leg straight, band over top of foot pulling down, foot pulling up against it","name":"Tib Iso Band","img":"images/tib-iso-band.png","force":"up"},{"slug":"wrist-extension-iso","iso_class":"pull","iso_mode":"overcoming","body_part":"wrist","execution":"forearm on thigh palm-down, back of hand lifting against a fixed strap","name":"Wrist Extension Iso","img":"images/wrist-extension-iso.png","force":"up"},{"slug":"wrist-flexion-iso","iso_class":"pull","iso_mode":"overcoming","body_part":"wrist","execution":"forearm on thigh palm-up, hand pulling up against a fixed strap, wrist frozen","name":"Wrist Flexion Iso","img":"images/wrist-flexion-iso.png","force":"up"},{"slug":"abduction-iso-wall","iso_class":"push","iso_mode":"overcoming","body_part":"abductors","execution":"standing side-on to a doorframe, outer foot pressing outward against the frame","name":"Abduction Iso Wall","img":"images/abduction-iso-wall.png","force":"side"},{"slug":"adduction-iso-wall","iso_class":"push","iso_mode":"overcoming","body_part":"adductors","execution":"inner foot pressing a fixed object inward, leg straight","name":"Adduction Iso Wall","img":"images/adduction-iso-wall.png","force":"up"},{"slug":"ankle-eversion-iso","iso_class":"push","iso_mode":"overcoming","body_part":"ankle","execution":"seated, outer edge of foot pressing outward against a fixed object","name":"Ankle Eversion Iso","img":"images/ankle-eversion-iso.png","force":"side"},{"slug":"ankle-inversion-iso","iso_class":"push","iso_mode":"overcoming","body_part":"ankle","execution":"seated, inner edge of foot pressing inward against a fixed object","name":"Ankle Inversion Iso","img":"images/ankle-inversion-iso.png","force":"side"},{"slug":"ankle-plantarflexion-iso","iso_class":"push","iso_mode":"overcoming","body_part":"ankle","execution":"seated, ball of foot pressing down forward into a fixed strap","name":"Ankle Plantarflexion Iso","img":"images/ankle-plantarflexion-iso.png","force":"up"},{"slug":"triceps-ext-iso-wall","iso_class":"push","iso_mode":"overcoming","body_part":"arm","execution":"hands pressing down against a fixed bar to straighten elbows, upper arms fixed at sides","name":"Triceps Ext Iso Wall","img":"images/triceps-ext-iso-wall.png","force":"up"},{"slug":"calf-iso-pins","iso_class":"push","iso_mode":"overcoming","body_part":"calves","execution":"balls of feet under a fixed bar, driving up onto toes into the immovable bar","name":"Calf Iso Pins","img":"images/calf-iso-pins.png","force":"up"},{"slug":"pushup-iso-bottom","iso_class":"push","iso_mode":"yielding","body_part":"chest","execution":"push-up frozen at bottom, chest an inch off floor, elbows 90 deg, body one line","name":"Pushup Iso Bottom","img":"images/pushup-iso-bottom.png","force":"up"},{"slug":"pushup-iso-mid","iso_class":"push","iso_mode":"yielding","body_part":"chest","execution":"push-up frozen halfway up, elbows 110 deg, rigid plank line","name":"Pushup Iso Mid","img":"images/pushup-iso-mid.png","force":"up"},{"slug":"wall-press-iso","iso_class":"push","iso_mode":"overcoming","body_part":"chest","execution":"staggered stance, both palms pressing hard into a wall at chest height","name":"Wall Press Iso","img":"images/wall-press-iso.png","force":"up"},{"slug":"hip-abduction-iso-band","iso_class":"push","iso_mode":"overcoming","body_part":"hips","execution":"band around knees, knees pressing outward against the band, holding spread","name":"Hip Abduction Iso Band","img":"images/hip-abduction-iso-band.png","force":"side"},{"slug":"hip-extension-iso-wall","iso_class":"push","iso_mode":"overcoming","body_part":"hips","execution":"standing, one heel pressing back into a fixed pad, glute driving, torso upright","name":"Hip Extension Iso Wall","img":"images/hip-extension-iso-wall.png","force":"back"},{"slug":"neck-extension-hold","iso_class":"push","iso_mode":"overcoming","body_part":"neck","execution":"hands behind skull, head presses back into hands, neck straight","name":"Neck Extension Hold","img":"images/neck-extension-hold.png","force":"back"},{"slug":"neck-flexion-hold","iso_class":"push","iso_mode":"overcoming","body_part":"neck","execution":"seated upright, palms on forehead, head pushes forward into hands, nothing moves","name":"Neck Flexion Hold","img":"images/neck-flexion-hold.png","force":"forward"},{"slug":"neck-lateral-hold-L","iso_class":"push","iso_mode":"overcoming","body_part":"neck","execution":"right palm on left temple, head presses sideways into hand, ears level","name":"Neck Lateral Hold L","img":"images/neck-lateral-hold-L.png","force":"left"},{"slug":"neck-lateral-hold-R","iso_class":"push","iso_mode":"overcoming","body_part":"neck","execution":"left palm on right temple, head presses sideways into hand, ears level","name":"Neck Lateral Hold R","img":"images/neck-lateral-hold-R.png","force":"right"},{"slug":"adductor-squeeze-iso","iso_class":"push","iso_mode":"overcoming","body_part":"pelvis","execution":"supine knees bent, a ball between knees, knees squeezing inward maximally","name":"Adductor Squeeze Iso","img":"images/adductor-squeeze-iso.png","force":"in"},{"slug":"leg-extension-iso-wall","iso_class":"push","iso_mode":"overcoming","body_part":"quads","execution":"seated, top of foot pressing forward against a fixed strap to straighten the knee","name":"Leg Extension Iso Wall","img":"images/leg-extension-iso-wall.png","force":"forward"},{"slug":"squat-iso-pins","iso_class":"push","iso_mode":"overcoming","body_part":"quads","execution":"bar on back jammed under fixed pins at parallel, driving up into the pins","name":"Squat Iso Pins","img":"images/squat-iso-pins.png","force":"up"},{"slug":"wall-shoulder-press-iso","iso_class":"push","iso_mode":"overcoming","body_part":"shoulder","execution":"under a fixed ledge, arms overhead pressing up into immovable surface","name":"Wall Shoulder Press Iso","img":"images/wall-shoulder-press-iso.png","force":"up"},{"slug":"wrist-radial-ulnar-iso","iso_class":"push","iso_mode":"overcoming","body_part":"wrist","execution":"forearm neutral thumb up, hand pressing a fixed object side to side, wrist locked","name":"Wrist Radial Ulnar Iso","img":"images/wrist-radial-ulnar-iso.png","force":"side"}],"routines":{"short":["neck-flexion-hold","neck-extension-hold","scap-hang-active","pushup-iso-mid","row-iso-wall","squat-iso-hold","single-leg-rdl-iso","glute-bridge-hold","calf-raise-iso-top","plank-forearm","side-plank-forearm","suitcase-hold"],"medium":["neck-flexion-hold","neck-extension-hold","neck-lateral-hold-L","neck-lateral-hold-R","scap-hang-active","wall-shoulder-press-iso","pushup-iso-bottom","row-iso-wall","lat-pulldown-iso","biceps-curl-iso-wall","triceps-ext-iso-wall","wrist-radial-ulnar-iso","squat-iso-hold","split-squat-iso","single-leg-rdl-iso","glute-bridge-hold","hip-extension-iso-wall","copenhagen-hold","adductor-squeeze-iso","calf-raise-iso-top","tibialis-raise-iso","plank-forearm","side-plank-forearm","suitcase-hold"],"long":["neck-flexion-hold","neck-extension-hold","neck-lateral-hold-L","neck-lateral-hold-R","scap-hang-active","face-pull-iso","wall-shoulder-press-iso","lateral-raise-iso","pushup-iso-bottom","chest-fly-iso-hold","row-iso-wall","lat-pulldown-iso","dead-hang-grip","biceps-curl-iso-wall","triceps-ext-iso-wall","wrist-extension-iso","wrist-flexion-iso","wrist-radial-ulnar-iso","squat-iso-hold","squat-iso-pins","split-squat-iso","wall-sit","single-leg-rdl-iso","nordic-iso-hold","glute-bridge-hold","hip-extension-iso-wall","copenhagen-hold","adductor-squeeze-iso","calf-raise-iso-top","tibialis-raise-iso","short-foot-iso","plank-forearm","side-plank-forearm","pallof-press-iso","back-extension-iso","suitcase-hold"]},"intensities":{"regular":20,"hard":40,"ultimate":60}};
+    var routineData = {"holds":[{"slug":"ab-wheel-iso","iso_class":"brace","iso_mode":"yielding","body_part":"core","settings":["equipment"],"execution":"rolled-out on wheel, arms extended forward, body a straight diagonal off knees","name":"Ab Wheel Iso","img":"images/ab-wheel-iso.png","force":"up"},{"slug":"bird-dog-hold","iso_class":"brace","iso_mode":"yielding","body_part":"core","settings":["no-equipment"],"execution":"on hands and knees, opposite arm and leg extended straight and level, spine neutral","name":"Bird Dog Hold","img":"images/bird-dog-hold.png","force":"brace"},{"slug":"hollow-body-hold","iso_class":"brace","iso_mode":"yielding","body_part":"core","settings":["no-equipment"],"execution":"supine, low back to floor, arms overhead and legs straight and low, shallow banana","name":"Hollow Body Hold","img":"images/hollow-body-hold.png","force":"brace"},{"slug":"pallof-press-iso","iso_class":"brace","iso_mode":"overcoming","body_part":"core","settings":["equipment"],"execution":"side-on to an anchored band, arms pressed straight out from sternum resisting the pull","name":"Pallof Press Iso","img":"images/pallof-press-iso.png","force":"up"},{"slug":"plank-forearm","iso_class":"brace","iso_mode":"yielding","body_part":"core","settings":["no-equipment"],"execution":"forearms and toes on floor, body one rigid line head to heels, hips level","name":"Plank Forearm","img":"images/plank-forearm.png","force":"brace"},{"slug":"plank-high","iso_class":"brace","iso_mode":"yielding","body_part":"core","settings":["no-equipment"],"execution":"hands and toes, arms straight, straight-line body, shoulders over wrists","name":"Plank High","img":"images/plank-high.png","force":"brace"},{"slug":"side-plank-forearm","iso_class":"brace","iso_mode":"yielding","body_part":"core","settings":["no-equipment"],"execution":"on one forearm and stacked feet, body a straight line side-on, top hip lifted","name":"Side Plank Forearm","img":"images/side-plank-forearm.png","force":"brace"},{"slug":"pullup-iso-mid","iso_class":"hang","iso_mode":"yielding","body_part":"back","settings":["gym"],"execution":"pull-up frozen at 90 deg elbow, eyes at bar height","name":"Pullup Iso Mid","img":"images/pullup-iso-mid.png","force":"down"},{"slug":"pullup-iso-top","iso_class":"hang","iso_mode":"yielding","body_part":"back","settings":["gym"],"execution":"chin held over the bar, elbows fully bent, chest to bar","name":"Pullup Iso Top","img":"images/pullup-iso-top.png","force":"down"},{"slug":"tiptoe-heel-hang","iso_class":"hang","iso_mode":"yielding","body_part":"feet","settings":["no-equipment"],"execution":"balls of feet on a step edge, heels dropped and held, plantar loaded","name":"Tiptoe Heel Hang","img":"images/tiptoe-heel-hang.png","force":"down"},{"slug":"dead-hang-grip","iso_class":"hang","iso_mode":"yielding","body_part":"grip","settings":["gym"],"execution":"hanging from a bar with both hands, straight arms, full bodyweight on fingers","name":"Dead Hang Grip","img":"images/dead-hang-grip.png","force":"down"},{"slug":"one-arm-hang-grip","iso_class":"hang","iso_mode":"yielding","body_part":"grip","settings":["gym"],"execution":"hanging from a bar with one hand, straight arm, whole bodyweight on one grip","name":"One Arm Hang Grip","img":"images/one-arm-hang-grip.png","force":"down"},{"slug":"towel-hang-grip","iso_class":"hang","iso_mode":"yielding","body_part":"grip","settings":["gym"],"execution":"hanging from two towels over a bar, thick pinch in fists, straight arms","name":"Towel Hang Grip","img":"images/towel-hang-grip.png","force":"down"},{"slug":"neck-hang-strap","iso_class":"hang","iso_mode":"yielding","body_part":"neck","settings":["equipment","gym"],"execution":"standing, padded head-harness under chin anchored to weight, neck holds load, spine tall","name":"Neck Hang Strap","img":"images/neck-hang-strap.png","force":"down"},{"slug":"scap-hang-active","iso_class":"hang","iso_mode":"yielding","body_part":"shoulder","settings":["gym"],"execution":"hanging from bar, shoulders pulled down and back into sockets, elbows straight","name":"Scap Hang Active","img":"images/scap-hang-active.png","force":"down"},{"slug":"side-lying-abduction-iso","iso_class":"hold","iso_mode":"yielding","body_part":"abductors","settings":["no-equipment"],"execution":"side-lying, top leg raised to 45 deg and frozen in the air, hips stacked","name":"Side Lying Abduction Iso","img":"images/side-lying-abduction-iso.png","force":"side"},{"slug":"sumo-squat-iso","iso_class":"hold","iso_mode":"yielding","body_part":"adductors","settings":["no-equipment"],"execution":"very wide stance toes out, sunk to parallel, knees tracking out, torso tall","name":"Sumo Squat Iso","img":"images/sumo-squat-iso.png","force":"up"},{"slug":"single-leg-balance-iso","iso_class":"hold","iso_mode":"yielding","body_part":"ankle","settings":["no-equipment"],"execution":"standing on one foot, other lifted, holding still and controlling every wobble","name":"Single Leg Balance Iso","img":"images/single-leg-balance-iso.png","force":"brace"},{"slug":"biceps-curl-iso-weight","iso_class":"hold","iso_mode":"yielding","body_part":"arm","settings":["equipment"],"execution":"elbows at 90 deg holding a heavy load frozen mid-curl, upper arms vertical","name":"Biceps Curl Iso Weight","img":"images/biceps-curl-iso-weight.png","force":"down"},{"slug":"triceps-bench-lockout","iso_class":"hold","iso_mode":"yielding","body_part":"arm","settings":["equipment"],"execution":"supine, arms straight holding a load at lockout over chest, elbows locked","name":"Triceps Bench Lockout","img":"images/triceps-bench-lockout.png","force":"up"},{"slug":"calf-raise-iso-top","iso_class":"hold","iso_mode":"yielding","body_part":"calves","settings":["no-equipment"],"execution":"standing on balls of feet at full tip-toe, heels max-high, ankles plantarflexed","name":"Calf Raise Iso Top","img":"images/calf-raise-iso-top.png","force":"up"},{"slug":"seated-calf-iso","iso_class":"hold","iso_mode":"yielding","body_part":"calves","settings":["seated","equipment"],"execution":"seated, weight on knees, up on balls of feet, heels raised max","name":"Seated Calf Iso","img":"images/seated-calf-iso.png","force":"up"},{"slug":"single-leg-calf-iso","iso_class":"hold","iso_mode":"yielding","body_part":"calves","settings":["no-equipment"],"execution":"on one foot at full tip-toe, other foot off ground, heel high","name":"Single Leg Calf Iso","img":"images/single-leg-calf-iso.png","force":"up"},{"slug":"chest-fly-iso-hold","iso_class":"hold","iso_mode":"yielding","body_part":"chest","settings":["equipment"],"execution":"supine, arms wide and slightly bent holding weights in the stretched fly position","name":"Chest Fly Iso Hold","img":"images/chest-fly-iso-hold.png","force":"brace"},{"slug":"suitcase-hold","iso_class":"hold","iso_mode":"yielding","body_part":"core","settings":["equipment"],"execution":"standing tall holding a heavy weight in one hand at the side, torso vertical un-tilted","name":"Suitcase Hold","img":"images/suitcase-hold.png","force":"brace"},{"slug":"toe-stand-hold","iso_class":"hold","iso_mode":"yielding","body_part":"feet","settings":["no-equipment"],"execution":"standing pushed all the way onto the toe pads past the balls, weight on toes","name":"Toe Stand Hold","img":"images/toe-stand-hold.png","force":"brace"},{"slug":"plate-pinch-hold","iso_class":"hold","iso_mode":"yielding","body_part":"grip","settings":["equipment"],"execution":"thumb-and-fingers pinching a smooth plate at the side, arm straight","name":"Plate Pinch Hold","img":"images/plate-pinch-hold.png","force":"down"},{"slug":"bridge-heels-iso","iso_class":"hold","iso_mode":"yielding","body_part":"hams","settings":["no-equipment"],"execution":"supine, heels on a raised surface, hips lifted, legs long, hamstrings loaded","name":"Bridge Heels Iso","img":"images/bridge-heels-iso.png","force":"up"},{"slug":"nordic-iso-hold","iso_class":"hold","iso_mode":"yielding","body_part":"hams","settings":["no-equipment"],"execution":"kneeling ankles anchored, torso leaned forward held mid-range by the hamstrings","name":"Nordic Iso Hold","img":"images/nordic-iso-hold.png","force":"brace"},{"slug":"single-leg-rdl-iso","iso_class":"hold","iso_mode":"yielding","body_part":"hams","settings":["no-equipment"],"execution":"balanced on one leg, torso and free leg horizontal in a T, weight hanging","name":"Single Leg Rdl Iso","img":"images/single-leg-rdl-iso.png","force":"up"},{"slug":"glute-bridge-hold","iso_class":"hold","iso_mode":"yielding","body_part":"hips","settings":["no-equipment"],"execution":"supine, feet flat, hips lifted to straight shoulder-knee line, glutes squeezed","name":"Glute Bridge Hold","img":"images/glute-bridge-hold.png","force":"up"},{"slug":"hip-thrust-iso","iso_class":"hold","iso_mode":"yielding","body_part":"hips","settings":["gym"],"execution":"shoulders on bench, barbell across hips, hips lifted to full lockout horizontal","name":"Hip Thrust Iso","img":"images/hip-thrust-iso.png","force":"up"},{"slug":"single-leg-bridge-hold","iso_class":"hold","iso_mode":"yielding","body_part":"hips","settings":["no-equipment"],"execution":"supine, one foot planted, other leg straight out, hips lifted level on one leg","name":"Single Leg Bridge Hold","img":"images/single-leg-bridge-hold.png","force":"up"},{"slug":"back-extension-iso","iso_class":"hold","iso_mode":"yielding","body_part":"lowback","settings":["gym"],"execution":"hips on a bench pad, torso straight out horizontal, holding a plate","name":"Back Extension Iso","img":"images/back-extension-iso.png","force":"up"},{"slug":"reverse-hyper-iso","iso_class":"hold","iso_mode":"yielding","body_part":"lowback","settings":["gym"],"execution":"face-down on a bench edge, legs straight and lifted to horizontal behind","name":"Reverse Hyper Iso","img":"images/reverse-hyper-iso.png","force":"up"},{"slug":"superman-hold","iso_class":"hold","iso_mode":"yielding","body_part":"lowback","settings":["no-equipment"],"execution":"prone, arms and legs lifted off floor, back extended, chest and thighs raised","name":"Superman Hold","img":"images/superman-hold.png","force":"brace"},{"slug":"neck-bridge-back","iso_class":"hold","iso_mode":"yielding","body_part":"neck","settings":["no-equipment"],"execution":"supine wrestler bridge, weight on crown and feet, hips lifted, back arched","name":"Neck Bridge Back","img":"images/neck-bridge-back.png","force":"up"},{"slug":"neck-bridge-front","iso_class":"hold","iso_mode":"yielding","body_part":"neck","settings":["no-equipment"],"execution":"prone bridge on forehead and toes, body arched face-down, neck loaded","name":"Neck Bridge Front","img":"images/neck-bridge-front.png","force":"up"},{"slug":"copenhagen-hold","iso_class":"hold","iso_mode":"yielding","body_part":"pelvis","settings":["gym"],"execution":"side-plank with top inner-foot on a bench, bottom leg lifted to it, hips stacked","name":"Copenhagen Hold","img":"images/copenhagen-hold.png","force":"brace"},{"slug":"frog-stance-hold","iso_class":"hold","iso_mode":"yielding","body_part":"pelvis","settings":["no-equipment"],"execution":"deep squat knees wide, elbows inside knees, hips fully flexed and open","name":"Frog Stance Hold","img":"images/frog-stance-hold.png","force":"brace"},{"slug":"horse-stance-mabu","iso_class":"hold","iso_mode":"yielding","body_part":"quads","settings":["no-equipment"],"execution":"wide stance toes forward, hips sunk to thigh-parallel, torso vertical, arms out","name":"Horse Stance Mabu","img":"images/horse-stance-mabu.png","force":"up"},{"slug":"split-squat-iso","iso_class":"hold","iso_mode":"yielding","body_part":"quads","settings":["no-equipment"],"execution":"long lunge stance, back knee near floor, front thigh parallel, torso upright","name":"Split Squat Iso","img":"images/split-squat-iso.png","force":"up"},{"slug":"squat-iso-hold","iso_class":"hold","iso_mode":"yielding","body_part":"quads","settings":["no-equipment"],"execution":"free-standing squat held at 90 deg knee, chest up, arms forward","name":"Squat Iso Hold","img":"images/squat-iso-hold.png","force":"up"},{"slug":"wall-sit","iso_class":"hold","iso_mode":"yielding","body_part":"quads","settings":["no-equipment"],"execution":"back flat on wall, thighs parallel to floor, knees 90 deg, shins vertical","name":"Wall Sit","img":"images/wall-sit.png","force":"brace"},{"slug":"lateral-raise-iso","iso_class":"hold","iso_mode":"yielding","body_part":"shoulder","settings":["equipment"],"execution":"arms straight out to sides at shoulder height holding weights, frozen in a T","name":"Lateral Raise Iso","img":"images/lateral-raise-iso.png","force":"up"},{"slug":"scap-wall-slide-hold","iso_class":"hold","iso_mode":"yielding","body_part":"shoulder","settings":["no-equipment"],"execution":"back to wall, arms in goalpost pressed flat against wall at 90 deg","name":"Scap Wall Slide Hold","img":"images/scap-wall-slide-hold.png","force":"brace"},{"slug":"tibialis-raise-iso","iso_class":"hold","iso_mode":"yielding","body_part":"tibialis","settings":["no-equipment"],"execution":"heels planted, back against wall, toes pulled up max toward shins, holding dorsiflexion","name":"Tibialis Raise Iso","img":"images/tibialis-raise-iso.png","force":"up"},{"slug":"reverse-plank-wrist","iso_class":"hold","iso_mode":"yielding","body_part":"wrist","settings":["no-equipment"],"execution":"seated hands behind fingers-forward, hips lifted, wrists loaded under bodyweight","name":"Reverse Plank Wrist","img":"images/reverse-plank-wrist.png","force":"brace"},{"slug":"ankle-dorsiflexion-iso","iso_class":"pull","iso_mode":"overcoming","body_part":"ankle","settings":["seated","equipment"],"execution":"seated, top of foot pulling up against a fixed strap, shin still","name":"Ankle Dorsiflexion Iso","img":"images/ankle-dorsiflexion-iso.png","force":"up"},{"slug":"biceps-curl-iso-wall","iso_class":"pull","iso_mode":"overcoming","body_part":"arm","settings":["no-equipment"],"execution":"forearms at 90 deg pulling up on a fixed bar under a table, elbows pinned to ribs","name":"Biceps Curl Iso Wall","img":"images/biceps-curl-iso-wall.png","force":"down"},{"slug":"inverted-row-iso","iso_class":"pull","iso_mode":"yielding","body_part":"back","settings":["gym"],"execution":"body straight under a low bar, chest pulled to bar, heels on floor","name":"Inverted Row Iso","img":"images/inverted-row-iso.png","force":"down"},{"slug":"lat-pulldown-iso","iso_class":"pull","iso_mode":"overcoming","body_part":"back","settings":["equipment"],"execution":"kneeling under an anchored band overhead, elbows pulled down to sides","name":"Lat Pulldown Iso","img":"images/lat-pulldown-iso.png","force":"down"},{"slug":"row-iso-wall","iso_class":"pull","iso_mode":"overcoming","body_part":"back","settings":["no-equipment"],"execution":"hinged at hips, hands pulling back on a fixed bar toward the ribs","name":"Row Iso Wall","img":"images/row-iso-wall.png","force":"down"},{"slug":"short-foot-iso","iso_class":"pull","iso_mode":"overcoming","body_part":"feet","settings":["no-equipment"],"execution":"standing, drawing the ball of the foot toward the heel to raise the arch, holding the dome","name":"Short Foot Iso","img":"images/short-foot-iso.png","force":"up"},{"slug":"toe-extension-iso","iso_class":"pull","iso_mode":"overcoming","body_part":"feet","settings":["seated","equipment"],"execution":"seated, toes lifting up against a band over them while forefoot stays down","name":"Toe Extension Iso","img":"images/toe-extension-iso.png","force":"up"},{"slug":"toe-flexion-iso","iso_class":"pull","iso_mode":"overcoming","body_part":"feet","settings":["equipment"],"execution":"toes gripping and curling a towel into the arch maximally, holding the crunch","name":"Toe Flexion Iso","img":"images/toe-flexion-iso.png","force":"up"},{"slug":"ham-curl-iso-wall","iso_class":"pull","iso_mode":"overcoming","body_part":"hams","settings":["equipment"],"execution":"prone, heel pulling up against a fixed strap to bend the knee, thigh flat","name":"Ham Curl Iso Wall","img":"images/ham-curl-iso-wall.png","force":"down"},{"slug":"good-morning-iso-pins","iso_class":"pull","iso_mode":"overcoming","body_part":"lowback","settings":["gym"],"execution":"hinged forward, bar across back jammed under fixed pins, driving to stand","name":"Good Morning Iso Pins","img":"images/good-morning-iso-pins.png","force":"up"},{"slug":"90-90-hip-iso","iso_class":"pull","iso_mode":"overcoming","body_part":"pelvis","settings":["seated","no-equipment"],"execution":"seated in 90/90, front shin pressing down and back shin into floor isometrically","name":"90 90 Hip Iso","img":"images/90-90-hip-iso.png","force":"up"},{"slug":"face-pull-iso","iso_class":"pull","iso_mode":"overcoming","body_part":"shoulder","settings":["equipment"],"execution":"band at eye level, elbows high pulled back beside ears, holding end-range","name":"Face Pull Iso","img":"images/face-pull-iso.png","force":"down"},{"slug":"tib-iso-band","iso_class":"pull","iso_mode":"overcoming","body_part":"tibialis","settings":["seated","equipment"],"execution":"seated leg straight, band over top of foot pulling down, foot pulling up against it","name":"Tib Iso Band","img":"images/tib-iso-band.png","force":"up"},{"slug":"wrist-extension-iso","iso_class":"pull","iso_mode":"overcoming","body_part":"wrist","settings":["seated","equipment"],"execution":"forearm on thigh palm-down, back of hand lifting against a fixed strap","name":"Wrist Extension Iso","img":"images/wrist-extension-iso.png","force":"up"},{"slug":"wrist-flexion-iso","iso_class":"pull","iso_mode":"overcoming","body_part":"wrist","settings":["seated","equipment"],"execution":"forearm on thigh palm-up, hand pulling up against a fixed strap, wrist frozen","name":"Wrist Flexion Iso","img":"images/wrist-flexion-iso.png","force":"up"},{"slug":"abduction-iso-wall","iso_class":"push","iso_mode":"overcoming","body_part":"abductors","settings":["no-equipment"],"execution":"standing side-on to a doorframe, outer foot pressing outward against the frame","name":"Abduction Iso Wall","img":"images/abduction-iso-wall.png","force":"side"},{"slug":"adduction-iso-wall","iso_class":"push","iso_mode":"overcoming","body_part":"adductors","settings":["no-equipment"],"execution":"inner foot pressing a fixed object inward, leg straight","name":"Adduction Iso Wall","img":"images/adduction-iso-wall.png","force":"up"},{"slug":"ankle-eversion-iso","iso_class":"push","iso_mode":"overcoming","body_part":"ankle","settings":["seated","no-equipment"],"execution":"seated, outer edge of foot pressing outward against a fixed object","name":"Ankle Eversion Iso","img":"images/ankle-eversion-iso.png","force":"side"},{"slug":"ankle-inversion-iso","iso_class":"push","iso_mode":"overcoming","body_part":"ankle","settings":["seated","no-equipment"],"execution":"seated, inner edge of foot pressing inward against a fixed object","name":"Ankle Inversion Iso","img":"images/ankle-inversion-iso.png","force":"side"},{"slug":"ankle-plantarflexion-iso","iso_class":"push","iso_mode":"overcoming","body_part":"ankle","settings":["seated","equipment"],"execution":"seated, ball of foot pressing down forward into a fixed strap","name":"Ankle Plantarflexion Iso","img":"images/ankle-plantarflexion-iso.png","force":"up"},{"slug":"triceps-ext-iso-wall","iso_class":"push","iso_mode":"overcoming","body_part":"arm","settings":["no-equipment"],"execution":"hands pressing down against a fixed bar to straighten elbows, upper arms fixed at sides","name":"Triceps Ext Iso Wall","img":"images/triceps-ext-iso-wall.png","force":"up"},{"slug":"calf-iso-pins","iso_class":"push","iso_mode":"overcoming","body_part":"calves","settings":["gym"],"execution":"balls of feet under a fixed bar, driving up onto toes into the immovable bar","name":"Calf Iso Pins","img":"images/calf-iso-pins.png","force":"up"},{"slug":"pushup-iso-bottom","iso_class":"push","iso_mode":"yielding","body_part":"chest","settings":["no-equipment"],"execution":"push-up frozen at bottom, chest an inch off floor, elbows 90 deg, body one line","name":"Pushup Iso Bottom","img":"images/pushup-iso-bottom.png","force":"up"},{"slug":"pushup-iso-mid","iso_class":"push","iso_mode":"yielding","body_part":"chest","settings":["no-equipment"],"execution":"push-up frozen halfway up, elbows 110 deg, rigid plank line","name":"Pushup Iso Mid","img":"images/pushup-iso-mid.png","force":"up"},{"slug":"wall-press-iso","iso_class":"push","iso_mode":"overcoming","body_part":"chest","settings":["no-equipment"],"execution":"staggered stance, both palms pressing hard into a wall at chest height","name":"Wall Press Iso","img":"images/wall-press-iso.png","force":"up"},{"slug":"hip-abduction-iso-band","iso_class":"push","iso_mode":"overcoming","body_part":"hips","settings":["equipment"],"execution":"band around knees, knees pressing outward against the band, holding spread","name":"Hip Abduction Iso Band","img":"images/hip-abduction-iso-band.png","force":"side"},{"slug":"hip-extension-iso-wall","iso_class":"push","iso_mode":"overcoming","body_part":"hips","settings":["no-equipment"],"execution":"standing, one heel pressing back into a fixed pad, glute driving, torso upright","name":"Hip Extension Iso Wall","img":"images/hip-extension-iso-wall.png","force":"back"},{"slug":"neck-extension-hold","iso_class":"push","iso_mode":"overcoming","body_part":"neck","settings":["seated","no-equipment"],"execution":"hands behind skull, head presses back into hands, neck straight","name":"Neck Extension Hold","img":"images/neck-extension-hold.png","force":"back"},{"slug":"neck-flexion-hold","iso_class":"push","iso_mode":"overcoming","body_part":"neck","settings":["seated","no-equipment"],"execution":"seated upright, palms on forehead, head pushes forward into hands, nothing moves","name":"Neck Flexion Hold","img":"images/neck-flexion-hold.png","force":"forward"},{"slug":"neck-lateral-hold-L","iso_class":"push","iso_mode":"overcoming","body_part":"neck","settings":["seated","no-equipment"],"execution":"right palm on left temple, head presses sideways into hand, ears level","name":"Neck Lateral Hold L","img":"images/neck-lateral-hold-L.png","force":"left"},{"slug":"neck-lateral-hold-R","iso_class":"push","iso_mode":"overcoming","body_part":"neck","settings":["seated","no-equipment"],"execution":"left palm on right temple, head presses sideways into hand, ears level","name":"Neck Lateral Hold R","img":"images/neck-lateral-hold-R.png","force":"right"},{"slug":"adductor-squeeze-iso","iso_class":"push","iso_mode":"overcoming","body_part":"pelvis","settings":["equipment"],"execution":"supine knees bent, a ball between knees, knees squeezing inward maximally","name":"Adductor Squeeze Iso","img":"images/adductor-squeeze-iso.png","force":"in"},{"slug":"leg-extension-iso-wall","iso_class":"push","iso_mode":"overcoming","body_part":"quads","settings":["seated","equipment"],"execution":"seated, top of foot pressing forward against a fixed strap to straighten the knee","name":"Leg Extension Iso Wall","img":"images/leg-extension-iso-wall.png","force":"forward"},{"slug":"squat-iso-pins","iso_class":"push","iso_mode":"overcoming","body_part":"quads","settings":["gym"],"execution":"bar on back jammed under fixed pins at parallel, driving up into the pins","name":"Squat Iso Pins","img":"images/squat-iso-pins.png","force":"up"},{"slug":"wall-shoulder-press-iso","iso_class":"push","iso_mode":"overcoming","body_part":"shoulder","settings":["no-equipment"],"execution":"under a fixed ledge, arms overhead pressing up into immovable surface","name":"Wall Shoulder Press Iso","img":"images/wall-shoulder-press-iso.png","force":"up"},{"slug":"wrist-radial-ulnar-iso","iso_class":"push","iso_mode":"overcoming","body_part":"wrist","settings":["seated","no-equipment"],"execution":"forearm neutral thumb up, hand pressing a fixed object side to side, wrist locked","name":"Wrist Radial Ulnar Iso","img":"images/wrist-radial-ulnar-iso.png","force":"side"}],"routines":{"short":["neck-flexion-hold","neck-extension-hold","scap-hang-active","pushup-iso-mid","row-iso-wall","squat-iso-hold","single-leg-rdl-iso","glute-bridge-hold","calf-raise-iso-top","plank-forearm","side-plank-forearm","suitcase-hold"],"medium":["neck-flexion-hold","neck-extension-hold","neck-lateral-hold-L","neck-lateral-hold-R","scap-hang-active","wall-shoulder-press-iso","pushup-iso-bottom","row-iso-wall","lat-pulldown-iso","biceps-curl-iso-wall","triceps-ext-iso-wall","wrist-radial-ulnar-iso","squat-iso-hold","split-squat-iso","single-leg-rdl-iso","glute-bridge-hold","hip-extension-iso-wall","copenhagen-hold","adductor-squeeze-iso","calf-raise-iso-top","tibialis-raise-iso","plank-forearm","side-plank-forearm","suitcase-hold"],"long":["neck-flexion-hold","neck-extension-hold","neck-lateral-hold-L","neck-lateral-hold-R","scap-hang-active","face-pull-iso","wall-shoulder-press-iso","lateral-raise-iso","pushup-iso-bottom","chest-fly-iso-hold","row-iso-wall","lat-pulldown-iso","dead-hang-grip","biceps-curl-iso-wall","triceps-ext-iso-wall","wrist-extension-iso","wrist-flexion-iso","wrist-radial-ulnar-iso","squat-iso-hold","squat-iso-pins","split-squat-iso","wall-sit","single-leg-rdl-iso","nordic-iso-hold","glute-bridge-hold","hip-extension-iso-wall","copenhagen-hold","adductor-squeeze-iso","calf-raise-iso-top","tibialis-raise-iso","short-foot-iso","plank-forearm","side-plank-forearm","pallof-press-iso","back-extension-iso","suitcase-hold"]},"intensities":{"regular":20,"hard":40,"ultimate":60}};
 
     document.querySelectorAll(".page-tab").forEach(function (tab) {
       tab.addEventListener("click", function () {
@@ -833,11 +840,14 @@
     var cards = Array.prototype.slice.call(document.querySelectorAll(".card"));
     var activeBody = "all";
     var activeMode = "all";
+    var activeSetting = "all";
     function applyCatalogFilters() {
       cards.forEach(function (card) {
         var bodyPass = activeBody === "all" || card.getAttribute("data-body") === activeBody;
         var modePass = activeMode === "all" || card.getAttribute("data-mode") === activeMode;
-        card.hidden = !(bodyPass && modePass);
+        var settingPass = activeSetting === "all" ||
+          (" " + (card.getAttribute("data-settings") || "") + " ").indexOf(" " + activeSetting + " ") !== -1;
+        card.hidden = !(bodyPass && modePass && settingPass);
       });
     }
     document.querySelectorAll(".body-tabs .tab").forEach(function (tab) {
@@ -852,6 +862,14 @@
       tab.addEventListener("click", function () {
         activeMode = tab.getAttribute("data-mode-filter");
         document.querySelectorAll(".mode-tabs .tab").forEach(function (t) { t.classList.remove("active"); });
+        tab.classList.add("active");
+        applyCatalogFilters();
+      });
+    });
+    document.querySelectorAll(".setting-tabs .tab").forEach(function (tab) {
+      tab.addEventListener("click", function () {
+        activeSetting = tab.getAttribute("data-setting-filter");
+        document.querySelectorAll(".setting-tabs .tab").forEach(function (t) { t.classList.remove("active"); });
         tab.classList.add("active");
         applyCatalogFilters();
       });
@@ -873,6 +891,33 @@
       var s = Math.max(0, Math.floor(seconds));
       return String(Math.floor(s / 60)).padStart(2, "0") + ":" + String(s % 60).padStart(2, "0");
     }
+    var audioCtx = null;
+    function ensureAudio() {
+      if (!audioCtx) {
+        var Ctx = window.AudioContext || window.webkitAudioContext;
+        if (Ctx) { try { audioCtx = new Ctx(); } catch (e) { audioCtx = null; } }
+      }
+      if (audioCtx && audioCtx.state === "suspended") audioCtx.resume();
+      return audioCtx;
+    }
+    function playChime() {
+      var ctx = ensureAudio();
+      if (!ctx) return;
+      var now = ctx.currentTime;
+      [0, 0.19, 0.38].forEach(function (offset) {
+        var osc = ctx.createOscillator();
+        var gain = ctx.createGain();
+        var t = now + offset;
+        osc.type = "sine";
+        osc.frequency.value = 880;
+        gain.gain.setValueAtTime(0.0001, t);
+        gain.gain.exponentialRampToValueAtTime(0.32, t + 0.02);
+        gain.gain.exponentialRampToValueAtTime(0.0001, t + 0.16);
+        osc.connect(gain).connect(ctx.destination);
+        osc.start(t);
+        osc.stop(t + 0.18);
+      });
+    }
     function stopTimer() {
       if (interval) clearInterval(interval);
       interval = null;
@@ -884,6 +929,7 @@
       seconds = Number(seconds);
       if (!Number.isFinite(seconds) || seconds <= 0) return;
       stopTimer();
+      ensureAudio();
       duration = seconds * 1000;
       startedAt = Date.now();
       timer.setAttribute("data-running", "true");
@@ -899,6 +945,7 @@
           timer.setAttribute("data-running", "done");
           readout.textContent = "00:00";
           fill.style.width = "100%";
+          playChime();
         }
       }, 200);
     }
@@ -985,6 +1032,7 @@
 
     function startRoutineTimer() {
       resetRoutineTimer();
+      ensureAudio();
       var seconds = routineData.intensities[routineState.intensity];
       routineState.duration = seconds * 1000;
       routineState.startedAt = Date.now();
@@ -1003,6 +1051,7 @@
           routineReadout.textContent = "00:00";
           routineFill.style.width = "100%";
           routineHold.textContent = "Done";
+          playChime();
           routineNext.focus();
         }
       }, 200);
