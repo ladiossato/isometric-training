@@ -151,8 +151,8 @@ const card = (h) => {
   const media = has
     ? `<img src="${esc(imgPath(h.slug))}" alt="${esc(titleCase(h.slug))}" loading="lazy" decoding="async">`
     : `<div class="ph" aria-hidden="true">${esc(h.iso_class)}</div>`;
-  return `      <li class="card${has ? "" : " no-img"}" data-body="${esc(h.body_part)}" data-mode="${esc(h.iso_mode)}" data-settings="${esc((h.settings || []).join(" "))}" data-force="${esc(forceDirection(h))}" data-execution="${esc(h.execution)}">
-        <div class="media">${media}</div>
+  return `      <li class="card${has ? "" : " no-img"}" data-slug="${esc(h.slug)}" data-body="${esc(h.body_part)}" data-mode="${esc(h.iso_mode)}" data-settings="${esc((h.settings || []).join(" "))}" data-force="${esc(forceDirection(h))}" data-execution="${esc(h.execution)}">
+        <div class="media"><button type="button" class="star" aria-label="Star ${esc(titleCase(h.slug))}" aria-pressed="false">&#9733;</button>${media}</div>
         <div class="meta">
           <div class="name">${esc(titleCase(h.slug))}</div>
           <div class="tags">${esc(h.iso_class)} &middot; ${esc(h.iso_mode)} &middot; ${esc(h.body_part)}</div>
@@ -209,7 +209,10 @@ const html = `<!doctype html>
   ul.grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 0.75rem; }
   .card { border: 1px solid var(--border); background: #0d0d0d; overflow: hidden; display: flex; flex-direction: column; }
   .card[hidden] { display: none; }
-  .media { aspect-ratio: 1 / 1; background: #0f0f0f; display: grid; place-items: center; overflow: hidden; border-bottom: 1px solid var(--border); }
+  .media { position: relative; aspect-ratio: 1 / 1; background: #0f0f0f; display: grid; place-items: center; overflow: hidden; border-bottom: 1px solid var(--border); }
+  .star { position: absolute; top: 0.4rem; right: 0.4rem; z-index: 3; width: 30px; height: 30px; display: grid; place-items: center; border: 1px solid var(--border); background: rgba(10,10,10,0.72); color: var(--muted); font-size: 15px; line-height: 1; cursor: pointer; padding: 0; -webkit-tap-highlight-color: transparent; }
+  .star:hover { border-color: var(--border-strong); color: var(--fg); }
+  .star.on { color: #f5c542; border-color: #6b5a20; }
   .media img { width: 100%; height: 100%; object-fit: cover; display: block; filter: grayscale(0.15) contrast(1.03); cursor: zoom-in; }
   #lb { position: fixed; inset: 0; z-index: 50; background: rgba(5,5,5,0.96); display: grid; place-items: center; padding: 1rem; }
   #lb[hidden] { display: none; }
@@ -301,6 +304,10 @@ ${bodyParts.map((part) => `        <button type="button" class="tab" data-filter
       <nav class="filter-tabs setting-tabs" aria-label="Situation filters">
         <button type="button" class="tab active" data-setting-filter="all">Any Setting</button>
 ${settings.map((s) => `        <button type="button" class="tab" data-setting-filter="${esc(s)}">${esc(settingLabels[s] || titleCase(s))}</button>`).join("\n")}
+      </nav>
+      <nav class="filter-tabs fav-tabs" aria-label="Favorites filter">
+        <button type="button" class="tab active" data-fav-filter="all">All Holds</button>
+        <button type="button" class="tab" data-fav-filter="starred">&#9733; Starred</button>
       </nav>
     </header>
     <main id="catalogView" class="view">
@@ -401,15 +408,57 @@ ${ordered.map(card).join("\n")}
     var activeBody = "all";
     var activeMode = "all";
     var activeSetting = "all";
+    var activeFav = "all";
+
+    var FAV_KEY = "iso-favorites";
+    var favorites = {};
+    try {
+      var stored = JSON.parse(localStorage.getItem(FAV_KEY) || "[]");
+      if (Array.isArray(stored)) stored.forEach(function (slug) { favorites[slug] = true; });
+    } catch (e) {}
+    function saveFavorites() {
+      try { localStorage.setItem(FAV_KEY, JSON.stringify(Object.keys(favorites))); } catch (e) {}
+    }
+    function isFav(slug) { return !!favorites[slug]; }
+
     function applyCatalogFilters() {
       cards.forEach(function (card) {
         var bodyPass = activeBody === "all" || card.getAttribute("data-body") === activeBody;
         var modePass = activeMode === "all" || card.getAttribute("data-mode") === activeMode;
         var settingPass = activeSetting === "all" ||
           (" " + (card.getAttribute("data-settings") || "") + " ").indexOf(" " + activeSetting + " ") !== -1;
-        card.hidden = !(bodyPass && modePass && settingPass);
+        var favPass = activeFav === "all" || isFav(card.getAttribute("data-slug"));
+        card.hidden = !(bodyPass && modePass && settingPass && favPass);
       });
     }
+
+    cards.forEach(function (card) {
+      var slug = card.getAttribute("data-slug");
+      var star = card.querySelector(".star");
+      if (!star) return;
+      function sync() {
+        var on = isFav(slug);
+        star.classList.toggle("on", on);
+        star.setAttribute("aria-pressed", on ? "true" : "false");
+      }
+      sync();
+      star.addEventListener("click", function (e) {
+        e.stopPropagation();
+        if (favorites[slug]) delete favorites[slug]; else favorites[slug] = true;
+        saveFavorites();
+        sync();
+        if (activeFav === "starred") applyCatalogFilters();
+      });
+    });
+
+    document.querySelectorAll(".fav-tabs .tab").forEach(function (tab) {
+      tab.addEventListener("click", function () {
+        activeFav = tab.getAttribute("data-fav-filter");
+        document.querySelectorAll(".fav-tabs .tab").forEach(function (t) { t.classList.remove("active"); });
+        tab.classList.add("active");
+        applyCatalogFilters();
+      });
+    });
     document.querySelectorAll(".body-tabs .tab").forEach(function (tab) {
       tab.addEventListener("click", function () {
         activeBody = tab.getAttribute("data-filter");
